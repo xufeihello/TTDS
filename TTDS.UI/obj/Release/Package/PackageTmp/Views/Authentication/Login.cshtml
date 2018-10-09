@@ -1,0 +1,108 @@
+﻿@using TTDS.Model
+@model TTDS.Model.user
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<head>
+    <title>轮胎测试数据系统</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrapValidator.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/login.css" />
+</head>
+<body onload="ToLogin()">
+    <div class="login-background">
+        <div class="login-content">
+            <div style="width:100%;height:40px;font-size:16px;text-align:center;display:inline-block;padding-top:10px;padding-bottom:15px;">登陆</div>
+            <div class="login-logo">
+                <img src="~/Images/database.png" />
+                <div class="login-title">轮胎测试数据系统<br />TTDS</div>
+            </div>
+            <div class="login-setting">
+                <form action="/Authentication/DoLogin" method="post" id="LoginG" >
+                    <div class="login-input form-group">
+                        <table>
+                            <tr class="has-feedback" style="height:40px;">
+                                <td>
+                                    <input class="login-item" id="UID" name="UID" type="text" placeholder="请输入工号" style="background: url('../Images/iconfont/用户.png') no-repeat 3px #fff;" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="UIDMsg" style="height:15px;"></td>
+                            </tr>
+                            <tr class="has-feedback" style="height:40px">
+                                <td>
+                                    <input class="login-item" id="UPassword" name="UPassword" type="password" placeholder="请输入密码" style="background: url('../Images/iconfont/密码.png') no-repeat 3px #fff;"/>
+                                </td>
+                            </tr>
+                            <tr ><td id="UPasswordMsg"></td></tr>
+                        </table>
+                        <input class="login-confirm" type="submit" name="btnSubmit" value="登陆" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/bootstrapValidator.min.js"></script>
+
+<script type="text/javascript">
+    function ToLogin() {
+        if (window != top)
+            top.location.href = location.href;
+    }
+
+    $(document).ready(function () {
+        $('#LoginG').bootstrapValidator({
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                UID: {
+                    container:'#UIDMsg',
+                    message: '用户名验证失败',
+                    validators: {
+                        notEmpty: {
+                            message: '用户名不能为空'
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 7,
+                            message: '用户名长度必须在6到7位之间'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_]+$/,
+                            message: '用户名只能包含大写、小写、数字和下划线'
+                        }
+                    }
+                },
+                UPassword: {
+                    container: '#UPasswordMsg',
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空'
+                        }
+                    }
+                }
+            }
+        }).on('success.form.bv', function (e) {//点击提交之后
+
+            //alert("验证成功登陆跳转...");
+            return;
+
+            // Use Ajax to submit form data 提交至form标签中的action，result自定义
+            $.post("", "", function (result) {
+                //do something...
+            });
+        });
+    });
+</script>
+

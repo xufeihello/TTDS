@@ -1,0 +1,2547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ttdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="groove">
+    <Key>
+      <PropertyRef Name="GrooveID" />
+    </Key>
+    <Property Name="GrooveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GrooveNum" Type="Int32" />
+    <Property Name="G1Depth" Type="Decimal" />
+    <Property Name="G2Depth" Type="Decimal" />
+    <Property Name="G3Depth" Type="Decimal" />
+    <Property Name="G4Depth" Type="Decimal" />
+    <Property Name="G5Depth" Type="Decimal" />
+    <Property Name="G1Width" Type="Decimal" />
+    <Property Name="G2Width" Type="Decimal" />
+    <Property Name="G3Width" Type="Decimal" />
+    <Property Name="G4Width" Type="Decimal" />
+    <Property Name="G5Width" Type="Decimal" />
+    <NavigationProperty Name="pattern" Relationship="Self.FK_Reference_63" FromRole="groove" ToRole="pattern" />
+  </EntityType>
+  <EntityType Name="pattern">
+    <Key>
+      <PropertyRef Name="PatternID" />
+    </Key>
+    <Property Name="PatternID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PitchID" Type="Int32" />
+    <Property Name="GrooveID" Type="Int32" />
+    <Property Name="PatternName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Symmtry" Type="Boolean" />
+    <Property Name="VoidRatio" Type="Decimal" />
+    <NavigationProperty Name="groove" Relationship="Self.FK_Reference_63" FromRole="pattern" ToRole="groove" />
+    <NavigationProperty Name="pitch" Relationship="Self.FK_Reference_62" FromRole="pattern" ToRole="pitch" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_65" FromRole="pattern" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="pcrsectiondimension">
+    <Key>
+      <PropertyRef Name="SectionID" />
+    </Key>
+    <Property Name="SectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TG1" Type="Decimal" />
+    <Property Name="TG2" Type="Decimal" />
+    <Property Name="TG3" Type="Decimal" />
+    <Property Name="TBTMx" Type="Decimal" />
+    <Property Name="DTRSB" Type="Decimal" />
+    <Property Name="TTM" Type="Decimal" />
+    <Property Name="TTRMx1" Type="Decimal" />
+    <Property Name="TTRMx2" Type="Decimal" />
+    <Property Name="TTRMx3" Type="Decimal" />
+    <Property Name="WAN" Type="Decimal" />
+    <Property Name="TG12" Type="Decimal" />
+    <Property Name="TTRJx" Type="Decimal" />
+    <Property Name="TGS" Type="Decimal" />
+    <Property Name="TTNJx" Type="Decimal" />
+    <Property Name="TWSWZx" Type="Decimal" />
+    <Property Name="TTWSWZx" Type="Decimal" />
+    <Property Name="TBEC" Type="Decimal" />
+    <Property Name="HWT" Type="Decimal" />
+    <Property Name="LWT" Type="Decimal" />
+    <Property Name="HWSW" Type="Decimal" />
+    <Property Name="LWSW" Type="Decimal" />
+    <Property Name="H1RF" Type="Decimal" />
+    <Property Name="H2RF" Type="Decimal" />
+    <Property Name="L1RF" Type="Decimal" />
+    <Property Name="L2RF" Type="Decimal" />
+    <Property Name="LRFR" Type="Decimal" />
+    <Property Name="H1P" Type="Decimal" />
+    <Property Name="H2P" Type="Decimal" />
+    <Property Name="L2P" Type="Decimal" />
+    <Property Name="H3P" Type="Decimal" />
+    <Property Name="L3P" Type="Decimal" />
+    <Property Name="P1P" Type="Decimal" />
+    <Property Name="O1P1B" Type="Decimal" />
+    <Property Name="A1B" Type="Decimal" />
+    <Property Name="A2B" Type="Decimal" />
+    <Property Name="W1B" Type="Decimal" />
+    <Property Name="W2B" Type="Decimal" />
+    <Property Name="D1B2B" Type="Decimal" />
+    <Property Name="PICP" Type="Decimal" />
+    <Property Name="DSBCP" Type="Decimal" />
+    <Property Name="HRC" Type="Decimal" />
+    <Property Name="TRCZx1" Type="Decimal" />
+    <Property Name="TRCZx2" Type="Decimal" />
+    <Property Name="HBF" Type="Decimal" />
+    <Property Name="TBFZx1" Type="Decimal" />
+    <Property Name="TBFZx2" Type="Decimal" />
+    <Property Name="HLBF" Type="Decimal" />
+    <Property Name="TTZx" Type="Decimal" />
+    <Property Name="LSW" Type="Decimal" />
+    <Property Name="LRC" Type="Decimal" />
+    <Property Name="HRCS" Type="Decimal" />
+    <Property Name="TRCBD" Type="Decimal" />
+    <Property Name="TTBD" Type="Decimal" />
+    <Property Name="HCHAE" Type="Decimal" />
+    <Property Name="HCHAI" Type="Decimal" />
+    <Property Name="HFL" Type="Decimal" />
+    <Property Name="LIL" Type="Decimal" />
+    <Property Name="TUBD" Type="Decimal" />
+    <Property Name="OSFSB" Type="Decimal" />
+    <Property Name="LSF" Type="Decimal" />
+    <Property Name="TSFZx" Type="Decimal" />
+    <Property Name="TIL" Type="Decimal" />
+    <Property Name="PeriI" Type="Decimal" />
+    <NavigationProperty Name="structure" Relationship="Self.FK_Reference_110" FromRole="pcrsectiondimension" ToRole="structure" />
+    <NavigationProperty Name="structure1" Relationship="Self.FK_Reference_111" FromRole="pcrsectiondimension" ToRole="structure" />
+  </EntityType>
+  <EntityType Name="pitch">
+    <Key>
+      <PropertyRef Name="PitchID" />
+    </Key>
+    <Property Name="PitchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PitchA" Type="Decimal" />
+    <Property Name="PitchB" Type="Decimal" />
+    <Property Name="PitchC" Type="Decimal" />
+    <Property Name="PitchD" Type="Decimal" />
+    <Property Name="PitchE" Type="Decimal" />
+    <Property Name="PitchF" Type="Decimal" />
+    <NavigationProperty Name="pattern" Relationship="Self.FK_Reference_62" FromRole="pitch" ToRole="pattern" />
+    <Property Name="TotalPitchs" Type="Int32" />
+    <Property Name="PitchSequence" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="rebar">
+    <Key>
+      <PropertyRef Name="RebarID" />
+    </Key>
+    <Property Name="RebarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RebarType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Structure" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Angle" Type="Decimal" />
+    <Property Name="Direction" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Density" Type="Decimal" />
+    <Property Name="Broken" Type="Decimal" />
+    <Property Name="TurnHeight" Type="Decimal" />
+    <Property Name="Width" Type="Decimal" />
+    <NavigationProperty Name="structure1" Relationship="Self.FK_Reference_Belt0" FromRole="rebar" ToRole="structure" />
+    <NavigationProperty Name="structure2" Relationship="Self.FK_Reference_Belt1" FromRole="rebar" ToRole="structure" />
+    <NavigationProperty Name="structure3" Relationship="Self.FK_Reference_Belt2" FromRole="rebar" ToRole="structure" />
+    <NavigationProperty Name="structure4" Relationship="Self.FK_Reference_Belt3" FromRole="rebar" ToRole="structure" />
+    <NavigationProperty Name="structure5" Relationship="Self.FK_Reference_Belt4" FromRole="rebar" ToRole="structure" />
+    <NavigationProperty Name="structure6" Relationship="Self.FK_Reference_Carcass1" FromRole="rebar" ToRole="structure" />
+    <NavigationProperty Name="structure7" Relationship="Self.FK_Reference_Carcass2" FromRole="rebar" ToRole="structure" />
+    <NavigationProperty Name="structure8" Relationship="Self.FK_Reference_Carcass3" FromRole="rebar" ToRole="structure" />
+    <NavigationProperty Name="structure9" Relationship="Self.FK_Reference_Chafer" FromRole="rebar" ToRole="structure" />
+  </EntityType>
+  <EntityType Name="rim">
+    <Key>
+      <PropertyRef Name="RimID" />
+    </Key>
+    <Property Name="RimID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Diameter" Type="Decimal" />
+    <Property Name="Width" Type="Decimal" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_46" FromRole="rim" ToRole="tire" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_61" FromRole="rim" ToRole="t_condition" />
+  </EntityType>
+  <EntityType Name="rubberproperty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hardness" Type="Decimal" />
+    <Property Name="M100" Type="Decimal" />
+    <Property Name="M300" Type="Decimal" />
+    <Property Name="TS" Type="Decimal" />
+    <Property Name="Eb" Type="Decimal" />
+    <Property Name="Density" Type="Decimal" />
+    <NavigationProperty Name="t_physicalproperty" Relationship="Self.FK_Reference_100" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_physicalproperty1" Relationship="Self.FK_Reference_101" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_physicalproperty2" Relationship="Self.FK_Reference_102" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_physicalproperty3" Relationship="Self.FK_Reference_103" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_physicalproperty4" Relationship="Self.FK_Reference_16" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_physicalproperty5" Relationship="Self.FK_Reference_21" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_physicalproperty6" Relationship="Self.FK_Reference_22" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_physicalproperty7" Relationship="Self.FK_Reference_23" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_physicalproperty8" Relationship="Self.FK_Reference_96" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_physicalproperty9" Relationship="Self.FK_Reference_97" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_physicalproperty10" Relationship="Self.FK_Reference_98" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_physicalproperty11" Relationship="Self.FK_Reference_99" FromRole="rubberproperty" ToRole="t_physicalproperty" />
+  </EntityType>
+  <EntityType Name="rubberstraindma">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Temp1" Type="Decimal" />
+    <Property Name="S1TanDelta1" Type="Decimal" />
+    <Property Name="S1E1" Type="Decimal" />
+    <Property Name="S5TanDelta1" Type="Decimal" />
+    <Property Name="S5E1" Type="Decimal" />
+    <Property Name="S10TanDelta1" Type="Decimal" />
+    <Property Name="S10E1" Type="Decimal" />
+    <Property Name="Temp2" Type="Decimal" />
+    <Property Name="S1TanDelta2" Type="Decimal" />
+    <Property Name="S1E2" Type="Decimal" />
+    <Property Name="S5TanDelta2" Type="Decimal" />
+    <Property Name="S5E2" Type="Decimal" />
+    <Property Name="S10TanDelta2" Type="Decimal" />
+    <Property Name="S10E2" Type="Decimal" />
+    <Property Name="Temp3" Type="Decimal" />
+    <Property Name="S1TanDelta3" Type="Decimal" />
+    <Property Name="S1E3" Type="Decimal" />
+    <Property Name="S5TanDelta3" Type="Decimal" />
+    <Property Name="S5E3" Type="Decimal" />
+    <Property Name="S10TanDelta3" Type="Decimal" />
+    <Property Name="S10E3" Type="Decimal" />
+    <Property Name="Temp4" Type="Decimal" />
+    <Property Name="S1TanDelta4" Type="Decimal" />
+    <Property Name="S1E4" Type="Decimal" />
+    <Property Name="S5TanDelta4" Type="Decimal" />
+    <Property Name="S5E4" Type="Decimal" />
+    <Property Name="S10TanDelta4" Type="Decimal" />
+    <Property Name="S10E4" Type="Decimal" />
+    <NavigationProperty Name="t_dma" Relationship="Self.FK_Reference_85" FromRole="rubberstraindma" ToRole="t_dma" />
+    <NavigationProperty Name="t_dma1" Relationship="Self.FK_Reference_87" FromRole="rubberstraindma" ToRole="t_dma" />
+    <NavigationProperty Name="t_dma2" Relationship="Self.FK_Reference_89" FromRole="rubberstraindma" ToRole="t_dma" />
+    <NavigationProperty Name="t_dma3" Relationship="Self.FK_Reference_91" FromRole="rubberstraindma" ToRole="t_dma" />
+    <NavigationProperty Name="t_dma4" Relationship="Self.FK_Reference_93" FromRole="rubberstraindma" ToRole="t_dma" />
+    <NavigationProperty Name="t_dma5" Relationship="Self.FK_Reference_95" FromRole="rubberstraindma" ToRole="t_dma" />
+  </EntityType>
+  <EntityType Name="rubbertempdma">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CNeg25TanDelta" Type="Decimal" />
+    <Property Name="CNeg25E" Type="Decimal" />
+    <Property Name="C0TanDelta" Type="Decimal" />
+    <Property Name="C0E" Type="Decimal" />
+    <Property Name="C25TanDelta" Type="Decimal" />
+    <Property Name="C25E" Type="Decimal" />
+    <Property Name="C60TanDelta" Type="Decimal" />
+    <Property Name="C60E" Type="Decimal" />
+    <Property Name="MaxTanDelta" Type="Decimal" />
+    <Property Name="MaxTanDeltaTemp" Type="Decimal" />
+    <NavigationProperty Name="t_dma" Relationship="Self.FK_Reference_84" FromRole="rubbertempdma" ToRole="t_dma" />
+    <NavigationProperty Name="t_dma1" Relationship="Self.FK_Reference_86" FromRole="rubbertempdma" ToRole="t_dma" />
+    <NavigationProperty Name="t_dma2" Relationship="Self.FK_Reference_88" FromRole="rubbertempdma" ToRole="t_dma" />
+    <NavigationProperty Name="t_dma3" Relationship="Self.FK_Reference_90" FromRole="rubbertempdma" ToRole="t_dma" />
+    <NavigationProperty Name="t_dma4" Relationship="Self.FK_Reference_92" FromRole="rubbertempdma" ToRole="t_dma" />
+    <NavigationProperty Name="t_dma5" Relationship="Self.FK_Reference_94" FromRole="rubbertempdma" ToRole="t_dma" />
+  </EntityType>
+  <EntityType Name="sideplate">
+    <Key>
+      <PropertyRef Name="SideID" />
+    </Key>
+    <Property Name="SideID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CharHeight" Type="Decimal" />
+    <Property Name="CharDepth" Type="Decimal" />
+    <Property Name="CharStyle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="KnurlDepth" Type="Decimal" />
+    <Property Name="KnurlDistance" Type="Decimal" />
+    <Property Name="KnurlStyle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PoreStyle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PoreDiameter" Type="Decimal" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_66" FromRole="sideplate" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="structure">
+    <Key>
+      <PropertyRef Name="StructureID" />
+    </Key>
+    <Property Name="StructureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Belt1_ID" Type="Int32" />
+    <Property Name="Belt2_ID" Type="Int32" />
+    <Property Name="Belt3_ID" Type="Int32" />
+    <Property Name="Belt4_ID" Type="Int32" />
+    <Property Name="Belt0_ID" Type="Int32" />
+    <Property Name="Carcass1_ID" Type="Int32" />
+    <Property Name="Carcass2_ID" Type="Int32" />
+    <Property Name="Carcass3_ID" Type="Int32" />
+    <Property Name="Chafer_ID" Type="Int32" />
+    <Property Name="TBRUpperSectionID" Type="Int32" />
+    <Property Name="TBRLowerSectionID" Type="Int32" />
+    <Property Name="PCRUpperSectionID" Type="Int32" />
+    <Property Name="PCRLowerSectionID" Type="Int32" />
+    <Property Name="BeadStructure" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BeadConfig" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BeadDrawing" Type="Decimal" />
+    <NavigationProperty Name="pcrsectiondimension" Relationship="Self.FK_Reference_110" FromRole="structure" ToRole="pcrsectiondimension" />
+    <NavigationProperty Name="pcrsectiondimension1" Relationship="Self.FK_Reference_111" FromRole="structure" ToRole="pcrsectiondimension" />
+    <NavigationProperty Name="rebar" Relationship="Self.FK_Reference_Belt0" FromRole="structure" ToRole="rebar" />
+    <NavigationProperty Name="rebar1" Relationship="Self.FK_Reference_Belt1" FromRole="structure" ToRole="rebar" />
+    <NavigationProperty Name="rebar2" Relationship="Self.FK_Reference_Belt2" FromRole="structure" ToRole="rebar" />
+    <NavigationProperty Name="rebar3" Relationship="Self.FK_Reference_Belt3" FromRole="structure" ToRole="rebar" />
+    <NavigationProperty Name="rebar4" Relationship="Self.FK_Reference_Belt4" FromRole="structure" ToRole="rebar" />
+    <NavigationProperty Name="rebar5" Relationship="Self.FK_Reference_Carcass1" FromRole="structure" ToRole="rebar" />
+    <NavigationProperty Name="rebar6" Relationship="Self.FK_Reference_Carcass2" FromRole="structure" ToRole="rebar" />
+    <NavigationProperty Name="rebar7" Relationship="Self.FK_Reference_Carcass3" FromRole="structure" ToRole="rebar" />
+    <NavigationProperty Name="rebar8" Relationship="Self.FK_Reference_Chafer" FromRole="structure" ToRole="rebar" />
+    <NavigationProperty Name="tbrsectiondimension" Relationship="Self.FK_Reference_109" FromRole="structure" ToRole="tbrsectiondimension" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_64" FromRole="structure" ToRole="tire" />
+    <NavigationProperty Name="tbrsectiondimension1" Relationship="Self.FK_Reference_67" FromRole="structure" ToRole="tbrsectiondimension" />
+  </EntityType>
+  <EntityType Name="t_adhesiveforce">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="IL_CC" Type="Decimal" />
+    <Property Name="CC_SW" Type="Decimal" />
+    <Property Name="CC_B1" Type="Decimal" />
+    <Property Name="B1_B2" Type="Decimal" />
+    <Property Name="B2_B0" Type="Decimal" />
+    <Property Name="B01_B02" Type="Decimal" />
+    <Property Name="B2_B3" Type="Decimal" />
+    <Property Name="B3_B4" Type="Decimal" />
+    <Property Name="B3_TRD" Type="Decimal" />
+    <Property Name="B4_TRD" Type="Decimal" />
+    <Property Name="B0_TRD" Type="Decimal" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_107" FromRole="t_adhesiveforce" ToRole="tire" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_108" FromRole="t_adhesiveforce" ToRole="t_condition" />
+  </EntityType>
+  <EntityType Name="t_airimpermeability">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="AverageTemperature" Type="Decimal" />
+    <Property Name="LowestTemperature" Type="Decimal" />
+    <Property Name="HighestTemperature" Type="Decimal" />
+    <Property Name="IniPressure" Type="Decimal" />
+    <Property Name="UltPressure" Type="Decimal" />
+    <Property Name="Days1" Type="Int32" />
+    <Property Name="Permeablity1" Type="Decimal" />
+    <Property Name="Days2" Type="Int32" />
+    <Property Name="Permeablity2" Type="Decimal" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_49" FromRole="t_airimpermeability" ToRole="tire" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_56" FromRole="t_airimpermeability" ToRole="t_condition" />
+  </EntityType>
+  <EntityType Name="t_beadforce">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="UpperLIM_1" Type="Decimal" />
+    <Property Name="UpperLIM_2" Type="Decimal" />
+    <Property Name="UpperEXP" Type="Decimal" />
+    <Property Name="LowerLIM_1" Type="Decimal" />
+    <Property Name="LowerLIM_2" Type="Decimal" />
+    <Property Name="LowerEXP" Type="Decimal" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_68" FromRole="t_beadforce" ToRole="tire" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_69" FromRole="t_beadforce" ToRole="t_condition" />
+  </EntityType>
+  <EntityType Name="t_condition">
+    <Key>
+      <PropertyRef Name="ConditionID" />
+    </Key>
+    <Property Name="ConditionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RimID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FacilityID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Pressure" Type="Decimal" />
+    <Property Name="Loaded" Type="Decimal" />
+    <Property Name="RadialVelocity" Type="Decimal" />
+    <Property Name="LateralVelocity" Type="Decimal" />
+    <Property Name="LongitudinalVelocity" Type="Decimal" />
+    <Property Name="TorsionalVelocity" Type="Decimal" />
+    <Property Name="AirSpeed" Type="Decimal" />
+    <Property Name="Temperature" Type="Decimal" />
+    <Property Name="Humidity" Type="Decimal" />
+    <Property Name="PressureStyle" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="AirTest" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TestStandard" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MeasurementMethod" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TestTime" Type="DateTime" Nullable="false" />
+    <Property Name="TestTime2" Type="DateTime" Nullable="false" />
+    <Property Name="Tester" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PlatenDiameter" Type="Decimal" />
+    <Property Name="PlatenVelocity" Type="Decimal" />
+    <Property Name="BriquettingType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BriquettingVelocity" Type="Decimal" />
+    <Property Name="ValueP" Type="Decimal" />
+    <Property Name="TubeLength" Type="Decimal" />
+    <Property Name="TubeDiameter" Type="Decimal" />
+    <Property Name="SARate" Type="Decimal" />
+    <Property Name="R0" Type="Decimal" />
+    <NavigationProperty Name="rim" Relationship="Self.FK_Reference_61" FromRole="t_condition" ToRole="rim" />
+    <NavigationProperty Name="t_adhesiveforce" Relationship="Self.FK_Reference_108" FromRole="t_condition" ToRole="t_adhesiveforce" />
+    <NavigationProperty Name="t_airimpermeability" Relationship="Self.FK_Reference_56" FromRole="t_condition" ToRole="t_airimpermeability" />
+    <NavigationProperty Name="t_beadforce" Relationship="Self.FK_Reference_69" FromRole="t_condition" ToRole="t_beadforce" />
+    <NavigationProperty Name="t_dma" Relationship="Self.FK_Reference_106" FromRole="t_condition" ToRole="t_dma" />
+    <NavigationProperty Name="t_staticload" Relationship="Self.FK_Reference_112" FromRole="t_condition" ToRole="t_staticload" />
+    <NavigationProperty Name="t_physicalproperty" Relationship="Self.FK_Reference_40" FromRole="t_condition" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_peripheraldimensions" Relationship="Self.FK_Reference_42" FromRole="t_condition" ToRole="t_peripheraldimensions" />
+    <NavigationProperty Name="t_explode" Relationship="Self.FK_Reference_43" FromRole="t_condition" ToRole="t_explode" />
+    <NavigationProperty Name="t_scanprofile" Relationship="Self.FK_Reference_44" FromRole="t_condition" ToRole="t_scanprofile" />
+    <NavigationProperty Name="t_strength" Relationship="Self.FK_Reference_45" FromRole="t_condition" ToRole="t_strength" />
+    <NavigationProperty Name="t_contactground" Relationship="Self.FK_Reference_47" FromRole="t_condition" ToRole="t_contactground" />
+    <NavigationProperty Name="t_unseat" Relationship="Self.FK_Reference_54" FromRole="t_condition" ToRole="t_unseat" />
+    <NavigationProperty Name="t_staticstiffness" Relationship="Self.FK_Reference_55" FromRole="t_condition" ToRole="t_staticstiffness" />
+    <NavigationProperty Name="t_positionforce" Relationship="Self.FK_Reference_57" FromRole="t_condition" ToRole="t_positionforce" />
+    <NavigationProperty Name="t_electricalimpedance" Relationship="Self.FK_Reference_58" FromRole="t_condition" ToRole="t_electricalimpedance" />
+    <NavigationProperty Name="t_endurance" Relationship="Self.FK_Reference_59" FromRole="t_condition" ToRole="t_endurance" />
+    <NavigationProperty Name="t_rollingresistance" Relationship="Self.FK_Reference_60" FromRole="t_condition" ToRole="t_rollingresistance" />
+    <NavigationProperty Name="t_cp" Relationship="Self.FK_Reference_77" FromRole="t_condition" ToRole="t_cp" />
+    <NavigationProperty Name="t_saf" Relationship="Self.FK_Reference_78" FromRole="t_condition" ToRole="t_saf" />
+    <NavigationProperty Name="t_ct" Relationship="Self.FK_Reference_79" FromRole="t_condition" ToRole="t_ct" />
+    <NavigationProperty Name="t_swp" Relationship="Self.FK_Reference_80" FromRole="t_condition" ToRole="t_swp" />
+    <NavigationProperty Name="t_rpt" Relationship="Self.FK_Reference_81" FromRole="t_condition" ToRole="t_rpt" />
+    <NavigationProperty Name="t_relax" Relationship="Self.FK_Reference_82" FromRole="t_condition" ToRole="t_relax" />
+    <NavigationProperty Name="t_drs" Relationship="Self.FK_Reference_83" FromRole="t_condition" ToRole="t_drs" />
+  </EntityType>
+  <EntityType Name="t_contactground">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="ContactLength" Type="Decimal" />
+    <Property Name="ContactWidth" Type="Decimal" />
+    <Property Name="ContactArea" Type="Decimal" />
+    <Property Name="NetContactArea" Type="Decimal" />
+    <Property Name="LeftRectangularity" Type="Decimal" />
+    <Property Name="RightRectangularity" Type="Decimal" />
+    <Property Name="FootprintPath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_47" FromRole="t_contactground" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_39" FromRole="t_contactground" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_cp">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="Load1" Type="Decimal" />
+    <Property Name="LS1" Type="Decimal" />
+    <Property Name="AS1" Type="Decimal" />
+    <Property Name="Load2" Type="Decimal" />
+    <Property Name="LS2" Type="Decimal" />
+    <Property Name="AS2" Type="Decimal" />
+    <Property Name="Load3" Type="Decimal" />
+    <Property Name="LS3" Type="Decimal" />
+    <Property Name="AS3" Type="Decimal" />
+    <Property Name="Load4" Type="Decimal" />
+    <Property Name="LS4" Type="Decimal" />
+    <Property Name="AS4" Type="Decimal" />
+    <Property Name="Load5" Type="Decimal" />
+    <Property Name="LS5" Type="Decimal" />
+    <Property Name="AS5" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_77" FromRole="t_cp" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_70" FromRole="t_cp" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_ct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="Load1" Type="Decimal" />
+    <Property Name="CS1" Type="Decimal" />
+    <Property Name="CAS1" Type="Decimal" />
+    <Property Name="Load2" Type="Decimal" />
+    <Property Name="CS2" Type="Decimal" />
+    <Property Name="CAS2" Type="Decimal" />
+    <Property Name="Load3" Type="Decimal" />
+    <Property Name="CS3" Type="Decimal" />
+    <Property Name="CAS3" Type="Decimal" />
+    <Property Name="Load4" Type="Decimal" />
+    <Property Name="CS4" Type="Decimal" />
+    <Property Name="CAS4" Type="Decimal" />
+    <Property Name="Load5" Type="Decimal" />
+    <Property Name="CS5" Type="Decimal" />
+    <Property Name="CAS5" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_79" FromRole="t_ct" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_72" FromRole="t_ct" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_dma">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="TreadTempID" Type="Int32" />
+    <Property Name="TreadStrainID" Type="Int32" />
+    <Property Name="SideTempID" Type="Int32" />
+    <Property Name="SideStrainID" Type="Int32" />
+    <Property Name="BaseTempID" Type="Int32" />
+    <Property Name="BaseStrainID" Type="Int32" />
+    <Property Name="BFTempID" Type="Int32" />
+    <Property Name="BFStrainID" Type="Int32" />
+    <Property Name="RCTempID" Type="Int32" />
+    <Property Name="RCStrainID" Type="Int32" />
+    <Property Name="SFTempID" Type="Int32" />
+    <Property Name="SFStrainID" Type="Int32" />
+    <NavigationProperty Name="rubberstraindma" Relationship="Self.FK_Reference_85" FromRole="t_dma" ToRole="rubberstraindma" />
+    <NavigationProperty Name="rubberstraindma1" Relationship="Self.FK_Reference_87" FromRole="t_dma" ToRole="rubberstraindma" />
+    <NavigationProperty Name="rubberstraindma2" Relationship="Self.FK_Reference_89" FromRole="t_dma" ToRole="rubberstraindma" />
+    <NavigationProperty Name="rubberstraindma3" Relationship="Self.FK_Reference_91" FromRole="t_dma" ToRole="rubberstraindma" />
+    <NavigationProperty Name="rubberstraindma4" Relationship="Self.FK_Reference_93" FromRole="t_dma" ToRole="rubberstraindma" />
+    <NavigationProperty Name="rubberstraindma5" Relationship="Self.FK_Reference_95" FromRole="t_dma" ToRole="rubberstraindma" />
+    <NavigationProperty Name="rubbertempdma" Relationship="Self.FK_Reference_84" FromRole="t_dma" ToRole="rubbertempdma" />
+    <NavigationProperty Name="rubbertempdma1" Relationship="Self.FK_Reference_86" FromRole="t_dma" ToRole="rubbertempdma" />
+    <NavigationProperty Name="rubbertempdma2" Relationship="Self.FK_Reference_88" FromRole="t_dma" ToRole="rubbertempdma" />
+    <NavigationProperty Name="rubbertempdma3" Relationship="Self.FK_Reference_90" FromRole="t_dma" ToRole="rubbertempdma" />
+    <NavigationProperty Name="rubbertempdma4" Relationship="Self.FK_Reference_92" FromRole="t_dma" ToRole="rubbertempdma" />
+    <NavigationProperty Name="rubbertempdma5" Relationship="Self.FK_Reference_94" FromRole="t_dma" ToRole="rubbertempdma" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_106" FromRole="t_dma" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_104" FromRole="t_dma" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_drs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="LongitudinalSlipStiffness" Type="Decimal" />
+    <Property Name="DrivingMaxFx" Type="Decimal" />
+    <Property Name="DrivingMaxFxSlipRatio" Type="Decimal" />
+    <Property Name="BrakingMaxFx" Type="Decimal" />
+    <Property Name="BrakingMaxFxSlipRatio" Type="Decimal" />
+    <Property Name="MaxMux" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_83" FromRole="t_drs" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_76" FromRole="t_drs" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_electricalimpedance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="Resistance" Type="Decimal" />
+    <Property Name="Deviation" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_58" FromRole="t_electricalimpedance" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_51" FromRole="t_electricalimpedance" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_endurance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="SOD" Type="Decimal" />
+    <Property Name="EOD" Type="Decimal" />
+    <Property Name="SPressure" Type="Decimal" />
+    <Property Name="EPressure" Type="Decimal" />
+    <Property Name="TotalTime" Type="Time" />
+    <Property Name="TotalMileage" Type="Decimal" />
+    <Property Name="TotalStages" Type="Int32" />
+    <Property Name="LastVelocity" Type="Decimal" />
+    <Property Name="LastTime" Type="Time" />
+    <Property Name="Appearance" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Standard" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Conclusion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_59" FromRole="t_endurance" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_52" FromRole="t_endurance" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_explode">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="StdValue" Type="Decimal" />
+    <Property Name="ExplodePosition" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Pressure" Type="Decimal" />
+    <Property Name="SafetyFactor" Type="Decimal" />
+    <Property Name="Result" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_43" FromRole="t_explode" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_37" FromRole="t_explode" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_peripheraldimensions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="OuterPerimeter1" Type="Decimal" />
+    <Property Name="SW1" Type="Decimal" />
+    <Property Name="CrownArcLength1" Type="Decimal" />
+    <Property Name="CrownArcDiameter1" Type="Decimal" />
+    <Property Name="GrooveDepth1" Type="Decimal" />
+    <Property Name="WearDepth1" Type="Decimal" />
+    <Property Name="OuterPerimeter2" Type="Decimal" />
+    <Property Name="SW2" Type="Decimal" />
+    <Property Name="CrownArcLength2" Type="Decimal" />
+    <Property Name="CrownArcDiameter2" Type="Decimal" />
+    <Property Name="GrooveDepth2" Type="Decimal" />
+    <Property Name="WearDepth2" Type="Decimal" />
+    <Property Name="OuterPerimeter3" Type="Decimal" />
+    <Property Name="SW3" Type="Decimal" />
+    <Property Name="CrownArcLength3" Type="Decimal" />
+    <Property Name="CrownArcDiameter3" Type="Decimal" />
+    <Property Name="GrooveDepth3" Type="Decimal" />
+    <Property Name="WearDepth3" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_42" FromRole="t_peripheraldimensions" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_35" FromRole="t_peripheraldimensions" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_physicalproperty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="Tread_BID" Type="Int32" />
+    <Property Name="Tread_AID" Type="Int32" />
+    <Property Name="Side_BID" Type="Int32" />
+    <Property Name="Side_AID" Type="Int32" />
+    <Property Name="Base_BID" Type="Int32" />
+    <Property Name="Base_AID" Type="Int32" />
+    <Property Name="BF_BID" Type="Int32" />
+    <Property Name="BF_AID" Type="Int32" />
+    <Property Name="RC_BID" Type="Int32" />
+    <Property Name="RC_AID" Type="Int32" />
+    <Property Name="SF_BID" Type="Int32" />
+    <Property Name="SF_AID" Type="Int32" />
+    <Property Name="AgingCond" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="rubberproperty" Relationship="Self.FK_Reference_100" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="rubberproperty1" Relationship="Self.FK_Reference_101" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="rubberproperty2" Relationship="Self.FK_Reference_102" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="rubberproperty3" Relationship="Self.FK_Reference_103" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="rubberproperty4" Relationship="Self.FK_Reference_16" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="rubberproperty5" Relationship="Self.FK_Reference_21" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="rubberproperty6" Relationship="Self.FK_Reference_22" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="rubberproperty7" Relationship="Self.FK_Reference_23" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="rubberproperty8" Relationship="Self.FK_Reference_96" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="rubberproperty9" Relationship="Self.FK_Reference_97" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="rubberproperty10" Relationship="Self.FK_Reference_98" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="rubberproperty11" Relationship="Self.FK_Reference_99" FromRole="t_physicalproperty" ToRole="rubberproperty" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_40" FromRole="t_physicalproperty" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_34" FromRole="t_physicalproperty" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_positionforce">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="UpperPressure" Type="Decimal" />
+    <Property Name="LowerPressure" Type="Decimal" />
+    <Property Name="UpperStyle" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="LowerStyle" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_57" FromRole="t_positionforce" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_50" FromRole="t_positionforce" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_relax">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="LateralRelaxationLength" Type="Decimal" />
+    <Property Name="FyAmplitude" Type="Decimal" />
+    <Property Name="NominalLongitudinalStiffness" Type="Decimal" />
+    <Property Name="MzAmplitude" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_82" FromRole="t_relax" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_75" FromRole="t_relax" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_rollingresistance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="RollingRadius" Type="Decimal" />
+    <Property Name="UncorrectionCoefficient" Type="Decimal" />
+    <Property Name="CorrectionCoefficient" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_60" FromRole="t_rollingresistance" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_53" FromRole="t_rollingresistance" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_rpt">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="LStf" Type="Decimal" />
+    <Property Name="LP" Type="Decimal" />
+    <Property Name="LC" Type="Decimal" />
+    <Property Name="PRLFAngle" Type="Decimal" />
+    <Property Name="PRLF" Type="Decimal" />
+    <Property Name="CRLF" Type="Decimal" />
+    <Property Name="AStf" Type="Decimal" />
+    <Property Name="AP" Type="Decimal" />
+    <Property Name="AC" Type="Decimal" />
+    <Property Name="PRATAngle" Type="Decimal" />
+    <Property Name="PRAT" Type="Decimal" />
+    <Property Name="CRAT" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_81" FromRole="t_rpt" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_74" FromRole="t_rpt" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_saf">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="FyAmplitude1" Type="Decimal" />
+    <Property Name="FyAmplitude2" Type="Decimal" />
+    <Property Name="FyAmplitude3" Type="Decimal" />
+    <Property Name="FyAmplitude4" Type="Decimal" />
+    <Property Name="FyAmplitude5" Type="Decimal" />
+    <Property Name="FyAmplitude6" Type="Decimal" />
+    <Property Name="FyPhase1" Type="Decimal" />
+    <Property Name="FyPhase2" Type="Decimal" />
+    <Property Name="FyPhase3" Type="Decimal" />
+    <Property Name="FyPhase4" Type="Decimal" />
+    <Property Name="FyPhase5" Type="Decimal" />
+    <Property Name="FyPhase6" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_78" FromRole="t_saf" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_71" FromRole="t_saf" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_scanprofile">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="Path1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Path2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_44" FromRole="t_scanprofile" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_36" FromRole="t_scanprofile" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_staticload">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="OuterPerimeter" Type="Decimal" />
+    <Property Name="VerticalDeflection" Type="Decimal" />
+    <Property Name="LoadedRadius" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_112" FromRole="t_staticload" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_105" FromRole="t_staticload" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_staticstiffness">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="RadStf" Type="Decimal" />
+    <Property Name="LonStf" Type="Decimal" />
+    <Property Name="LatStf" Type="Decimal" />
+    <Property Name="TorStf" Type="Decimal" />
+    <Property Name="VerticalDeflection" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_55" FromRole="t_staticstiffness" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_48" FromRole="t_staticstiffness" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_strength">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="Result" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Force1" Type="Decimal" />
+    <Property Name="Displacement1" Type="Decimal" />
+    <Property Name="Energy1" Type="Decimal" />
+    <Property Name="ContactedRim1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Broken1" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Force2" Type="Decimal" />
+    <Property Name="Displacement2" Type="Decimal" />
+    <Property Name="Energy2" Type="Decimal" />
+    <Property Name="ContactedRim2" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Broken2" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Force3" Type="Decimal" />
+    <Property Name="Displacement3" Type="Decimal" />
+    <Property Name="Energy3" Type="Decimal" />
+    <Property Name="ContactedRim3" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Broken3" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Force4" Type="Decimal" />
+    <Property Name="Displacement4" Type="Decimal" />
+    <Property Name="Energy4" Type="Decimal" />
+    <Property Name="ContactedRim4" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Broken4" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Force5" Type="Decimal" />
+    <Property Name="Displacement5" Type="Decimal" />
+    <Property Name="Energy5" Type="Decimal" />
+    <Property Name="ContactedRim5" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Broken5" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_45" FromRole="t_strength" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_38" FromRole="t_strength" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_swp">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="Load1" Type="Decimal" />
+    <Property Name="LS1" Type="Decimal" />
+    <Property Name="AS1" Type="Decimal" />
+    <Property Name="SAPosMaxFy1" Type="Decimal" />
+    <Property Name="MaxFySAPos1" Type="Decimal" />
+    <Property Name="SANegMaxFy1" Type="Decimal" />
+    <Property Name="MaxFySANeg1" Type="Decimal" />
+    <Property Name="MaxMuy1" Type="Decimal" />
+    <Property Name="Load2" Type="Decimal" />
+    <Property Name="LS2" Type="Decimal" />
+    <Property Name="AS2" Type="Decimal" />
+    <Property Name="SAPosMaxFy2" Type="Decimal" />
+    <Property Name="MaxFySAPos2" Type="Decimal" />
+    <Property Name="SANegMaxFy2" Type="Decimal" />
+    <Property Name="MaxFySANeg2" Type="Decimal" />
+    <Property Name="MaxMuy2" Type="Decimal" />
+    <Property Name="Load3" Type="Decimal" />
+    <Property Name="LS3" Type="Decimal" />
+    <Property Name="AS3" Type="Decimal" />
+    <Property Name="SAPosMaxFy3" Type="Decimal" />
+    <Property Name="MaxFySAPos3" Type="Decimal" />
+    <Property Name="SANegMaxFy3" Type="Decimal" />
+    <Property Name="MaxFySANeg3" Type="Decimal" />
+    <Property Name="MaxMuy3" Type="Decimal" />
+    <Property Name="Load4" Type="Decimal" />
+    <Property Name="LS4" Type="Decimal" />
+    <Property Name="AS4" Type="Decimal" />
+    <Property Name="SAPosMaxFy4" Type="Decimal" />
+    <Property Name="MaxFySAPos4" Type="Decimal" />
+    <Property Name="SANegMaxFy4" Type="Decimal" />
+    <Property Name="MaxFySANeg4" Type="Decimal" />
+    <Property Name="MaxMuy4" Type="Decimal" />
+    <Property Name="Load5" Type="Decimal" />
+    <Property Name="LS5" Type="Decimal" />
+    <Property Name="AS5" Type="Decimal" />
+    <Property Name="SAPosMaxFy5" Type="Decimal" />
+    <Property Name="MaxFySAPos5" Type="Decimal" />
+    <Property Name="SANegMaxFy5" Type="Decimal" />
+    <Property Name="MaxFySANeg5" Type="Decimal" />
+    <Property Name="MaxMuy5" Type="Decimal" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_80" FromRole="t_swp" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_73" FromRole="t_swp" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="t_unseat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ConditionID" Type="Int32" />
+    <Property Name="Result" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Force1" Type="Decimal" />
+    <Property Name="PointResult1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Force2" Type="Decimal" />
+    <Property Name="PointResult2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Force3" Type="Decimal" />
+    <Property Name="PointResult3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Force4" Type="Decimal" />
+    <Property Name="PointResult4" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="t_condition" Relationship="Self.FK_Reference_54" FromRole="t_unseat" ToRole="t_condition" />
+    <NavigationProperty Name="tire" Relationship="Self.FK_Reference_41" FromRole="t_unseat" ToRole="tire" />
+  </EntityType>
+  <EntityType Name="tbrsectiondimension">
+    <Key>
+      <PropertyRef Name="SectionID" />
+    </Key>
+    <Property Name="SectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="W1B" Type="Decimal" />
+    <Property Name="W2B" Type="Decimal" />
+    <Property Name="W3B" Type="Decimal" />
+    <Property Name="W4B" Type="Decimal" />
+    <Property Name="W0B" Type="Decimal" />
+    <Property Name="P0B" Type="Decimal" />
+    <Property Name="TG1" Type="Decimal" />
+    <Property Name="TG2" Type="Decimal" />
+    <Property Name="TG3" Type="Decimal" />
+    <Property Name="TG4" Type="Decimal" />
+    <Property Name="TGBE" Type="Decimal" />
+    <Property Name="TG0B" Type="Decimal" />
+    <Property Name="TFTM" Type="Decimal" />
+    <Property Name="TFTM_x" Type="Decimal" />
+    <Property Name="TBEC" Type="Decimal" />
+    <Property Name="G1B2B" Type="Decimal" />
+    <Property Name="TTM_x" Type="Decimal" />
+    <Property Name="TTM" Type="Decimal" />
+    <Property Name="TTRM" Type="Decimal" />
+    <Property Name="TTG" Type="Decimal" />
+    <Property Name="TTG_x" Type="Decimal" />
+    <Property Name="TTN" Type="Decimal" />
+    <Property Name="TTNG_x" Type="Decimal" />
+    <Property Name="TCG1" Type="Decimal" />
+    <Property Name="TCG2" Type="Decimal" />
+    <Property Name="TCG3" Type="Decimal" />
+    <Property Name="TCG4" Type="Decimal" />
+    <Property Name="TCGBE" Type="Decimal" />
+    <Property Name="TCG0B" Type="Decimal" />
+    <Property Name="LTR" Type="Decimal" />
+    <Property Name="TSHC" Type="Decimal" />
+    <Property Name="D2BSW" Type="Decimal" />
+    <Property Name="LMSW" Type="Decimal" />
+    <Property Name="LSHC" Type="Decimal" />
+    <Property Name="TSTHSC" Type="Decimal" />
+    <Property Name="TRCZ_x" Type="Decimal" />
+    <Property Name="HSWF" Type="Decimal" />
+    <Property Name="LSWF" Type="Decimal" />
+    <Property Name="HRCI" Type="Decimal" />
+    <Property Name="HSBF" Type="Decimal" />
+    <Property Name="LSBF" Type="Decimal" />
+    <Property Name="HHBF" Type="Decimal" />
+    <Property Name="HWCF" Type="Decimal" />
+    <Property Name="LWCF" Type="Decimal" />
+    <Property Name="TWCFHSC" Type="Decimal" />
+    <Property Name="TBFHWC" Type="Decimal" />
+    <Property Name="LIL" Type="Decimal" />
+    <Property Name="HSC" Type="Decimal" />
+    <Property Name="HWCO" Type="Decimal" />
+    <Property Name="HWCI" Type="Decimal" />
+    <Property Name="LWC" Type="Decimal" />
+    <Property Name="H1NO" Type="Decimal" />
+    <Property Name="H2NO" Type="Decimal" />
+    <Property Name="H3NO" Type="Decimal" />
+    <Property Name="H4NI" Type="Decimal" />
+    <Property Name="H5NI" Type="Decimal" />
+    <Property Name="TAPL" Type="Decimal" />
+    <Property Name="TTIL" Type="Decimal" />
+    <Property Name="TSTZ_x" Type="Decimal" />
+    <Property Name="TTZ_x1" Type="Decimal" />
+    <Property Name="TBFHSC" Type="Decimal" />
+    <Property Name="TSBFZ_x" Type="Decimal" />
+    <Property Name="TTBDZ_x" Type="Decimal" />
+    <Property Name="TBRC" Type="Decimal" />
+    <Property Name="LST" Type="Decimal" />
+    <Property Name="HRC" Type="Decimal" />
+    <Property Name="TTZ_x2" Type="Decimal" />
+    <Property Name="TTZ" Type="Decimal" />
+    <Property Name="TRCBD" Type="Decimal" />
+    <Property Name="TILHWC" Type="Decimal" />
+    <Property Name="L1N" Type="Decimal" />
+    <Property Name="H1NI" Type="Decimal" />
+    <Property Name="H2N" Type="Decimal" />
+    <Property Name="H2NI" Type="Decimal" />
+    <Property Name="L3N" Type="Decimal" />
+    <Property Name="L3NI" Type="Decimal" />
+    <Property Name="LWNCA" Type="Decimal" />
+    <Property Name="L4N" Type="Decimal" />
+    <Property Name="L4NI" Type="Decimal" />
+    <Property Name="L5NI" Type="Decimal" />
+    <Property Name="Alpha" Type="Decimal" />
+    <Property Name="Beta" Type="Decimal" />
+    <NavigationProperty Name="structure" Relationship="Self.FK_Reference_109" FromRole="tbrsectiondimension" ToRole="structure" />
+    <NavigationProperty Name="structure1" Relationship="Self.FK_Reference_67" FromRole="tbrsectiondimension" ToRole="structure" />
+  </EntityType>
+  <EntityType Name="tire">
+    <Key>
+      <PropertyRef Name="TireID" />
+    </Key>
+    <Property Name="TireID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TireID2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TireType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Batch" Type="DateTime" />
+    <Property Name="RimID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="StructureID" Type="Int32" />
+    <Property Name="PatternID" Type="Int32" />
+    <Property Name="SideID" Type="Int32" />
+    <Property Name="Brand" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Size" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PlyRating" Type="Int32" />
+    <Property Name="LoadIndex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SpeedSymbol" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Weight" Type="Decimal" />
+    <Property Name="SinglePressure" Type="Decimal" />
+    <Property Name="DoublePressure" Type="Decimal" />
+    <Property Name="SingleLoad" Type="Decimal" />
+    <Property Name="DoubleLoad" Type="Decimal" />
+    <Property Name="PurchasePlace" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ProducingArea" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ProducingTime" Type="DateTime" />
+    <Property Name="Advantage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="pattern" Relationship="Self.FK_Reference_65" FromRole="tire" ToRole="pattern" />
+    <NavigationProperty Name="rim" Relationship="Self.FK_Reference_46" FromRole="tire" ToRole="rim" />
+    <NavigationProperty Name="sideplate" Relationship="Self.FK_Reference_66" FromRole="tire" ToRole="sideplate" />
+    <NavigationProperty Name="structure" Relationship="Self.FK_Reference_64" FromRole="tire" ToRole="structure" />
+    <NavigationProperty Name="t_adhesiveforce" Relationship="Self.FK_Reference_107" FromRole="tire" ToRole="t_adhesiveforce" />
+    <NavigationProperty Name="t_airimpermeability" Relationship="Self.FK_Reference_49" FromRole="tire" ToRole="t_airimpermeability" />
+    <NavigationProperty Name="t_beadforce" Relationship="Self.FK_Reference_68" FromRole="tire" ToRole="t_beadforce" />
+    <NavigationProperty Name="t_contactground" Relationship="Self.FK_Reference_39" FromRole="tire" ToRole="t_contactground" />
+    <NavigationProperty Name="t_cp" Relationship="Self.FK_Reference_70" FromRole="tire" ToRole="t_cp" />
+    <NavigationProperty Name="t_ct" Relationship="Self.FK_Reference_72" FromRole="tire" ToRole="t_ct" />
+    <NavigationProperty Name="t_dma" Relationship="Self.FK_Reference_104" FromRole="tire" ToRole="t_dma" />
+    <NavigationProperty Name="t_drs" Relationship="Self.FK_Reference_76" FromRole="tire" ToRole="t_drs" />
+    <NavigationProperty Name="t_electricalimpedance" Relationship="Self.FK_Reference_51" FromRole="tire" ToRole="t_electricalimpedance" />
+    <NavigationProperty Name="t_endurance" Relationship="Self.FK_Reference_52" FromRole="tire" ToRole="t_endurance" />
+    <NavigationProperty Name="t_explode" Relationship="Self.FK_Reference_37" FromRole="tire" ToRole="t_explode" />
+    <NavigationProperty Name="t_peripheraldimensions" Relationship="Self.FK_Reference_35" FromRole="tire" ToRole="t_peripheraldimensions" />
+    <NavigationProperty Name="t_physicalproperty" Relationship="Self.FK_Reference_34" FromRole="tire" ToRole="t_physicalproperty" />
+    <NavigationProperty Name="t_positionforce" Relationship="Self.FK_Reference_50" FromRole="tire" ToRole="t_positionforce" />
+    <NavigationProperty Name="t_relax" Relationship="Self.FK_Reference_75" FromRole="tire" ToRole="t_relax" />
+    <NavigationProperty Name="t_rollingresistance" Relationship="Self.FK_Reference_53" FromRole="tire" ToRole="t_rollingresistance" />
+    <NavigationProperty Name="t_rpt" Relationship="Self.FK_Reference_74" FromRole="tire" ToRole="t_rpt" />
+    <NavigationProperty Name="t_saf" Relationship="Self.FK_Reference_71" FromRole="tire" ToRole="t_saf" />
+    <NavigationProperty Name="t_scanprofile" Relationship="Self.FK_Reference_36" FromRole="tire" ToRole="t_scanprofile" />
+    <NavigationProperty Name="t_staticload" Relationship="Self.FK_Reference_105" FromRole="tire" ToRole="t_staticload" />
+    <NavigationProperty Name="t_staticstiffness" Relationship="Self.FK_Reference_48" FromRole="tire" ToRole="t_staticstiffness" />
+    <NavigationProperty Name="t_strength" Relationship="Self.FK_Reference_38" FromRole="tire" ToRole="t_strength" />
+    <NavigationProperty Name="t_swp" Relationship="Self.FK_Reference_73" FromRole="tire" ToRole="t_swp" />
+    <NavigationProperty Name="t_unseat" Relationship="Self.FK_Reference_41" FromRole="tire" ToRole="t_unseat" />
+    <Property Name="CreateTime" Type="DateTime" />
+  </EntityType>
+  <Association Name="FK_Reference_63">
+    <End Role="groove" Type="Self.groove" Multiplicity="0..1" />
+    <End Role="pattern" Type="Self.pattern" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="groove">
+        <PropertyRef Name="GrooveID" />
+      </Principal>
+      <Dependent Role="pattern">
+        <PropertyRef Name="GrooveID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_62">
+    <End Role="pitch" Type="Self.pitch" Multiplicity="0..1" />
+    <End Role="pattern" Type="Self.pattern" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pitch">
+        <PropertyRef Name="PitchID" />
+      </Principal>
+      <Dependent Role="pattern">
+        <PropertyRef Name="PitchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_65">
+    <End Role="pattern" Type="Self.pattern" Multiplicity="0..1" />
+    <End Role="tire" Type="Self.tire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pattern">
+        <PropertyRef Name="PatternID" />
+      </Principal>
+      <Dependent Role="tire">
+        <PropertyRef Name="PatternID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_110">
+    <End Role="pcrsectiondimension" Type="Self.pcrsectiondimension" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pcrsectiondimension">
+        <PropertyRef Name="SectionID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="PCRUpperSectionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_111">
+    <End Role="pcrsectiondimension" Type="Self.pcrsectiondimension" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pcrsectiondimension">
+        <PropertyRef Name="SectionID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="PCRLowerSectionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_Belt0">
+    <End Role="rebar" Type="Self.rebar" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rebar">
+        <PropertyRef Name="RebarID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="Belt0_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_Belt1">
+    <End Role="rebar" Type="Self.rebar" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rebar">
+        <PropertyRef Name="RebarID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="Belt1_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_Belt2">
+    <End Role="rebar" Type="Self.rebar" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rebar">
+        <PropertyRef Name="RebarID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="Belt2_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_Belt3">
+    <End Role="rebar" Type="Self.rebar" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rebar">
+        <PropertyRef Name="RebarID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="Belt3_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_Belt4">
+    <End Role="rebar" Type="Self.rebar" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rebar">
+        <PropertyRef Name="RebarID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="Belt4_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_Carcass1">
+    <End Role="rebar" Type="Self.rebar" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rebar">
+        <PropertyRef Name="RebarID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="Carcass1_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_Carcass2">
+    <End Role="rebar" Type="Self.rebar" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rebar">
+        <PropertyRef Name="RebarID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="Carcass2_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_Carcass3">
+    <End Role="rebar" Type="Self.rebar" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rebar">
+        <PropertyRef Name="RebarID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="Carcass3_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_Chafer">
+    <End Role="rebar" Type="Self.rebar" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rebar">
+        <PropertyRef Name="RebarID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="Chafer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_46">
+    <End Role="rim" Type="Self.rim" Multiplicity="0..1" />
+    <End Role="tire" Type="Self.tire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rim">
+        <PropertyRef Name="RimID" />
+      </Principal>
+      <Dependent Role="tire">
+        <PropertyRef Name="RimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_61">
+    <End Role="rim" Type="Self.rim" Multiplicity="0..1" />
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rim">
+        <PropertyRef Name="RimID" />
+      </Principal>
+      <Dependent Role="t_condition">
+        <PropertyRef Name="RimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_100">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="RC_BID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_101">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="RC_AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_102">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="SF_BID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_103">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="SF_AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_16">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="Tread_BID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_21">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="Tread_AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_22">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="Side_BID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_23">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="Side_AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_96">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="Base_BID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_97">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="Base_AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_98">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="BF_BID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_99">
+    <End Role="rubberproperty" Type="Self.rubberproperty" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberproperty">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="BF_AID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_85">
+    <End Role="rubberstraindma" Type="Self.rubberstraindma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberstraindma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="TreadStrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_87">
+    <End Role="rubberstraindma" Type="Self.rubberstraindma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberstraindma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="SideStrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_89">
+    <End Role="rubberstraindma" Type="Self.rubberstraindma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberstraindma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="BaseStrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_91">
+    <End Role="rubberstraindma" Type="Self.rubberstraindma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberstraindma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="BFStrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_93">
+    <End Role="rubberstraindma" Type="Self.rubberstraindma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberstraindma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="RCStrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_95">
+    <End Role="rubberstraindma" Type="Self.rubberstraindma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubberstraindma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="SFStrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_84">
+    <End Role="rubbertempdma" Type="Self.rubbertempdma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubbertempdma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="TreadTempID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_86">
+    <End Role="rubbertempdma" Type="Self.rubbertempdma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubbertempdma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="SideTempID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_88">
+    <End Role="rubbertempdma" Type="Self.rubbertempdma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubbertempdma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="BaseTempID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_90">
+    <End Role="rubbertempdma" Type="Self.rubbertempdma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubbertempdma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="BFTempID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_92">
+    <End Role="rubbertempdma" Type="Self.rubbertempdma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubbertempdma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="RCTempID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_94">
+    <End Role="rubbertempdma" Type="Self.rubbertempdma" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rubbertempdma">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="SFTempID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_66">
+    <End Role="sideplate" Type="Self.sideplate" Multiplicity="0..1" />
+    <End Role="tire" Type="Self.tire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sideplate">
+        <PropertyRef Name="SideID" />
+      </Principal>
+      <Dependent Role="tire">
+        <PropertyRef Name="SideID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_109">
+    <End Role="tbrsectiondimension" Type="Self.tbrsectiondimension" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbrsectiondimension">
+        <PropertyRef Name="SectionID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="TBRLowerSectionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_64">
+    <End Role="structure" Type="Self.structure" Multiplicity="0..1" />
+    <End Role="tire" Type="Self.tire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="structure">
+        <PropertyRef Name="StructureID" />
+      </Principal>
+      <Dependent Role="tire">
+        <PropertyRef Name="StructureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_67">
+    <End Role="tbrsectiondimension" Type="Self.tbrsectiondimension" Multiplicity="0..1" />
+    <End Role="structure" Type="Self.structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbrsectiondimension">
+        <PropertyRef Name="SectionID" />
+      </Principal>
+      <Dependent Role="structure">
+        <PropertyRef Name="TBRUpperSectionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_107">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_adhesiveforce" Type="Self.t_adhesiveforce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_adhesiveforce">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_108">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_adhesiveforce" Type="Self.t_adhesiveforce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_adhesiveforce">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_49">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_airimpermeability" Type="Self.t_airimpermeability" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_airimpermeability">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_56">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_airimpermeability" Type="Self.t_airimpermeability" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_airimpermeability">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_68">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_beadforce" Type="Self.t_beadforce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_beadforce">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_69">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_beadforce" Type="Self.t_beadforce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_beadforce">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_106">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_112">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_staticload" Type="Self.t_staticload" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_staticload">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_40">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_42">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_peripheraldimensions" Type="Self.t_peripheraldimensions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_peripheraldimensions">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_43">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_explode" Type="Self.t_explode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_explode">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_44">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_scanprofile" Type="Self.t_scanprofile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_scanprofile">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_45">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_strength" Type="Self.t_strength" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_strength">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_47">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_contactground" Type="Self.t_contactground" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_contactground">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_54">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_unseat" Type="Self.t_unseat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_unseat">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_55">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_staticstiffness" Type="Self.t_staticstiffness" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_staticstiffness">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_57">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_positionforce" Type="Self.t_positionforce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_positionforce">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_58">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_electricalimpedance" Type="Self.t_electricalimpedance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_electricalimpedance">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_59">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_endurance" Type="Self.t_endurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_endurance">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_60">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_rollingresistance" Type="Self.t_rollingresistance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_rollingresistance">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_77">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_cp" Type="Self.t_cp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_cp">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_78">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_saf" Type="Self.t_saf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_saf">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_79">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_ct" Type="Self.t_ct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_ct">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_80">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_swp" Type="Self.t_swp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_swp">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_81">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_rpt" Type="Self.t_rpt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_rpt">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_82">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_relax" Type="Self.t_relax" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_relax">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_83">
+    <End Role="t_condition" Type="Self.t_condition" Multiplicity="0..1" />
+    <End Role="t_drs" Type="Self.t_drs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="t_condition">
+        <PropertyRef Name="ConditionID" />
+      </Principal>
+      <Dependent Role="t_drs">
+        <PropertyRef Name="ConditionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_39">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_contactground" Type="Self.t_contactground" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_contactground">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_70">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_cp" Type="Self.t_cp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_cp">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_72">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_ct" Type="Self.t_ct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_ct">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_104">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_dma" Type="Self.t_dma" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_dma">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_76">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_drs" Type="Self.t_drs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_drs">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_51">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_electricalimpedance" Type="Self.t_electricalimpedance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_electricalimpedance">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_52">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_endurance" Type="Self.t_endurance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_endurance">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_37">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_explode" Type="Self.t_explode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_explode">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_35">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_peripheraldimensions" Type="Self.t_peripheraldimensions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_peripheraldimensions">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_34">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_physicalproperty" Type="Self.t_physicalproperty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_physicalproperty">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_50">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_positionforce" Type="Self.t_positionforce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_positionforce">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_75">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_relax" Type="Self.t_relax" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_relax">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_53">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_rollingresistance" Type="Self.t_rollingresistance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_rollingresistance">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_74">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_rpt" Type="Self.t_rpt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_rpt">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_71">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_saf" Type="Self.t_saf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_saf">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_36">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_scanprofile" Type="Self.t_scanprofile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_scanprofile">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_105">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_staticload" Type="Self.t_staticload" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_staticload">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_48">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_staticstiffness" Type="Self.t_staticstiffness" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_staticstiffness">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_38">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_strength" Type="Self.t_strength" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_strength">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_73">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_swp" Type="Self.t_swp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_swp">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reference_41">
+    <End Role="tire" Type="Self.tire" Multiplicity="0..1" />
+    <End Role="t_unseat" Type="Self.t_unseat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tire">
+        <PropertyRef Name="TireID" />
+      </Principal>
+      <Dependent Role="t_unseat">
+        <PropertyRef Name="TireID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ttdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="groove" EntityType="Self.groove" />
+    <EntitySet Name="pattern" EntityType="Self.pattern" />
+    <EntitySet Name="pcrsectiondimension" EntityType="Self.pcrsectiondimension" />
+    <EntitySet Name="pitch" EntityType="Self.pitch" />
+    <EntitySet Name="rebar" EntityType="Self.rebar" />
+    <EntitySet Name="rim" EntityType="Self.rim" />
+    <EntitySet Name="rubberproperty" EntityType="Self.rubberproperty" />
+    <EntitySet Name="rubberstraindma" EntityType="Self.rubberstraindma" />
+    <EntitySet Name="rubbertempdma" EntityType="Self.rubbertempdma" />
+    <EntitySet Name="sideplate" EntityType="Self.sideplate" />
+    <EntitySet Name="structure" EntityType="Self.structure" />
+    <EntitySet Name="t_adhesiveforce" EntityType="Self.t_adhesiveforce" />
+    <EntitySet Name="t_airimpermeability" EntityType="Self.t_airimpermeability" />
+    <EntitySet Name="t_beadforce" EntityType="Self.t_beadforce" />
+    <EntitySet Name="t_condition" EntityType="Self.t_condition" />
+    <EntitySet Name="t_contactground" EntityType="Self.t_contactground" />
+    <EntitySet Name="t_cp" EntityType="Self.t_cp" />
+    <EntitySet Name="t_ct" EntityType="Self.t_ct" />
+    <EntitySet Name="t_dma" EntityType="Self.t_dma" />
+    <EntitySet Name="t_drs" EntityType="Self.t_drs" />
+    <EntitySet Name="t_electricalimpedance" EntityType="Self.t_electricalimpedance" />
+    <EntitySet Name="t_endurance" EntityType="Self.t_endurance" />
+    <EntitySet Name="t_explode" EntityType="Self.t_explode" />
+    <EntitySet Name="t_peripheraldimensions" EntityType="Self.t_peripheraldimensions" />
+    <EntitySet Name="t_physicalproperty" EntityType="Self.t_physicalproperty" />
+    <EntitySet Name="t_positionforce" EntityType="Self.t_positionforce" />
+    <EntitySet Name="t_relax" EntityType="Self.t_relax" />
+    <EntitySet Name="t_rollingresistance" EntityType="Self.t_rollingresistance" />
+    <EntitySet Name="t_rpt" EntityType="Self.t_rpt" />
+    <EntitySet Name="t_saf" EntityType="Self.t_saf" />
+    <EntitySet Name="t_scanprofile" EntityType="Self.t_scanprofile" />
+    <EntitySet Name="t_staticload" EntityType="Self.t_staticload" />
+    <EntitySet Name="t_staticstiffness" EntityType="Self.t_staticstiffness" />
+    <EntitySet Name="t_strength" EntityType="Self.t_strength" />
+    <EntitySet Name="t_swp" EntityType="Self.t_swp" />
+    <EntitySet Name="t_unseat" EntityType="Self.t_unseat" />
+    <EntitySet Name="tbrsectiondimension" EntityType="Self.tbrsectiondimension" />
+    <EntitySet Name="tire" EntityType="Self.tire" />
+    <AssociationSet Name="FK_Reference_63" Association="Self.FK_Reference_63">
+      <End Role="groove" EntitySet="groove" />
+      <End Role="pattern" EntitySet="pattern" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_62" Association="Self.FK_Reference_62">
+      <End Role="pitch" EntitySet="pitch" />
+      <End Role="pattern" EntitySet="pattern" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_65" Association="Self.FK_Reference_65">
+      <End Role="pattern" EntitySet="pattern" />
+      <End Role="tire" EntitySet="tire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_110" Association="Self.FK_Reference_110">
+      <End Role="pcrsectiondimension" EntitySet="pcrsectiondimension" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_111" Association="Self.FK_Reference_111">
+      <End Role="pcrsectiondimension" EntitySet="pcrsectiondimension" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_Belt0" Association="Self.FK_Reference_Belt0">
+      <End Role="rebar" EntitySet="rebar" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_Belt1" Association="Self.FK_Reference_Belt1">
+      <End Role="rebar" EntitySet="rebar" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_Belt2" Association="Self.FK_Reference_Belt2">
+      <End Role="rebar" EntitySet="rebar" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_Belt3" Association="Self.FK_Reference_Belt3">
+      <End Role="rebar" EntitySet="rebar" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_Belt4" Association="Self.FK_Reference_Belt4">
+      <End Role="rebar" EntitySet="rebar" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_Carcass1" Association="Self.FK_Reference_Carcass1">
+      <End Role="rebar" EntitySet="rebar" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_Carcass2" Association="Self.FK_Reference_Carcass2">
+      <End Role="rebar" EntitySet="rebar" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_Carcass3" Association="Self.FK_Reference_Carcass3">
+      <End Role="rebar" EntitySet="rebar" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_Chafer" Association="Self.FK_Reference_Chafer">
+      <End Role="rebar" EntitySet="rebar" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_46" Association="Self.FK_Reference_46">
+      <End Role="rim" EntitySet="rim" />
+      <End Role="tire" EntitySet="tire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_61" Association="Self.FK_Reference_61">
+      <End Role="rim" EntitySet="rim" />
+      <End Role="t_condition" EntitySet="t_condition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_100" Association="Self.FK_Reference_100">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_101" Association="Self.FK_Reference_101">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_102" Association="Self.FK_Reference_102">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_103" Association="Self.FK_Reference_103">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_16" Association="Self.FK_Reference_16">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_21" Association="Self.FK_Reference_21">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_22" Association="Self.FK_Reference_22">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_23" Association="Self.FK_Reference_23">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_96" Association="Self.FK_Reference_96">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_97" Association="Self.FK_Reference_97">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_98" Association="Self.FK_Reference_98">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_99" Association="Self.FK_Reference_99">
+      <End Role="rubberproperty" EntitySet="rubberproperty" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_85" Association="Self.FK_Reference_85">
+      <End Role="rubberstraindma" EntitySet="rubberstraindma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_87" Association="Self.FK_Reference_87">
+      <End Role="rubberstraindma" EntitySet="rubberstraindma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_89" Association="Self.FK_Reference_89">
+      <End Role="rubberstraindma" EntitySet="rubberstraindma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_91" Association="Self.FK_Reference_91">
+      <End Role="rubberstraindma" EntitySet="rubberstraindma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_93" Association="Self.FK_Reference_93">
+      <End Role="rubberstraindma" EntitySet="rubberstraindma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_95" Association="Self.FK_Reference_95">
+      <End Role="rubberstraindma" EntitySet="rubberstraindma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_84" Association="Self.FK_Reference_84">
+      <End Role="rubbertempdma" EntitySet="rubbertempdma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_86" Association="Self.FK_Reference_86">
+      <End Role="rubbertempdma" EntitySet="rubbertempdma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_88" Association="Self.FK_Reference_88">
+      <End Role="rubbertempdma" EntitySet="rubbertempdma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_90" Association="Self.FK_Reference_90">
+      <End Role="rubbertempdma" EntitySet="rubbertempdma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_92" Association="Self.FK_Reference_92">
+      <End Role="rubbertempdma" EntitySet="rubbertempdma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_94" Association="Self.FK_Reference_94">
+      <End Role="rubbertempdma" EntitySet="rubbertempdma" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_66" Association="Self.FK_Reference_66">
+      <End Role="sideplate" EntitySet="sideplate" />
+      <End Role="tire" EntitySet="tire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_109" Association="Self.FK_Reference_109">
+      <End Role="tbrsectiondimension" EntitySet="tbrsectiondimension" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_64" Association="Self.FK_Reference_64">
+      <End Role="structure" EntitySet="structure" />
+      <End Role="tire" EntitySet="tire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_67" Association="Self.FK_Reference_67">
+      <End Role="tbrsectiondimension" EntitySet="tbrsectiondimension" />
+      <End Role="structure" EntitySet="structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_107" Association="Self.FK_Reference_107">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_adhesiveforce" EntitySet="t_adhesiveforce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_108" Association="Self.FK_Reference_108">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_adhesiveforce" EntitySet="t_adhesiveforce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_49" Association="Self.FK_Reference_49">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_airimpermeability" EntitySet="t_airimpermeability" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_56" Association="Self.FK_Reference_56">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_airimpermeability" EntitySet="t_airimpermeability" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_68" Association="Self.FK_Reference_68">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_beadforce" EntitySet="t_beadforce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_69" Association="Self.FK_Reference_69">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_beadforce" EntitySet="t_beadforce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_106" Association="Self.FK_Reference_106">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_112" Association="Self.FK_Reference_112">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_staticload" EntitySet="t_staticload" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_40" Association="Self.FK_Reference_40">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_42" Association="Self.FK_Reference_42">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_peripheraldimensions" EntitySet="t_peripheraldimensions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_43" Association="Self.FK_Reference_43">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_explode" EntitySet="t_explode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_44" Association="Self.FK_Reference_44">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_scanprofile" EntitySet="t_scanprofile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_45" Association="Self.FK_Reference_45">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_strength" EntitySet="t_strength" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_47" Association="Self.FK_Reference_47">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_contactground" EntitySet="t_contactground" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_54" Association="Self.FK_Reference_54">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_unseat" EntitySet="t_unseat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_55" Association="Self.FK_Reference_55">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_staticstiffness" EntitySet="t_staticstiffness" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_57" Association="Self.FK_Reference_57">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_positionforce" EntitySet="t_positionforce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_58" Association="Self.FK_Reference_58">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_electricalimpedance" EntitySet="t_electricalimpedance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_59" Association="Self.FK_Reference_59">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_endurance" EntitySet="t_endurance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_60" Association="Self.FK_Reference_60">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_rollingresistance" EntitySet="t_rollingresistance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_77" Association="Self.FK_Reference_77">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_cp" EntitySet="t_cp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_78" Association="Self.FK_Reference_78">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_saf" EntitySet="t_saf" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_79" Association="Self.FK_Reference_79">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_ct" EntitySet="t_ct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_80" Association="Self.FK_Reference_80">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_swp" EntitySet="t_swp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_81" Association="Self.FK_Reference_81">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_rpt" EntitySet="t_rpt" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_82" Association="Self.FK_Reference_82">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_relax" EntitySet="t_relax" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_83" Association="Self.FK_Reference_83">
+      <End Role="t_condition" EntitySet="t_condition" />
+      <End Role="t_drs" EntitySet="t_drs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_39" Association="Self.FK_Reference_39">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_contactground" EntitySet="t_contactground" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_70" Association="Self.FK_Reference_70">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_cp" EntitySet="t_cp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_72" Association="Self.FK_Reference_72">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_ct" EntitySet="t_ct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_104" Association="Self.FK_Reference_104">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_dma" EntitySet="t_dma" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_76" Association="Self.FK_Reference_76">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_drs" EntitySet="t_drs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_51" Association="Self.FK_Reference_51">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_electricalimpedance" EntitySet="t_electricalimpedance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_52" Association="Self.FK_Reference_52">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_endurance" EntitySet="t_endurance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_37" Association="Self.FK_Reference_37">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_explode" EntitySet="t_explode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_35" Association="Self.FK_Reference_35">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_peripheraldimensions" EntitySet="t_peripheraldimensions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_34" Association="Self.FK_Reference_34">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_physicalproperty" EntitySet="t_physicalproperty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_50" Association="Self.FK_Reference_50">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_positionforce" EntitySet="t_positionforce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_75" Association="Self.FK_Reference_75">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_relax" EntitySet="t_relax" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_53" Association="Self.FK_Reference_53">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_rollingresistance" EntitySet="t_rollingresistance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_74" Association="Self.FK_Reference_74">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_rpt" EntitySet="t_rpt" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_71" Association="Self.FK_Reference_71">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_saf" EntitySet="t_saf" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_36" Association="Self.FK_Reference_36">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_scanprofile" EntitySet="t_scanprofile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_105" Association="Self.FK_Reference_105">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_staticload" EntitySet="t_staticload" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_48" Association="Self.FK_Reference_48">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_staticstiffness" EntitySet="t_staticstiffness" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_38" Association="Self.FK_Reference_38">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_strength" EntitySet="t_strength" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_73" Association="Self.FK_Reference_73">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_swp" EntitySet="t_swp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reference_41" Association="Self.FK_Reference_41">
+      <End Role="tire" EntitySet="tire" />
+      <End Role="t_unseat" EntitySet="t_unseat" />
+    </AssociationSet>
+    <EntitySet Name="user" EntityType="ttdbModel.user" />
+    <EntitySet Name="vw_tire_amount" EntityType="ttdbModel.vw_tire_amount" />
+  </EntityContainer>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="UID" />
+    </Key>
+    <Property Name="UID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPosition" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UDepartment" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UPassword" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="URole" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_tire_amount">
+    <Key>
+      <PropertyRef Name="PurchasePlace" />
+    </Key>
+    <Property Name="PurchasePlace" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="amount" Type="Int64" Nullable="false" />
+  </EntityType>
+</Schema>

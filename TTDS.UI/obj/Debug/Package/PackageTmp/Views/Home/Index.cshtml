@@ -1,0 +1,1051 @@
+﻿@using TTDS.Model
+@model List<TTDS.Model.tire>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>*@
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="carousel-caption"></div>
+            <img src="~/Images/forum/anto.jpg" alt="First Product" style="margin:0 auto"/>
+        </div>
+        <div class="item">
+            <div class="carousel-caption"></div>
+            <img src="~/Images/forum/curve.jpg" alt="Sencond Product" style="margin:0 auto"/>
+        </div>
+        <div class="item">
+            <div class="carousel-caption"></div>
+            <img src="~/Images/forum/data.jpg" alt="Third Product" style="margin:0 auto"/>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="row">
+    <h2>
+        典型案例展示
+    </h2>
+    <div class="col-md-4">
+        <img src="~/Images/products/OP1.png" />
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <img src="~/Images/products/OP2.png" />
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <img src="~/Images/products/OP3.png" />
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+    </div>
+</div>
+<div id="mapDist" style="height:800px;"></div>
+
+<script src="~/Scripts/echarts.min.js"></script>
+<script src="~/Scripts/map/js/china.js"></script>
+<script src="~/Scripts/map/js/world.js"></script>
+<script src="~/Scripts/bmap.js"></script>
+<script>
+    // 基于准备好的dom，初始化echarts图表
+    var myChart = echarts.init(document.getElementById('mapDist'));
+    var data = [
+        { name: 'Afghanistan', value: 2 },
+        { name: 'Angola', value: 2 },
+        { name: 'Albania', value: 2 },
+        { name: 'United Arab Emirates', value: 2 },
+        { name: 'Argentina', value: 2 },
+        { name: 'Armenia', value: 2 },
+        { name: 'French Southern and Antarctic Lands', value: 2 },
+        { name: 'Australia', value: 2 },
+        { name: 'Austria', value: 2 },
+        { name: 'Azerbaijan', value: 2 },
+        { name: 'Burundi', value: 2 },
+        { name: 'Belgium', value: 2 },
+        { name: 'Benin', value: 2 },
+        { name: 'Burkina Faso', value: 2 },
+        { name: 'Bangladesh', value: 2 },
+        { name: 'Bulgaria', value: 2 },
+        { name: 'The Bahamas', value: 2 },
+        { name: 'Bosnia and Herzegovina', value: 2 },
+        { name: 'Belarus', value: 2 },
+        { name: 'Belize', value: 2 },
+        { name: 'Bermuda', value: 2 },
+        { name: 'Bolivia', value: 2 },
+        { name: 'Brazil', value: 2 },
+        { name: 'Brunei', value: 2 },
+        { name: 'Bhutan', value: 2 },
+        { name: 'Botswana', value: 2 },
+        { name: 'Central African Republic', value:2 },
+        { name: 'Canada', value: 2 },
+        { name: 'Switzerland', value: 2 },
+        { name: 'Chile', value: 2 },
+        { name: 'China', value: 6 },
+        //{ name: 'Ivory Coast', value: 60508.978 },
+        //{ name: 'Cameroon', value: 20624.343 },
+        //{ name: 'Democratic Republic of the Congo', value: 62191.161 },
+        //{ name: 'Republic of the Congo', value: 3573.024 },
+        //{ name: 'Colombia', value: 46444.798 },
+        //{ name: 'Costa Rica', value: 4669.685 },
+        //{ name: 'Cuba', value: 11281.768 },
+        //{ name: 'Northern Cyprus', value: 1.468 },
+        //{ name: 'Cyprus', value: 1103.685 },
+        //{ name: 'Czech Republic', value: 10553.701 },
+        //{ name: 'Germany', value: 83017.404 },
+        //{ name: 'Djibouti', value: 834.036 },
+        //{ name: 'Denmark', value: 5550.959 },
+        //{ name: 'Dominican Republic', value: 10016.797 },
+        //{ name: 'Algeria', value: 37062.82 },
+        //{ name: 'Ecuador', value: 15001.072 },
+        //{ name: 'Egypt', value: 78075.705 },
+        //{ name: 'Eritrea', value: 5741.159 },
+        //{ name: 'Spain', value: 46182.038 },
+        //{ name: 'Estonia', value: 1298.533 },
+        //{ name: 'Ethiopia', value: 87095.281 },
+        //{ name: 'Finland', value: 5367.693 },
+        //{ name: 'Fiji', value: 860.559 },
+        //{ name: 'Falkland Islands', value: 49.581 },
+        //{ name: 'France', value: 63230.866 },
+        //{ name: 'Gabon', value: 1556.222 },
+        //{ name: 'United Kingdom', value: 62066.35 },
+        //{ name: 'Georgia', value: 4388.674 },
+        //{ name: 'Ghana', value: 24262.901 },
+        //{ name: 'Guinea', value: 10876.033 },
+        //{ name: 'Gambia', value: 1680.64 },
+        //{ name: 'Guinea Bissau', value: 10876.033 },
+        //{ name: 'Equatorial Guinea', value: 696.167 },
+        //{ name: 'Greece', value: 11109.999 },
+        //{ name: 'Greenland', value: 56.546 },
+        //{ name: 'Guatemala', value: 14341.576 },
+        //{ name: 'French Guiana', value: 231.169 },
+        //{ name: 'Guyana', value: 786.126 },
+        //{ name: 'Honduras', value: 7621.204 },
+        //{ name: 'Croatia', value: 4338.027 },
+        //{ name: 'Haiti', value: 9896.4 },
+        //{ name: 'Hungary', value: 10014.633 },
+        //{ name: 'Indonesia', value: 240676.485 },
+        //{ name: 'India', value: 1205624.648 },
+        //{ name: 'Ireland', value: 4467.561 },
+        //{ name: 'Iran', value: 240676.485 },
+        //{ name: 'Iraq', value: 30962.38 },
+        //{ name: 'Iceland', value: 318.042 },
+        //{ name: 'Israel', value: 7420.368 },
+        //{ name: 'Italy', value: 60508.978 },
+        //{ name: 'Jamaica', value: 2741.485 },
+        //{ name: 'Jordan', value: 6454.554 },
+        //{ name: 'Japan', value: 127352.833 },
+        //{ name: 'Kazakhstan', value: 15921.127 },
+        //{ name: 'Kenya', value: 40909.194 },
+        //{ name: 'Kyrgyzstan', value: 5334.223 },
+        //{ name: 'Cambodia', value: 14364.931 },
+        //{ name: 'South Korea', value: 51452.352 },
+        //{ name: 'Kosovo', value: 97.743 },
+        //{ name: 'Kuwait', value: 2991.58 },
+        //{ name: 'Laos', value: 6395.713 },
+        //{ name: 'Lebanon', value: 4341.092 },
+        //{ name: 'Liberia', value: 3957.99 },
+        //{ name: 'Libya', value: 6040.612 },
+        //{ name: 'Sri Lanka', value: 20758.779 },
+        //{ name: 'Lesotho', value: 2008.921 },
+        //{ name: 'Lithuania', value: 3068.457 },
+        //{ name: 'Luxembourg', value: 507.885 },
+        //{ name: 'Latvia', value: 2090.519 },
+        //{ name: 'Morocco', value: 31642.36 },
+        //{ name: 'Moldova', value: 103.619 },
+        //{ name: 'Madagascar', value: 21079.532 },
+        //{ name: 'Mexico', value: 117886.404 },
+        //{ name: 'Macedonia', value: 507.885 },
+        //{ name: 'Mali', value: 13985.961 },
+        //{ name: 'Myanmar', value: 51931.231 },
+        //{ name: 'Montenegro', value: 620.078 },
+        //{ name: 'Mongolia', value: 2712.738 },
+        //{ name: 'Mozambique', value: 23967.265 },
+        //{ name: 'Mauritania', value: 3609.42 },
+        //{ name: 'Malawi', value: 15013.694 },
+        //{ name: 'Malaysia', value: 28275.835 },
+        //{ name: 'Namibia', value: 2178.967 },
+        //{ name: 'New Caledonia', value: 246.379 },
+        //{ name: 'Niger', value: 15893.746 },
+        //{ name: 'Nigeria', value: 159707.78 },
+        //{ name: 'Nicaragua', value: 5822.209 },
+        //{ name: 'Netherlands', value: 16615.243 },
+        //{ name: 'Norway', value: 4891.251 },
+        //{ name: 'Nepal', value: 26846.016 },
+        //{ name: 'New Zealand', value: 4368.136 },
+        //{ name: 'Oman', value: 2802.768 },
+        //{ name: 'Pakistan', value: 173149.306 },
+        //{ name: 'Panama', value: 3678.128 },
+        //{ name: 'Peru', value: 29262.83 },
+        //{ name: 'Philippines', value: 93444.322 },
+        //{ name: 'Papua New Guinea', value: 6858.945 },
+        //{ name: 'Poland', value: 38198.754 },
+        //{ name: 'Puerto Rico', value: 3709.671 },
+        //{ name: 'North Korea', value: 1.468 },
+        //{ name: 'Portugal', value: 10589.792 },
+        //{ name: 'Paraguay', value: 6459.721 },
+        //{ name: 'Qatar', value: 1749.713 },
+        //{ name: 'Romania', value: 21861.476 },
+        //{ name: 'Russia', value: 21861.476 },
+        //{ name: 'Rwanda', value: 10836.732 },
+        //{ name: 'Western Sahara', value: 514.648 },
+        //{ name: 'Saudi Arabia', value: 27258.387 },
+        //{ name: 'Sudan', value: 35652.002 },
+        //{ name: 'South Sudan', value: 9940.929 },
+        //{ name: 'Senegal', value: 12950.564 },
+        //{ name: 'Solomon Islands', value: 526.447 },
+        //{ name: 'Sierra Leone', value: 5751.976 },
+        //{ name: 'El Salvador', value: 6218.195 },
+        //{ name: 'Somaliland', value: 9636.173 },
+        //{ name: 'Somalia', value: 9636.173 },
+        //{ name: 'Republic of Serbia', value: 3573.024 },
+        //{ name: 'Suriname', value: 524.96 },
+        //{ name: 'Slovakia', value: 5433.437 },
+        //{ name: 'Slovenia', value: 2054.232 },
+        //{ name: 'Sweden', value: 9382.297 },
+        //{ name: 'Swaziland', value: 1193.148 },
+        //{ name: 'Syria', value: 7830.534 },
+        //{ name: 'Chad', value: 11720.781 },
+        //{ name: 'Togo', value: 6306.014 },
+        //{ name: 'Thailand', value: 66402.316 },
+        //{ name: 'Tajikistan', value: 7627.326 },
+        //{ name: 'Turkmenistan', value: 5041.995 },
+        //{ name: 'East Timor', value: 10016.797 },
+        //{ name: 'Trinidad and Tobago', value: 1328.095 },
+        //{ name: 'Tunisia', value: 10631.83 },
+        //{ name: 'Turkey', value: 72137.546 },
+        //{ name: 'United Republic of Tanzania', value: 44973.33 },
+        //{ name: 'Uganda', value: 33987.213 },
+        //{ name: 'Ukraine', value: 46050.22 },
+        //{ name: 'Uruguay', value: 3371.982 },
+        //{ name: 'United States', value: 312247.116 },
+        //{ name: 'Uzbekistan', value: 27769.27 },
+        //{ name: 'Venezuela', value: 236.299 },
+        //{ name: 'Vietnam', value: 89047.397 },
+        //{ name: 'Vanuatu', value: 236.299 },
+        //{ name: 'West Bank', value: 13.565 },
+        //{ name: 'Yemen', value: 22763.008 },
+        //{ name: 'South Africa', value: 51452.352 },
+        //{ name: 'Zambia', value: 13216.985 },
+        //{ name: 'Zimbabwe', value: 13076.978 }
+    ]
+    
+    var geoCoordMap = {};
+
+    var toolTipData = [
+        { name: 'Afghanistan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Angola', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Albania', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'United Arab Emirates', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Argentina', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Armenia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'French Southern and Antarctic Lands', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Australia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Austria', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Azerbaijan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Burundi', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Belgium', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Benin', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Burkina Faso', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bangladesh', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bulgaria', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'The Bahamas', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bosnia and Herzegovina', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Belarus', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Belize', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bermuda', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bolivia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Brazil', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Brunei', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bhutan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Botswana', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Central African Republic', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Canada', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Switzerland', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Chile', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'China', value: [{ name: "PCR", value: 3 }, { name: "TBR", value: 3 }] },
+        //{ name: 'Ivory Coast', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Cameroon', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Democratic Republic of the Congo', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Republic of the Congo', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Colombia', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Costa Rica', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Cuba', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Northern Cyprus', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Cyprus', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Czech Republic', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Germany', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Djibouti', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Denmark', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Dominican Republic', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Algeria', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Ecuador', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Egypt', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Eritrea', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Spain', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Estonia', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Ethiopia', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Finland', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Fiji', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Falkland Islands', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'France', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Gabon', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'United Kingdom', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Georgia', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Ghana', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Guinea', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Gambia', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Guinea Bissau', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Equatorial Guinea', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Greece', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Greenland', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Guatemala', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'French Guiana', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Guyana', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Honduras', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Croatia', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Haiti', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Hungary', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Indonesia', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'India', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Ireland', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Iran', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Iraq', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Iceland', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Israel', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Italy', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Jamaica', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Jordan', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Japan', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Kazakhstan', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Kenya', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Kyrgyzstan', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Cambodia', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'South Korea', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Kosovo', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Kuwait', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Laos', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Lebanon', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Liberia', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Libya', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Sri Lanka', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Lesotho', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Lithuania', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Luxembourg', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Latvia', value: [{ name: "PCR", value: 10000 }, { name: "TBR", value: 10000 }] },
+        //{ name: 'Morocco', value: 31642.36 },
+        //{ name: 'Moldova', value: 103.619 },
+        //{ name: 'Madagascar', value: 21079.532 },
+        //{ name: 'Mexico', value: 117886.404 },
+        //{ name: 'Macedonia', value: 507.885 },
+        //{ name: 'Mali', value: 13985.961 },
+        //{ name: 'Myanmar', value: 51931.231 },
+        //{ name: 'Montenegro', value: 620.078 },
+        //{ name: 'Mongolia', value: 2712.738 },
+        //{ name: 'Mozambique', value: 23967.265 },
+        //{ name: 'Mauritania', value: 3609.42 },
+        //{ name: 'Malawi', value: 15013.694 },
+        //{ name: 'Malaysia', value: 28275.835 },
+        //{ name: 'Namibia', value: 2178.967 },
+        //{ name: 'New Caledonia', value: 246.379 },
+        //{ name: 'Niger', value: 15893.746 },
+        //{ name: 'Nigeria', value: 159707.78 },
+        //{ name: 'Nicaragua', value: 5822.209 },
+        //{ name: 'Netherlands', value: 16615.243 },
+        //{ name: 'Norway', value: 4891.251 },
+        //{ name: 'Nepal', value: 26846.016 },
+        //{ name: 'New Zealand', value: 4368.136 },
+        //{ name: 'Oman', value: 2802.768 },
+        //{ name: 'Pakistan', value: 173149.306 },
+        //{ name: 'Panama', value: 3678.128 },
+        //{ name: 'Peru', value: 29262.83 },
+        //{ name: 'Philippines', value: 93444.322 },
+        //{ name: 'Papua New Guinea', value: 6858.945 },
+        //{ name: 'Poland', value: 38198.754 },
+        //{ name: 'Puerto Rico', value: 3709.671 },
+        //{ name: 'North Korea', value: 1.468 },
+        //{ name: 'Portugal', value: 10589.792 },
+        //{ name: 'Paraguay', value: 6459.721 },
+        //{ name: 'Qatar', value: 1749.713 },
+        //{ name: 'Romania', value: 21861.476 },
+        //{ name: 'Russia', value: 21861.476 },
+        //{ name: 'Rwanda', value: 10836.732 },
+        //{ name: 'Western Sahara', value: 514.648 },
+        //{ name: 'Saudi Arabia', value: 27258.387 },
+        //{ name: 'Sudan', value: 35652.002 },
+        //{ name: 'South Sudan', value: 9940.929 },
+        //{ name: 'Senegal', value: 12950.564 },
+        //{ name: 'Solomon Islands', value: 526.447 },
+        //{ name: 'Sierra Leone', value: 5751.976 },
+        //{ name: 'El Salvador', value: 6218.195 },
+        //{ name: 'Somaliland', value: 9636.173 },
+        //{ name: 'Somalia', value: 9636.173 },
+        //{ name: 'Republic of Serbia', value: 3573.024 },
+        //{ name: 'Suriname', value: 524.96 },
+        //{ name: 'Slovakia', value: 5433.437 },
+        //{ name: 'Slovenia', value: 2054.232 },
+        //{ name: 'Sweden', value: 9382.297 },
+        //{ name: 'Swaziland', value: 1193.148 },
+        //{ name: 'Syria', value: 7830.534 },
+        //{ name: 'Chad', value: 11720.781 },
+        //{ name: 'Togo', value: 6306.014 },
+        //{ name: 'Thailand', value: 66402.316 },
+        //{ name: 'Tajikistan', value: 7627.326 },
+        //{ name: 'Turkmenistan', value: 5041.995 },
+        //{ name: 'East Timor', value: 10016.797 },
+        //{ name: 'Trinidad and Tobago', value: 1328.095 },
+        //{ name: 'Tunisia', value: 10631.83 },
+        //{ name: 'Turkey', value: 72137.546 },
+        //{ name: 'United Republic of Tanzania', value: 44973.33 },
+        //{ name: 'Uganda', value: 33987.213 },
+        //{ name: 'Ukraine', value: 46050.22 },
+        //{ name: 'Uruguay', value: 3371.982 },
+        //{ name: 'United States', value: 312247.116 },
+        //{ name: 'Uzbekistan', value: 27769.27 },
+        //{ name: 'Venezuela', value: 236.299 },
+        //{ name: 'Vietnam', value: 89047.397 },
+        //{ name: 'Vanuatu', value: 236.299 },
+        //{ name: 'West Bank', value: 13.565 },
+        //{ name: 'Yemen', value: 22763.008 },
+        //{ name: 'South Africa', value: 51452.352 },
+        //{ name: 'Zambia', value: 13216.985 },
+        //{ name: 'Zimbabwe', value: 13076.978 }
+    ]
+
+    /*获取地图数据*/
+    myChart.showLoading();
+    var mapFeatures = echarts.getMap('world').geoJson.features;
+    myChart.hideLoading();
+    mapFeatures.forEach(function (v) {
+        // 地区名称
+        var name = v.properties.name;
+        // 地区经纬度
+        geoCoordMap[name] = v.properties.cp;
+
+    });
+
+    var convertData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        return res;
+    };
+
+    var max = 480,
+        min = 9; // todo 
+    var maxSize4Pin = 100,
+        minSize4Pin = 20;
+
+    var option = {
+        
+        title: {
+            text: '系统中测试轮胎分布情况',
+            left: 'center',
+            top: 'top',
+            textStyle: {
+                fontSize:30,
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params) {
+                //var value = (params.value + '').split('.');
+                //value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,')
+                //    + '.' + value[1];
+                //return params.seriesName + '<br/>' + params.name + ' : ' + value;
+                if (typeof (params.value)[2] == "undefined") {
+                    var toolTiphtml = ''
+                    for (var i = 0; i < toolTipData.length; i++) {
+                        if (params.name == toolTipData[i].name) {
+                            toolTiphtml += toolTipData[i].name + ':<br>'
+                            for (var j = 0; j < toolTipData[i].value.length; j++) {
+                                toolTiphtml += toolTipData[i].value[j].name + ':' + toolTipData[i].value[j].value + "<br>"
+                            }
+                        }
+                    }
+                    console.log(toolTiphtml)
+                    // console.log(convertData(data))
+                    return toolTiphtml;
+                } else {
+                    var toolTiphtml = ''
+                    for (var i = 0; i < toolTipData.length; i++) {
+                        if (params.name == toolTipData[i].name) {
+                            toolTiphtml += toolTipData[i].name + ':<br>'
+                            for (var j = 0; j < toolTipData[i].value.length; j++) {
+                                toolTiphtml += toolTipData[i].value[j].name + ':' + toolTipData[i].value[j].value + "<br>"
+                            }
+                        }
+                    }
+                    //console.log(toolTiphtml)
+                    // console.log(convertData(data))
+                    return toolTiphtml;
+                }
+            }
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                dataView: { readOnly: false },
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        //backgroundColor: '#E4F1F1',
+        visualMap: {
+            show:true,
+            //type: 'continuous', // 连续型
+            min: 0,       		// 值域最小值，必须参数
+            max: 20,			// 值域最大值，必须参数
+            calculable: true,	// 是否启用值域漫游
+            inRange: {
+                color: ['#50a3ba', '#eac736', '#d94e5d']
+                // 指定数值从低到高时的颜色变化
+            },
+            textStyle: {
+                color: '#000'	// 值域控件的文本颜色
+            }
+        },
+        geo: {
+            show: true,
+            map: 'world',
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: false,
+                }
+            },
+            roam: true,
+            //silent: true,
+            itemStyle: {
+                //normal: {
+                //    areaColor: '#323c48',
+                //    borderColor: '#111'
+                //},
+                //emphasis: {
+                //    areaColor:'#2a333d'
+                //}
+                
+            }
+        },
+        series: [
+            {
+                //name: '轮胎数量',
+                //type: 'map',
+                //map: 'world',
+                //roam: true,
+                //itemStyle: {
+                //    emphasis: { label: { show: false } }
+                //},
+                ////coordinateSystem: 'geo',
+                //data: data,
+                name: '散点',
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                data: convertData(data),
+                symbolSize: function (val) {
+                    return val[2] / 10;
+                },
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: true
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#05C3F9'
+                    }
+                }
+            },
+            {
+                type: 'map',
+                map: 'world',
+                geoIndex: 0,
+                aspectScale: 0.75, //长宽比
+                showLegendSymbol: false, // 存在legend时显示
+                label: {
+                    normal: {
+                        show: true
+                    },
+                    emphasis: {
+                        show: false,
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    }
+                },
+                roam: true,
+                itemStyle: {
+                    normal: {
+                        areaColor: '#031525',
+                        borderColor: '#3B5077',
+                    },
+                    emphasis: {
+                        areaColor: '#2B91B7'
+                    }
+                },
+                animation: false,
+                data: data
+            },
+            {
+                name: '点',
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                symbol: 'pin', //气泡
+                symbolSize: function (val) {
+                    var a = (maxSize4Pin - minSize4Pin) / (max - min);
+                    var b = minSize4Pin - a * min;
+                    b = maxSize4Pin - a * max;
+                    return a * val[2] + b;
+                },
+                label: {
+                    normal: {
+                        show: true,
+                        textStyle: {
+                            color: '#fff',
+                            fontSize: 9,
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#F62157', //标志颜色
+                    }
+                },
+                zlevel: 6,
+                data: convertData(data),
+            },
+            {
+                name: 'Top 5',
+                type: 'effectScatter',
+                coordinateSystem: 'geo',
+                data: convertData(data.sort(function (a, b) {
+                    return b.value - a.value;
+                }).slice(0, 5)),
+                symbolSize: function (val) {
+                    return val[2] / 10;
+                },
+                showEffectOn: 'render',
+                rippleEffect: {
+                    brushType: 'stroke'
+                },
+                hoverAnimation: true,
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: 'yellow',
+                        shadowBlur: 10,
+                        shadowColor: 'yellow'
+                    }
+                },
+                zlevel: 1
+            }]
+    };
+    
+    // 为echarts对象加载数据
+    myChart.setOption(option);
+
+</script>
+<script>
+    var myChart = echarts.init(document.getElementById('mapDist1'));
+    // 秋雁南飞：
+    // 此版本通过设置geoindex && seriesIndex: [1] 属性来实现geo和map共存，来达到hover散点和区域显示tooltip的效果
+    // 默认情况下，map series 会自己生成内部专用的 geo 组件。但是也可以用这个 geoIndex 指定一个 geo 组件。这样的话，map 和 其他 series（例如散点图）就可以共享一个 geo 组件了。并且，geo 组件的颜色也可以被这个 map series 控制，从而用 visualMap 来更改。
+    // 当设定了 geoIndex 后，series-map.map 属性，以及 series-map.itemStyle 等样式配置不再起作用，而是采用 geo 中的相应属性。
+    // http://echarts.baidu.com/option.html#series-map.geoIndex
+    // 并且加了pin气泡图标以示数值大小
+    // // 全局变量区:参考江西绿色金融（谢谢：本来想用闭包实现接口数据调用，没时间了）
+
+    // 本图作者：参考秋雁南飞的《投票统计》一图，网址：http://gallery.echartsjs.com/editor.html?c=xrJU-aE-LG
+    var name_title = "中国人民大学2017年各省市计划录取人数"
+    var subname = '数据爬取自千栀网\n，\n上海、浙江无文理科录取人数'
+    var nameColor = " rgb(55, 75, 113)"
+    var name_fontFamily = '等线'
+    var subname_fontSize = 15
+    var name_fontSize = 18
+    var mapName = 'china'
+    var data = [
+        { name: "北京", value: 177 },
+        { name: "天津", value: 42 },
+        { name: "河北", value: 102 },
+        { name: "山西", value: 81 },
+        { name: "内蒙古", value: 47 },
+        { name: "辽宁", value: 67 },
+        { name: "吉林", value: 82 },
+        { name: "黑龙江", value: 66 },
+        { name: "上海", value: 24 },
+        { name: "江苏", value: 92 },
+        { name: "浙江", value: 114 },
+        { name: "安徽", value: 109 },
+        { name: "福建", value: 116 },
+        { name: "江西", value: 91 },
+        { name: "山东", value: 119 },
+        { name: "河南", value: 137 },
+        { name: "湖北", value: 116 },
+        { name: "湖南", value: 114 },
+        { name: "重庆", value: 91 },
+        { name: "四川", value: 125 },
+        { name: "贵州", value: 62 },
+        { name: "云南", value: 83 },
+        { name: "西藏", value: 9 },
+        { name: "陕西", value: 80 },
+        { name: "甘肃", value: 56 },
+        { name: "青海", value: 10 },
+        { name: "宁夏", value: 18 },
+        { name: "新疆", value: 67 },
+        { name: "广东", value: 123 },
+        { name: "广西", value: 59 },
+        { name: "海南", value: 14 },
+    ];
+
+    var geoCoordMap = {};
+    var toolTipData = [
+        { name: "北京", value: [{ name: "文科", value: 95 }, { name: "理科", value: 82 }] },
+        { name: "天津", value: [{ name: "文科", value: 22 }, { name: "理科", value: 20 }] },
+        { name: "河北", value: [{ name: "文科", value: 60 }, { name: "理科", value: 42 }] },
+        { name: "山西", value: [{ name: "文科", value: 40 }, { name: "理科", value: 41 }] },
+        { name: "内蒙古", value: [{ name: "文科", value: 23 }, { name: "理科", value: 24 }] },
+        { name: "辽宁", value: [{ name: "文科", value: 39 }, { name: "理科", value: 28 }] },
+        { name: "吉林", value: [{ name: "文科", value: 41 }, { name: "理科", value: 41 }] },
+        { name: "黑龙江", value: [{ name: "文科", value: 35 }, { name: "理科", value: 31 }] },
+        { name: "上海", value: [{ name: "文科", value: 12 }, { name: "理科", value: 12 }] },
+        { name: "江苏", value: [{ name: "文科", value: 47 }, { name: "理科", value: 45 }] },
+        { name: "浙江", value: [{ name: "文科", value: 57 }, { name: "理科", value: 57 }] },
+        { name: "安徽", value: [{ name: "文科", value: 57 }, { name: "理科", value: 52 }] },
+        { name: "福建", value: [{ name: "文科", value: 59 }, { name: "理科", value: 57 }] },
+        { name: "江西", value: [{ name: "文科", value: 49 }, { name: "理科", value: 42 }] },
+        { name: "山东", value: [{ name: "文科", value: 67 }, { name: "理科", value: 52 }] },
+        { name: "河南", value: [{ name: "文科", value: 69 }, { name: "理科", value: 68 }] },
+        { name: "湖北", value: [{ name: "文科", value: 60 }, { name: "理科", value: 56 }] },
+        { name: "湖南", value: [{ name: "文科", value: 62 }, { name: "理科", value: 52 }] },
+        { name: "重庆", value: [{ name: "文科", value: 47 }, { name: "理科", value: 44 }] },
+        { name: "四川", value: [{ name: "文科", value: 65 }, { name: "理科", value: 60 }] },
+        { name: "贵州", value: [{ name: "文科", value: 32 }, { name: "理科", value: 30 }] },
+        { name: "云南", value: [{ name: "文科", value: 42 }, { name: "理科", value: 41 }] },
+        { name: "西藏", value: [{ name: "文科", value: 5 }, { name: "理科", value: 4 }] },
+        { name: "陕西", value: [{ name: "文科", value: 38 }, { name: "理科", value: 42 }] },
+        { name: "甘肃", value: [{ name: "文科", value: 28 }, { name: "理科", value: 28 }] },
+        { name: "青海", value: [{ name: "文科", value: 5 }, { name: "理科", value: 5 }] },
+        { name: "宁夏", value: [{ name: "文科", value: 10 }, { name: "理科", value: 8 }] },
+        { name: "新疆", value: [{ name: "文科", value: 36 }, { name: "理科", value: 31 }] },
+        { name: "广东", value: [{ name: "文科", value: 63 }, { name: "理科", value: 60 }] },
+        { name: "广西", value: [{ name: "文科", value: 29 }, { name: "理科", value: 30 }] },
+        { name: "海南", value: [{ name: "文科", value: 8 }, { name: "理科", value: 6 }] },
+    ];
+
+    /*获取地图数据*/
+    myChart.showLoading();
+    var mapFeatures = echarts.getMap(mapName).geoJson.features;
+    myChart.hideLoading();
+    mapFeatures.forEach(function (v) {
+        // 地区名称
+        var name = v.properties.name;
+        // 地区经纬度
+        geoCoordMap[name] = v.properties.cp;
+
+    });
+
+    // console.log("============geoCoordMap===================")
+    // console.log(geoCoordMap)
+    // console.log("================data======================")
+    console.log(data)
+    console.log(toolTipData)
+    var max = 480,
+        min = 9; // todo 
+    var maxSize4Pin = 100,
+        minSize4Pin = 20;
+
+    var convertData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value),
+                });
+            }
+        }
+        return res;
+    };
+    option = {
+        title: {
+            text: name_title,
+            subtext: subname,
+            x: 'center',
+            textStyle: {
+                color: nameColor,
+                fontFamily: name_fontFamily,
+                fontSize: name_fontSize
+            },
+            subtextStyle: {
+                fontSize: subname_fontSize,
+                fontFamily: name_fontFamily
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params) {
+                if (typeof (params.value)[2] == "undefined") {
+                    var toolTiphtml = ''
+                    for (var i = 0; i < toolTipData.length; i++) {
+                        if (params.name == toolTipData[i].name) {
+                            toolTiphtml += toolTipData[i].name + ':<br>'
+                            for (var j = 0; j < toolTipData[i].value.length; j++) {
+                                toolTiphtml += toolTipData[i].value[j].name + ':' + toolTipData[i].value[j].value + "<br>"
+                            }
+                        }
+                    }
+                    console.log(toolTiphtml)
+                    // console.log(convertData(data))
+                    return toolTiphtml;
+                } else {
+                    var toolTiphtml = ''
+                    for (var i = 0; i < toolTipData.length; i++) {
+                        if (params.name == toolTipData[i].name) {
+                            toolTiphtml += toolTipData[i].name + ':<br>'
+                            for (var j = 0; j < toolTipData[i].value.length; j++) {
+                                toolTiphtml += toolTipData[i].value[j].name + ':' + toolTipData[i].value[j].value + "<br>"
+                            }
+                        }
+                    }
+                    //console.log(toolTiphtml)
+                    // console.log(convertData(data))
+                    return toolTiphtml;
+                }
+            }
+        },
+        // legend: {
+        //     orient: 'vertical',
+        //     y: 'bottom',
+        //     x: 'right',
+        //     data: ['credit_pm2.5'],
+        //     textStyle: {
+        //         color: '#fff'
+        //     }
+        // },
+        visualMap: {
+            show: true,
+            min: 0,
+            max: 200,
+            left: 'left',
+            top: 'bottom',
+            text: ['高', '低'], // 文本，默认为数值文本
+            calculable: true,
+            seriesIndex: [1],
+            inRange: {
+                // color: ['#3B5077', '#031525'] // 蓝黑
+                // color: ['#ffc0cb', '#800080'] // 红紫
+                // color: ['#3C3B3F', '#605C3C'] // 黑绿
+                // color: ['#0f0c29', '#302b63', '#24243e'] // 黑紫黑
+                // color: ['#23074d', '#cc5333'] // 紫红
+                color: ['#00467F', '#A5CC82'] // 蓝绿
+                // color: ['#1488CC', '#2B32B2'] // 浅蓝
+                // color: ['#00467F', '#A5CC82'] // 蓝绿
+                // color: ['#00467F', '#A5CC82'] // 蓝绿
+                // color: ['#00467F', '#A5CC82'] // 蓝绿
+                // color: ['#00467F', '#A5CC82'] // 蓝绿
+
+            }
+        },
+        /*工具按钮组*/
+        // toolbox: {
+        //     show: true,
+        //     orient: 'vertical',
+        //     left: 'right',
+        //     top: 'center',
+        //     feature: {
+        //         dataView: {
+        //             readOnly: false
+        //         },
+        //         restore: {},
+        //         saveAsImage: {}
+        //     }
+        // },
+        geo: {
+            show: true,
+            map: mapName,
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: false,
+                }
+            },
+            roam: true,
+            itemStyle: {
+                normal: {
+                    areaColor: '#031525',
+                    borderColor: '#3B5077',
+                },
+                emphasis: {
+                    areaColor: '#2B91B7',
+                }
+            }
+        },
+        series: [{
+            name: '散点',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            data: convertData(data),
+            symbolSize: function (val) {
+                return val[2] / 10;
+            },
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: true
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: '#05C3F9'
+                }
+            }
+        },
+        {
+            type: 'map',
+            map: mapName,
+            geoIndex: 0,
+            aspectScale: 0.75, //长宽比
+            showLegendSymbol: false, // 存在legend时显示
+            label: {
+                normal: {
+                    show: true
+                },
+                emphasis: {
+                    show: false,
+                    textStyle: {
+                        color: '#fff'
+                    }
+                }
+            },
+            roam: true,
+            itemStyle: {
+                normal: {
+                    areaColor: '#031525',
+                    borderColor: '#3B5077',
+                },
+                emphasis: {
+                    areaColor: '#2B91B7'
+                }
+            },
+            animation: false,
+            data: data
+        },
+        {
+            name: '点',
+            type: 'scatter',
+            coordinateSystem: 'geo',
+            symbol: 'pin', //气泡
+            symbolSize: function (val) {
+                var a = (maxSize4Pin - minSize4Pin) / (max - min);
+                var b = minSize4Pin - a * min;
+                b = maxSize4Pin - a * max;
+                return a * val[2] + b;
+            },
+            label: {
+                normal: {
+                    show: true,
+                    textStyle: {
+                        color: '#fff',
+                        fontSize: 9,
+                    }
+                }
+            },
+            //itemStyle: {
+            //    normal: {
+            //        color: '#F62157', //标志颜色
+            //    }
+            //},
+            zlevel: 6,
+            data: convertData(data),
+        },
+        {
+            name: 'Top 5',
+            type: 'effectScatter',
+            coordinateSystem: 'geo',
+            data: convertData(data.sort(function (a, b) {
+                return b.value - a.value;
+            }).slice(0, 5)),
+            symbolSize: function (val) {
+                return val[2] / 10;
+            },
+            showEffectOn: 'render',
+            rippleEffect: {
+                brushType: 'stroke'
+            },
+            hoverAnimation: true,
+            label: {
+                normal: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: true
+                }
+            },
+            itemStyle: {
+                normal: {
+                    color: 'yellow',
+                    shadowBlur: 10,
+                    shadowColor: 'yellow'
+                }
+            },
+            zlevel: 1
+        },
+
+        ]
+    };
+    myChart.setOption(option);
+</script>
+

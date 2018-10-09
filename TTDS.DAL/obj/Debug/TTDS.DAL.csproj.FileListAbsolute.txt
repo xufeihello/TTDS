@@ -1,0 +1,15 @@
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\bin\Debug\TTDS.DAL.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\bin\Debug\TTDS.DAL.pdb
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\bin\Debug\EntityFramework.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\bin\Debug\TTDS.Model.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\bin\Debug\TTDS.Model.pdb
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\bin\Debug\TTDS.Model.dll.config
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\bin\Debug\EntityFramework.xml
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\obj\Debug\TTDS.DAL.csprojAssemblyReference.cache
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\obj\Debug\TTDS.DAL.csproj.CoreCompileInputs.cache
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\obj\Debug\TTDS.DAL.csproj.CopyComplete
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\obj\Debug\TTDS.DAL.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\obj\Debug\TTDS.DAL.pdb
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.DAL\bin\Debug\MySql.Data.dll

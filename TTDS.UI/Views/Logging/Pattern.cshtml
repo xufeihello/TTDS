@@ -1,0 +1,141 @@
+﻿
+@{
+    Layout = null;
+}
+@using TTDS.Model
+@model List<TTDS.Model.tire>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Pattern</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="lg-content-pattern">
+        <div class="row" style="padding-left:15px;">
+            <div class="col-xs-6 bg-primary" style="width:390px;">
+                <h3 class="text-left">花纹分析</h3>
+            </div>
+            <div class="col-xs-6 text-right" style="padding:11px;background-color:lightgrey;">
+                <form id="frm-pattern-import" enctype="multipart/form-data" method="post">
+                    <span class="form-group">
+                        <label for="file-pattern" class="btn btn-warning">选择文件</label>
+                        <input id="file-pattern" name="file-pattern" type="file" style="display:none" onchange="return showPattern()" />
+                    </span>
+                </form>
+            </div>
+        </div>
+        <table class="table table-striped table-bordered table-hover table-condensed table-responsive text-right">
+            <colgroup>
+                <col style="width:60px;" />
+                <col style="width:120px;" />
+                <col style="width:90px;" />
+                <col style="width:140px;" />
+                <col style="width:120px;" />
+                <col style="width:80px;" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td colspan="2"><div class="text-right"><h5>轮胎唯一识别码：</h5></div></td>
+                    <td colspan="4">
+                        <select id="Select1" class="form-control">
+                            <option disabled selected style="display:none;">选择轮胎ID</option>
+                            @foreach (tire item in Model)
+                            {
+                                <option>@item.TireID</option>
+                            }
+                        </select>
+                    </td>
+                    @*<td><input id="Text1" class="lg-datetime form-control" type="text" placeholder="填写分析时间" /></td>
+                    <td class="text-center">
+                        <span class="form-group">
+                            <label for="File1" class="btn btn-warning">选择文件</label>
+                            <input id="File1" type="file" style="display:none" />
+                        </span>
+                    </td>*@
+                </tr>
+                <tr>
+                    <td class="text-center">名称：</td>
+                    <td><input id="Text1" type="text" /></td>
+                    <td>对称性：</td>
+                    <td class="text-center"><input id="Text1" type="text" /></td>
+                    <td>海路比：</td>
+                    <td><input id="Text1" type="text" /></td>
+                </tr>
+                <tr>
+                    <td rowspan="11" class="text-center">主沟</td>
+                    <td>主沟数：</td>
+                    <td><input id="Text1" type="text" /></td>
+                    <td rowspan="9" class="text-center">节距</td>
+                    <td>节距种类数：</td>
+                    <td><input id="Text1" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>第1主沟-深度：</td>
+                    <td><input id="Text1" type="text" /></td>
+                    <td>节距A：</td>
+                    <td><input id="Text1" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>第1主沟-宽度：</td>
+                    <td><input id="Text1" type="text" /></td>
+                    <td>节距B：</td>
+                    <td><input id="Text1" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>第2主沟-深度：</td>
+                    <td><input id="Text1" type="text" /></td>
+                    <td>节距C：</td>
+                    <td><input id="Text1" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>第2主沟-宽度：</td>
+                    <td><input id="Text1" type="text" /></td>
+                    <td>节距D：</td>
+                    <td><input id="Text1" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>第3主沟-深度：</td>
+                    <td><input id="Text1" type="text" /></td>
+                    <td>节距D：</td>
+                    <td><input id="Text1" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>第3主沟-宽度：</td>
+                    <td><input id="Text1" type="text" /></td>
+                    <td>节距E：</td>
+                    <td><input id="Text1" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>第4主沟-深度：</td>
+                    <td><input id="Text1" type="text" /></td>
+                    <td>节距F：</td>
+                    <td><input id="Text1" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>第4主沟-宽度：</td>
+                    <td><input id="Text1" type="text" /></td>
+                    <td>节距排布：</td>
+                    <td><input id="Text1" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>第5主沟-深度：</td>
+                    <td><input id="Text1" type="text" /></td>
+                </tr>
+                <tr>
+                    <td>第5主沟-宽度：</td>
+                    <td><input id="Text1" type="text" /></td>
+                    <td></td>
+                    <td></td>
+                    <td class="text-center"><input id="Button1" class="btn btn-success" type="button" value="确定录入系统" /></td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

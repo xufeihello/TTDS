@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5dd2a697bb024c26878111f4c8c9afc5" Name="Diagram1">
+        <EntityTypeShape EntityType="ttdbModel.groove" Width="1.5" PointX="0.75" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.pattern" Width="1.5" PointX="3" PointY="41.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.pcrsectiondimension" Width="1.5" PointX="0.75" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.pitch" Width="1.5" PointX="0.75" PointY="43.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.rebar" Width="1.5" PointX="0.75" PointY="61.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.rim" Width="1.5" PointX="3" PointY="68.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.rubberproperty" Width="1.5" PointX="14.25" PointY="44.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.rubberstraindma" Width="1.5" PointX="11.25" PointY="78.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.rubbertempdma" Width="1.5" PointX="11.25" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.sideplate" Width="1.5" PointX="3" PointY="71.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.structure" Width="1.5" PointX="3" PointY="60.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_adhesiveforce" Width="1.5" PointX="7.5" PointY="61.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_airimpermeability" Width="1.5" PointX="10.5" PointY="61.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_beadforce" Width="1.5" PointX="7.5" PointY="57.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_condition" Width="1.5" PointX="11.25" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_contactground" Width="1.5" PointX="7.5" PointY="67" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_cp" Width="1.5" PointX="10.5" PointY="56.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_ct" Width="1.5" PointX="10.5" PointY="66.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_dma" Width="1.5" PointX="13.5" PointY="54.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_drs" Width="1.5" PointX="13.5" PointY="62.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_electricalimpedance" Width="1.5" PointX="13.5" PointY="66.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_endurance" Width="1.5" PointX="13.5" PointY="69.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_explode" Width="1.5" PointX="7.5" PointY="53.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_peripheraldimensions" Width="1.5" PointX="16.5" PointY="61" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_physicalproperty" Width="1.5" PointX="16.5" PointY="53.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_positionforce" Width="1.5" PointX="7.5" PointY="71.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_relax" Width="1.5" PointX="16.5" PointY="67.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_rollingresistance" Width="1.5" PointX="16.5" PointY="71.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_rpt" Width="1.5" PointX="10.5" PointY="50.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_saf" Width="1.5" PointX="10.5" PointY="72.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_scanprofile" Width="1.5" PointX="19.5" PointY="62.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_staticload" Width="1.5" PointX="13.5" PointY="50.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_staticstiffness" Width="1.5" PointX="19.5" PointY="58.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_strength" Width="1.5" PointX="19.5" PointY="66.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_swp" Width="1.5" PointX="22.5" PointY="59" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.t_unseat" Width="1.5" PointX="19.5" PointY="53.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.tbrsectiondimension" Width="1.5" PointX="0.75" PointY="67.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ttdbModel.tire" Width="1.5" PointX="5.25" PointY="58.375" IsExpanded="true" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_63" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_62" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_65" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_110" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_111" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_Belt0" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_Belt1" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_Belt2" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_Belt3" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_Belt4" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_Carcass1" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_Carcass2" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_Carcass3" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_Chafer" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_46" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_61" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_100" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_101" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_102" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_103" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_16" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_21" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_22" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_23" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_96" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_97" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_98" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_99" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_85" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_87" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_89" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_91" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_93" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_95" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_84" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_86" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_88" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_90" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_92" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_94" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_66" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_109" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_64" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_67" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_107" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_108" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_49" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_56" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_68" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_69" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_106" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_112" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_40" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_42" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_43" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_44" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_45" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_47" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_54" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_55" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_57" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_58" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_59" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_60" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_77" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_78" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_79" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_80" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_81" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_82" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_83" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_39" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_70" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_72" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_104" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_76" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_51" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_52" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_37" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_35" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_34" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_50" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_75" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_53" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_74" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_71" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_36" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_105" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_48" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_38" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_73" ManuallyRouted="false" />
+        <AssociationConnector Association="ttdbModel.FK_Reference_41" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ttdbModel.users" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ttdbModel.user" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ttdbModel.vw_tire_amount" Width="1.5" PointX="3.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

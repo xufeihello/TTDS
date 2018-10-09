@@ -1,0 +1,928 @@
+﻿@*@using TTDS.Model
+@model TTDS.Model.vw_tire_amount*@
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>*@
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="carousel-caption"></div>
+            <img src="~/Images/forum/anto.jpg" alt="First Product" style="margin:0 auto" />
+        </div>
+        <div class="item">
+            <div class="carousel-caption"></div>
+            <img src="~/Images/forum/curve.jpg" alt="Sencond Product" style="margin:0 auto" />
+        </div>
+        <div class="item">
+            <div class="carousel-caption"></div>
+            <img src="~/Images/forum/data.jpg" alt="Third Product" style="margin:0 auto" />
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="row">
+    <h2>
+        典型案例展示
+    </h2>
+    <div class="col-md-4">
+        <img src="~/Images/products/OP1.png" />
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <img src="~/Images/products/OP2.png" />
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <img src="~/Images/products/OP3.png" />
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="#">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+<div id="mapDist" style="height:500px;"></div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/echarts.min.js" charset="utf-8"></script>
+<script src="~/Scripts/map/js/china.js" charset="utf-8"></script>
+<script src="~/Scripts/map/js/world.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+    var myChart;
+
+    $(function () {
+        queryData();
+    });
+
+    function queryData() {
+    // 基于准备好的dom，初始化echarts图表
+    myChart = echarts.init(document.getElementById('mapDist'));
+
+    var nameMap = {
+        'Afghanistan': '阿富汗',
+        'Albania': '阿尔巴尼亚',
+        'Algeria': '阿尔及利亚',
+        'Andorra': '安道尔',
+        'Angola': '安哥拉',
+        'Antarctica': '南极洲',
+        'Antigua and Barbuda': '安提瓜和巴布达',
+        'Argentina': '阿根廷',
+        'Armenia': '亚美尼亚',
+        'Australia': '澳大利亚',
+        'Austria': '奥地利',
+        'Azerbaijan': '阿塞拜疆',
+        'The Bahamas': '巴哈马',
+        'Bahrain': '巴林',
+        'Bangladesh': '孟加拉国',
+        'Barbados': '巴巴多斯',
+        'Belarus': '白俄罗斯',
+        'Belgium': '比利时',
+        'Belize': '伯利兹',
+        'Benin': '贝宁',
+        'Bermuda': '百慕大',
+        'Bhutan': '不丹',
+        'Bolivia': '玻利维亚',
+        'Bosnia and Herzegovina': '波斯尼亚和黑塞哥维那',
+        'Botswana': '博茨瓦纳',
+        'Brazil': '巴西',
+        'Brunei': '文莱',
+        'Bulgaria': '保加利亚',
+        'Burkina Faso': '布基纳法索',
+        'Burundi': '布隆迪',
+        'Cambodia': '柬埔寨',
+        'Cameroon': '喀麦隆',
+        'Canada': '加拿大',
+        'Cape Verde': '佛得角',
+        'Central African Republic': '中非共和国',
+        'Chad': '乍得',
+        'Chile': '智利',
+        'China': '中国',
+        'Colombia': '哥伦比亚',
+        'Comoros': '科摩罗',
+        'Republic of the Congo': '刚果共和国',
+        'Costa Rica': '哥斯达黎加',
+        'Croatia': '克罗地亚',
+        'Cuba': '古巴',
+        'Cyprus': '塞浦路斯',
+        'Czech Republic': '捷克共和国',
+        'Denmark': '丹麦',
+        'Djibouti': '吉布提',
+        'Dominica': '多米尼加',
+        'Dominican Republic': '多明尼加共和国',
+        'Ecuador': '厄瓜多尔',
+        'Egypt': '埃及',
+        'El Salvador': '萨尔瓦多',
+        'Equatorial Guinea': '赤道几内亚',
+        'Eritrea': '厄立特里亚',
+        'Estonia': '爱沙尼亚',
+        'Ethiopia': '埃塞俄比亚',
+        'Falkland Islands': '福克兰群岛',
+        'Faroe Islands': '法罗群岛',
+        'Fiji': '斐济',
+        'Finland': '芬兰',
+        'France': '法国',
+        'French Guiana': '法属圭亚那',
+        'French Southern and Antarctic Lands': '法属南半球和南极领地',
+        'Gabon': '加蓬',
+        'Gambia': '冈比亚',
+        'Gaza Strip': '加沙',
+        'Georgia': '格鲁吉亚',
+        'Germany': '德国',
+        'Ghana': '加纳',
+        'Greece': '希腊',
+        'Greenland': '格陵兰',
+        'Grenada': '格林纳达',
+        'Guadeloupe': '瓜德罗普',
+        'Guatemala': '危地马拉',
+        'Guinea': '几内亚',
+        'Guinea Bissau': '几内亚比绍',
+        'Guyana': '圭亚那',
+        'Haiti': '海地',
+        'Honduras': '洪都拉斯',
+        'Hong Kong': '香港',
+        'Hungary': '匈牙利',
+        'Iceland': '冰岛',
+        'India': '印度',
+        'Indonesia': '印尼',
+        'Iran': '伊朗',
+        'Iraq': '伊拉克',
+        'Iraq-Saudi Arabia Neutral Zone': '伊拉克阿拉伯中立区',
+        'Ireland': '爱尔兰',
+        'Isle of Man': '马恩岛',
+        'Israel': '以色列',
+        'Italy': '意大利',
+        'Ivory Coast': '科特迪瓦',
+        'Jamaica': '牙买加',
+        'Jan Mayen': '扬马延岛',
+        'Japan': '日本',
+        'Jordan': '约旦',
+        'Kazakhstan': '哈萨克斯坦',
+        'Kenya': '肯尼亚',
+        'Kerguelen': '凯尔盖朗群岛',
+        'Kiribati': '基里巴斯',
+        'Dem. Rep. Korea': '朝鲜',
+        'Korea': '韩国',
+        'Kuwait': '科威特',
+        'Kyrgyzstan': '吉尔吉斯斯坦',
+        'Laos': '老挝',
+        'Latvia': '拉脱维亚',
+        'Lebanon': '黎巴嫩',
+        'Lesotho': '莱索托',
+        'Liberia': '利比里亚',
+        'Libya': '利比亚',
+        'Liechtenstein': '列支敦士登',
+        'Lithuania': '立陶宛',
+        'Luxembourg': '卢森堡',
+        'Macau': '澳门',
+        'Macedonia': '马其顿',
+        'Madagascar': '马达加斯加',
+        'Malawi': '马拉维',
+        'Malaysia': '马来西亚',
+        'Maldives': '马尔代夫',
+        'Mali': '马里',
+        'Malta': '马耳他',
+        'Martinique': '马提尼克',
+        'Mauritania': '毛里塔尼亚',
+        'Mauritius': '毛里求斯',
+        'Mexico': '墨西哥',
+        'Moldova': '摩尔多瓦',
+        'Monaco': '摩纳哥',
+        'Mongolia': '蒙古',
+        'Morocco': '摩洛哥',
+        'Mozambique': '莫桑比克',
+        'Myanmar': '缅甸',
+        'Namibia': '纳米比亚',
+        'Nepal': '尼泊尔',
+        'Netherlands': '荷兰',
+        'New Caledonia': '新喀里多尼亚',
+        'New Zealand': '新西兰',
+        'Nicaragua': '尼加拉瓜',
+        'Niger': '尼日尔',
+        'Nigeria': '尼日利亚',
+        'Northern Mariana Islands': '北马里亚纳群岛',
+        'Norway': '挪威',
+        'Oman': '阿曼',
+        'Pakistan': '巴基斯坦',
+        'Panama': '巴拿马',
+        'Papua New Guinea': '巴布亚新几内亚',
+        'Paraguay': '巴拉圭',
+        'Peru': '秘鲁',
+        'Philippines': '菲律宾',
+        'Poland': '波兰',
+        'Portugal': '葡萄牙',
+        'Puerto Rico': '波多黎各',
+        'Qatar': '卡塔尔',
+        'Reunion': '留尼旺岛',
+        'Romania': '罗马尼亚',
+        'Russia': '俄罗斯',
+        'Rwanda': '卢旺达',
+        'San Marino': '圣马力诺',
+        'Sao Tome and Principe': '圣多美和普林西比',
+        'Saudi Arabia': '沙特阿拉伯',
+        'Senegal': '塞内加尔',
+        'Seychelles': '塞舌尔',
+        'Sierra Leone': '塞拉利昂',
+        'Singapore': '新加坡',
+        'Slovakia': '斯洛伐克',
+        'Slovenia': '斯洛文尼亚',
+        'Solomon Islands': '所罗门群岛',
+        'Somalia': '索马里',
+        'South Africa': '南非',
+        'Spain': '西班牙',
+        'Sri Lanka': '斯里兰卡',
+        'St. Christopher-Nevis': '圣',
+        'St. Lucia': '圣露西亚',
+        'St. Vincent and the Grenadines': '圣文森特和格林纳丁斯',
+        'Sudan': '苏丹',
+        'Suriname': '苏里南',
+        'Svalbard': '斯瓦尔巴特群岛',
+        'Swaziland': '斯威士兰',
+        'Sweden': '瑞典',
+        'Switzerland': '瑞士',
+        'Syria': '叙利亚',
+        'Taiwan': '台湾',
+        'Tajikistan': '塔吉克斯坦',
+        'United Republic of Tanzania': '坦桑尼亚',
+        'Thailand': '泰国',
+        'Togo': '多哥',
+        'Tonga': '汤加',
+        'Trinidad and Tobago': '特里尼达和多巴哥',
+        'Tunisia': '突尼斯',
+        'Turkey': '土耳其',
+        'Turkmenistan': '土库曼斯坦',
+        'Turks and Caicos Islands': '特克斯和凯科斯群岛',
+        'Uganda': '乌干达',
+        'Ukraine': '乌克兰',
+        'United Arab Emirates': '阿联酋',
+        'United Kingdom': '英国',
+        'United States': '美国',
+        'Uruguay': '乌拉圭',
+        'Uzbekistan': '乌兹别克斯坦',
+        'Vanuatu': '瓦努阿图',
+        'Venezuela': '委内瑞拉',
+        'Vietnam': '越南',
+        'Western Sahara': '西撒哈拉',
+        'Western Samoa': '西萨摩亚',
+        'Yemen': '也门',
+        'Yugoslavia': '南斯拉夫',
+        'Democratic Republic of the Congo': '刚果民主共和国',
+        'Zambia': '赞比亚',
+        'Zimbabwe': '津巴布韦',
+        'South Sudan': '南苏丹',
+        'Somaliland': '索马里兰',
+        'Montenegro': '黑山',
+        'Kosovo': '科索沃',
+        'Republic of Serbia': '塞尔维亚',
+
+    };
+
+    var data = [
+        { name: 'Afghanistan', value: 2 },
+        //{ name: 'Angola', value: 2 },
+        //{ name: 'Albania', value: 2 },
+        //{ name: 'United Arab Emirates', value: 2 },
+        //{ name: 'Argentina', value: 2 },
+        //{ name: 'Armenia', value: 2 },
+        //{ name: 'French Southern and Antarctic Lands', value: 2 },
+        //{ name: 'Australia', value: 2 },
+        //{ name: 'Austria', value: 2 },
+        //{ name: 'Azerbaijan', value: 2 },
+        //{ name: 'Burundi', value: 2 },
+        //{ name: 'Belgium', value: 2 },
+        //{ name: 'Benin', value: 2 },
+        //{ name: 'Burkina Faso', value: 2 },
+        //{ name: 'Bangladesh', value: 2 },
+        //{ name: 'Bulgaria', value: 2 },
+        //{ name: 'The Bahamas', value: 2 },
+        //{ name: 'Bosnia and Herzegovina', value: 2 },
+        //{ name: 'Belarus', value: 2 },
+        //{ name: 'Belize', value: 2 },
+        //{ name: 'Bermuda', value: 2 },
+        //{ name: 'Bolivia', value: 2 },
+        //{ name: 'Brazil', value: 2 },
+        //{ name: 'Brunei', value: 2 },
+        //{ name: 'Bhutan', value: 2 },
+        //{ name: 'Botswana', value: 2 },
+        //{ name: 'Central African Republic', value:2 },
+        //{ name: 'Canada', value: 2 },
+        //{ name: 'Switzerland', value: 2 },
+        //{ name: 'Chile', value: 2 },
+        { name: 'China', value: 12 },
+        //{ name: 'Ivory Coast', value: 2 },
+        //{ name: 'Cameroon', value: 2 },
+        //{ name: 'Democratic Republic of the Congo', value: 2 },
+        //{ name: 'Republic of the Congo', value: 2 },
+        //{ name: 'Colombia', value: 2 },
+        //{ name: 'Costa Rica', value: 2 },
+        //{ name: 'Cuba', value: 2 },
+        //{ name: 'Northern Cyprus', value: 2 },
+        //{ name: 'Cyprus', value: 2 },
+        //{ name: 'Czech Republic', value: 2 },
+        //{ name: 'Germany', value: 2 },
+        //{ name: 'Djibouti', value: 2 },
+        //{ name: 'Denmark', value: 2 },
+        //{ name: 'Dominican Republic', value: 2 },
+        //{ name: 'Algeria', value: 2 },
+        //{ name: 'Ecuador', value: 2 },
+        //{ name: 'Egypt', value: 2 },
+        //{ name: 'Eritrea', value: 2 },
+        //{ name: 'Spain', value: 2 },
+        //{ name: 'Estonia', value: 2 },
+        //{ name: 'Ethiopia', value: 2 },
+        //{ name: 'Finland', value: 2 },
+        //{ name: 'Fiji', value: 2 },
+        //{ name: 'Falkland Islands', value: 2 },
+        //{ name: 'France', value: 12 },
+        //{ name: 'Gabon', value: 2 },
+        //{ name: 'United Kingdom', value: 2 },
+        //{ name: 'Georgia', value: 2 },
+        //{ name: 'Ghana', value: 2 },
+        //{ name: 'Guinea', value: 2 },
+        //{ name: 'Gambia', value: 2 },
+        //{ name: 'Guinea Bissau', value: 2 },
+        //{ name: 'Equatorial Guinea', value: 2 },
+        //{ name: 'Greece', value: 2 },
+        //{ name: 'Greenland', value: 2 },
+        //{ name: 'Guatemala', value: 2 },
+        //{ name: 'French Guiana', value: 2 },
+        //{ name: 'Guyana', value: 2 },
+        //{ name: 'Honduras', value: 2 },
+        //{ name: 'Croatia', value: 2 },
+        //{ name: 'Haiti', value: 2 },
+        //{ name: 'Hungary', value: 2 },
+        //{ name: 'Indonesia', value: 2 },
+        //{ name: 'India', value: 2 },
+        //{ name: 'Ireland', value: 2 },
+        //{ name: 'Iran', value: 2 },
+        //{ name: 'Iraq', value: 2 },
+        //{ name: 'Iceland', value: 2 },
+        //{ name: 'Israel', value: 2 },
+        //{ name: 'Italy', value: 2 },
+        //{ name: 'Jamaica', value: 2 },
+        //{ name: 'Jordan', value: 2 },
+        //{ name: 'Japan', value: 12 },
+        //{ name: 'Kazakhstan', value: 2 },
+        //{ name: 'Kenya', value: 2 },
+        //{ name: 'Kyrgyzstan', value: 2 },
+        //{ name: 'Cambodia', value: 2 },
+        //{ name: 'Korea', value: 10 },
+        //{ name: 'Kosovo', value: 2 },
+        //{ name: 'Kuwait', value: 2 },
+        //{ name: 'Laos', value: 2 },
+        //{ name: 'Lebanon', value: 2 },
+        //{ name: 'Liberia', value: 2 },
+        //{ name: 'Libya', value: 2 },
+        //{ name: 'Sri Lanka', value: 2 },
+        //{ name: 'Lesotho', value: 2 },
+        //{ name: 'Lithuania', value: 2 },
+        //{ name: 'Luxembourg', value: 2. },
+        //{ name: 'Latvia', value: 2. },
+        //{ name: 'Morocco', value: 2. },
+        //{ name: 'Moldova', value: 2. },
+        //{ name: 'Madagascar', value: 2. },
+        //{ name: 'Mexico', value: 2. },
+        //{ name: 'Macedonia', value: 2. },
+        //{ name: 'Mali', value: 2. },
+        //{ name: 'Myanmar', value: 2. },
+        //{ name: 'Montenegro', value: 2. },
+        //{ name: 'Mongolia', value: 2. },
+        //{ name: 'Mozambique', value: 2. },
+        //{ name: 'Mauritania', value: 2. },
+        //{ name: 'Malawi', value: 2. },
+        //{ name: 'Malaysia', value: 2. },
+        //{ name: 'Namibia', value: 2. },
+        //{ name: 'New Caledonia', value: 2. },
+        //{ name: 'Niger', value: 2. },
+        //{ name: 'Nigeria', value: 2. },
+        //{ name: 'Nicaragua', value: 2. },
+        //{ name: 'Netherlands', value: 2. },
+        //{ name: 'Norway', value: 2. },
+        //{ name: 'Nepal', value: 2. },
+        //{ name: 'New Zealand', value: 2. },
+        //{ name: 'Oman', value: 2. },
+        //{ name: 'Pakistan', value: 2. },
+        //{ name: 'Panama', value: 2. },
+        //{ name: 'Peru', value: 2. },
+        //{ name: 'Philippines', value: 2. },
+        //{ name: 'Papua New Guinea', value: 2. },
+        //{ name: 'Poland', value: 2. },
+        //{ name: 'Puerto Rico', value: 2. },
+        //{ name: 'Dem. Rep. Korea', value: 0. },
+        //{ name: 'Portugal', value: 2. },
+        //{ name: 'Paraguay', value: 2. },
+        //{ name: 'Qatar', value: 2. },
+        //{ name: 'Romania', value: 2. },
+        //{ name: 'Russia', value: 2. },
+        //{ name: 'Rwanda', value: 2. },
+        //{ name: 'Western Sahara', value: 2. },
+        //{ name: 'Saudi Arabia', value: 2. },
+        //{ name: 'Sudan', value: 2. },
+        //{ name: 'South Sudan', value: 2. },
+        //{ name: 'Senegal', value: 2. },
+        //{ name: 'Solomon Islands', value: 2. },
+        //{ name: 'Sierra Leone', value: 2. },
+        //{ name: 'El Salvador', value: 2. },
+        //{ name: 'Somaliland', value: 2. },
+        //{ name: 'Somalia', value: 2. },
+        //{ name: 'Republic of Serbia', value: 2. },
+        //{ name: 'Suriname', value: 2. },
+        //{ name: 'Slovakia', value: 2. },
+        //{ name: 'Slovenia', value: 2. },
+        //{ name: 'Sweden', value: 2. },
+        //{ name: 'Swaziland', value: 2. },
+        //{ name: 'Syria', value: 2. },
+        //{ name: 'Chad', value: 2. },
+        //{ name: 'Togo', value: 2. },
+        //{ name: 'Thailand', value: 2. },
+        //{ name: 'Tajikistan', value: 2. },
+        //{ name: 'Turkmenistan', value: 2. },
+        //{ name: 'East Timor', value: 2. },
+        //{ name: 'Trinidad and Tobago', value: 2. },
+        //{ name: 'Tunisia', value: 2. },
+        //{ name: 'Turkey', value: 2. },
+        //{ name: 'United Republic of Tanzania', value: 2. },
+        //{ name: 'Uganda', value: 2. },
+        //{ name: 'Ukraine', value: 2. },
+        //{ name: 'Uruguay', value: 2. },
+        //{ name: 'United States', value: 8. },
+        //{ name: 'Uzbekistan', value: 2. },
+        //{ name: 'Venezuela', value: 2. },
+        //{ name: 'Vietnam', value: 2. },
+        //{ name: 'Vanuatu', value: 2. },
+        //{ name: 'West Bank', value: 2. },
+        //{ name: 'Yemen', value: 2. },
+        //{ name: 'South Africa', value: 2. },
+        //{ name: 'Zambia', value: 2. },
+        //{ name: 'Zimbabwe', value: 2. }
+    ]
+
+    var geoCoordMap = {};
+
+    var toolTipData = [
+        { name: 'Afghanistan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Angola', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Albania', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'United Arab Emirates', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Argentina', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Armenia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'French Southern and Antarctic Lands', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Australia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Austria', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Azerbaijan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Burundi', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Belgium', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Benin', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Burkina Faso', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bangladesh', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bulgaria', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'The Bahamas', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bosnia and Herzegovina', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Belarus', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Belize', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bermuda', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bolivia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Brazil', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Brunei', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Bhutan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Botswana', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Central African Republic', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Canada', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Switzerland', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Chile', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'China', value: [{ name: "PCR", value: 3 }, { name: "TBR", value: 3 }] },
+        { name: 'Ivory Coast', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Cameroon', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Democratic Republic of the Congo', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Republic of the Congo', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Colombia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Costa Rica', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Cuba', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Northern Cyprus', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Cyprus', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Czech Republic', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Germany', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Djibouti', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Denmark', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Dominican Republic', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Algeria', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Ecuador', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Egypt', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Eritrea', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Spain', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Estonia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Ethiopia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Finland', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Fiji', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Falkland Islands', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'France', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Gabon', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'United Kingdom', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Georgia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Ghana', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Guinea', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Gambia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Guinea Bissau', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Equatorial Guinea', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Greece', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Greenland', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Guatemala', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'French Guiana', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Guyana', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Honduras', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Croatia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Haiti', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Hungary', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Indonesia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'India', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Ireland', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Iran', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Iraq', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Iceland', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Israel', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Italy', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Jamaica', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Jordan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Japan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Kazakhstan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Kenya', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Kyrgyzstan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Cambodia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Korea', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Kosovo', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Kuwait', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Laos', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Lebanon', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Liberia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Libya', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Sri Lanka', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Lesotho', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Lithuania', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Luxembourg', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Latvia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Morocco', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Moldova', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Madagascar', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Mexico', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Macedonia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Mali', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Myanmar', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Montenegro', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Mongolia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Mozambique', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Mauritania', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Malawi', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Malaysia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Namibia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'New Caledonia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Niger', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Nigeria', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Nicaragua', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Netherlands', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Norway', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Nepal', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'New Zealand', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Oman', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Pakistan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Panama', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Peru', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Philippines', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Papua New Guinea', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Poland', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Puerto Rico', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Dem. Rep. Korea', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Portugal', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Paraguay', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Qatar', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Romania', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Russia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Rwanda', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Western Sahara', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Saudi Arabia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Sudan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'South Sudan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Senegal', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Solomon Islands', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Sierra Leone', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'El Salvador', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Somaliland', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Somalia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Republic of Serbia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Suriname', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Slovakia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Slovenia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Sweden', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Swaziland', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Syria', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Chad', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Togo', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Thailand', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Tajikistan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Turkmenistan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'East Timor', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Trinidad and Tobago', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Tunisia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Turkey', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'United Republic of Tanzania', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Uganda', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Ukraine', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Uruguay', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'United States', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Uzbekistan', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Venezuela', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Vietnam', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Vanuatu', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'West Bank', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Yemen', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'South Africa', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Zambia', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] },
+        { name: 'Zimbabwe', value: [{ name: "PCR", value: 1 }, { name: "TBR", value: 1 }] }
+    ]
+
+    ///*获取地图数据*/
+    //myChart.showLoading();
+    //var mapFeatures = echarts.getMap('world').geoJson.features;
+    //myChart.hideLoading();
+    //mapFeatures.forEach(function (v) {
+    //    // 地区名称
+    //    var name = v.properties.name;
+    //    // 地区经纬度
+    //    geoCoordMap[name] = v.geometry.coordinates;
+
+    //});
+
+    //var convertData = function (data) {
+    //    var res = [];
+    //    for (var i = 0; i < data.length; i++) {
+    //        var geoCoord = geoCoordMap[data[i].name];
+    //        if (geoCoord) {
+    //            res.push({
+    //                name: data[i].name,
+    //                value: geoCoord.concat(data[i].value)
+    //            });
+    //        }
+    //    }
+    //    return res;
+    //};
+
+    var max = 480,
+        min = 9; // todo
+    var maxSize4Pin = 100,
+        minSize4Pin = 20;
+
+    var option = {
+
+        title: {
+            text: '系统中测试轮胎分布情况',
+            left: 'center',
+            top: 'top',
+            textStyle: {
+                fontSize:30,
+            }
+        },
+        tooltip: {
+            trigger: 'item',
+            //formatter: function (params) {
+            //    if (typeof (params.value)[2] == "undefined") {
+            //        var toolTiphtml = ''
+            //        for (var i = 0; i < toolTipData.length; i++) {
+            //            if (params.name == toolTipData[i].name) {
+            //                toolTiphtml += toolTipData[i].name + ':<br>'
+            //                for (var j = 0; j < toolTipData[i].value.length; j++) {
+            //                    toolTiphtml += toolTipData[i].value[j].name + ':' + toolTipData[i].value[j].value + "<br>"
+            //                }
+            //            }
+            //        }
+            //        return toolTiphtml;
+            //    } else {
+            //        var toolTiphtml = ''
+            //        for (var i = 0; i < toolTipData.length; i++) {
+            //            if (params.name == toolTipData[i].name) {
+            //                toolTiphtml += toolTipData[i].name + ':<br>'
+            //                for (var j = 0; j < toolTipData[i].value.length; j++) {
+            //                    toolTiphtml += toolTipData[i].value[j].name + ':' + toolTipData[i].value[j].value + "<br>"
+            //                }
+            //            }
+            //        }
+            //        return toolTiphtml;
+            //    }
+            //}
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                dataView: { readOnly: false },
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        backgroundColor: '#E4F1F1',
+        visualMap: {
+            show:true,
+            type: 'continuous', // 连续型
+            min: 0,       		// 值域最小值，必须参数
+            max: 20,			// 值域最大值，必须参数
+            calculable: true,	// 是否启用值域漫游
+            inRange: {
+                color: ['#50a3ba', '#eac736', '#d94e5d']
+                // 指定数值从低到高时的颜色变化
+            },
+            textStyle: {
+                color: '#000'	// 值域控件的文本颜色
+            }
+        },
+        geo: {
+            show: true,
+            map: 'world',
+            label: {
+                normal: {
+                    show: false
+                },
+                emphasis: {
+                    show: false,
+                }
+            },
+            roam: true,
+            //silent: true,
+            itemStyle: {
+                //normal: {
+                //    areaColor: '#323c48',
+                //    borderColor: '#111'
+                //},
+                //emphasis: {
+                //    areaColor:'#2a333d'
+                //}
+
+            }
+        },
+        series: [
+            //{
+            //    name: '轮胎数量',
+            //    type: 'scatter',
+            //    coordinateSystem: 'geo',
+            //    data: convertData(data),
+            //    symbolSize: function (val) {
+            //        return val[2] / 10;
+            //    },
+            //    label: {
+            //        normal: {
+            //            formatter: '{b}',
+            //            position: 'right',
+            //            show: true
+            //        },
+            //        emphasis: {
+            //            show: true
+            //        }
+            //    },
+            //    itemStyle: {
+            //        normal: {
+            //            color: '#05C3F9'
+            //        }
+            //    }
+            //},
+            {
+                name: '轮胎数量',
+
+                type: 'map',
+                map: 'world',
+                nameMap: nameMap,
+                geoIndex: 0,
+                aspectScale: 0.75, //长宽比
+                showLegendSymbol: false, // 存在legend时显示
+                label: {
+                    normal: {
+                        show: true
+                    },
+                    emphasis: {
+                        show: false,
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    }
+                },
+                roam: true,
+                itemStyle: {
+                    normal: {
+                        areaColor: '#031525',
+                        borderColor: '#3B5077',
+                    },
+                    emphasis: {
+                        areaColor: '#2B91B7'
+                    }
+                },
+                animation: false,
+                data: []
+            },
+            //{
+            //    name: '点',
+            //    type: 'scatter',
+            //    coordinateSystem: 'geo',
+            //    symbol: 'pin', //气泡
+            //    symbolSize: function (val) {
+            //        var a = (maxSize4Pin - minSize4Pin) / (max - min);
+            //        var b = minSize4Pin - a * min;
+            //        b = maxSize4Pin - a * max;
+            //        return a * val[2] + b;
+            //    },
+            //    label: {
+            //        normal: {
+            //            show: true,
+            //            textStyle: {
+            //                color: '#fff',
+            //                fontSize: 9,
+            //            }
+            //        }
+            //    },
+            //    itemStyle: {
+            //        normal: {
+            //            color: '#F62157', //标志颜色
+            //        }
+            //    },
+            //    zlevel: 6,
+            //    data: convertData(data),
+            //},
+            //{
+            //    name: 'Top 5',
+            //    type: 'effectScatter',
+            //    coordinateSystem: 'geo',
+            //    data: convertData(data.sort(function (a, b) {
+            //        return b.value - a.value;
+            //    }).slice(0, 5)),
+            //    symbolSize: function (val) {
+            //        return val[2] / 10;
+            //    },
+            //    showEffectOn: 'render',
+            //    rippleEffect: {
+            //        brushType: 'stroke'
+            //    },
+            //    hoverAnimation: true,
+            //    label: {
+            //        normal: {
+            //            formatter: '{b}',
+            //            position: 'right',
+            //            show: true
+            //        }
+            //    },
+            //    itemStyle: {
+            //        normal: {
+            //            color: 'yellow',
+            //            shadowBlur: 10,
+            //            shadowColor: 'yellow'
+            //        }
+            //    },
+            //    zlevel: 1
+            //}
+        ]
+    };
+
+    // 为echarts对象加载数据
+        
+        myChart.setOption(option);
+        myChart.hideLoading();
+        getChartData();
+    };
+
+    function getChartData() {
+        var myOption = myChart.getOption();
+        $.ajax({
+            url: "/Home/MapData",
+            type: "post",
+            success: function (data) {
+                myOption.series[0].data = data.Data;
+                myChart.hideLoading();
+                myChart.setOption(myOption);
+                
+            }
+        });
+    };
+
+</script>
+

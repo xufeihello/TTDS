@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Logging";
+}
+
+@Styles.Render("~/Content/logging.css")
+
+<div id="lg">
+    <div id="lg-nav">
+        <ul>
+            @if (Session["Role"].ToString() == "Admin" || Session["Group"].ToString() == "Design")
+            {
+                <li id="lg-nav-info">
+                    <a href="/Logging/Info" target="menuFrame">
+                        <span>📝</span>
+                        <span>轮胎基本信息</span>
+                    </a>
+                </li>
+            }
+            @if (Session["Role"].ToString() == "Admin" || Session["Group"].ToString() == "Design")
+            {
+                <li id="lg-nav-structure">
+                    <div>
+                        <span>📳</span>
+                        <span>轮廓与结构</span>
+                    </div>
+                    <ul id="lg-nav-structure-cls">
+                        <li><a href="/Logging/PCRSection" target="menuFrame">PCR断面尺寸</a></li>
+                        <li>TBR断面尺寸</li>
+                    </ul>
+                </li>
+            }
+            @if (Session["Role"].ToString() == "Admin" || Session["Group"].ToString() == "Research")
+            {
+                <li id="lg-nav-pattern">
+                    <div>
+                        <span>💐</span>
+                        <span>花纹与侧板</span>
+                    </div>
+                    <ul id="lg-nav-pattern-cls">
+                        <li><a href="/Logging/Pattern" target="menuFrame">花纹分析</a></li>
+                        <li>侧板分析</li>
+                    </ul>
+                </li>
+            }
+            @if (Session["Role"].ToString() == "Admin" || Session["Group"].ToString() == "Test")
+            {
+                <li id="lg-nav-indoor">
+                    <div>
+                        <span>🚟</span>
+                        <span>室内试验</span>
+                    </div>
+                    <ul id="lg-nav-indoor-cls">
+                        <li>
+                            <div>
+                                <span>🗜</span>
+                                <span>静态试验</span>
+                            </div>
+                            <ul>
+                                <li>外缘尺寸</li>
+                                <li>定位压力试验</li>
+                                <li>强度试验</li>
+                                <li>脱圈试验</li>
+                                <li>水压爆破试验</li>
+                                <li>静刚度试验</li>
+                                <li><a href="/Logging/ContactGround" target="menuFrame">接地压力试验</a></li>
+                                <li>静负荷试验</li>
+                                <li>外扫试验</li>
+                                <li>电阻抗试验</li>
+                                <li>气密性试验</li>
+                                <li>胎圈压力试验</li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div>
+                                <span>🔬</span>
+                                <span>动态试验</span>
+                            </div>
+                            <ul>
+                                <li>滚动阻力试验</li>
+                                <li>高速耐久试验</li>
+                                <li>力和力矩试验</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li id="lg-nav-outdoor">
+                    <div>
+                        <span>🚗</span>
+                        <span>室外试验</span>
+                    </div>
+                    <ul id="lg-nav-outdoor-cls">
+                        <li>主观评价</li>
+                        <li>路试</li>
+                    </ul>
+                </li>
+            }
+            @if (Session["Role"].ToString() == "Admin" || Session["Group"].ToString() == "Compound")
+            {
+                <li id="lg-nav-compound">
+                    <div>
+                        <span>🌿</span>
+                        <span>配方材料</span>
+                    </div>
+                    <ul id="lg-nav-compound-cls">
+                        <li>物理分析</li>
+                        <li>化学分析</li>
+                    </ul>
+                </li>
+            }
+        </ul>
+    </div>
+    <div id="lg-content">
+        <iframe id="menuFrame" name="menuFrame" src="/Logging/Info"  scrolling="no" frameborder="0" width="800" height="800"></iframe>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Report";
+}
+<div style="overflow:auto;width:1200px;">
+    <div style="float:left;height:650px;width:200px;background-color:rgb(126,222,126);">
+        <ul style="list-style:none;padding-top:5px">
+            <li style="padding-top:5px;">
+                <a href="/Report/CrownGrowth" target="menuFrame">
+                    <span><img src="~/Images/iconfont/曲线组件.png" /></span>
+                    <span>冠弧成长</span>
+                </a>
+            </li>
+            <li style="padding-top:5px;">
+                <a href="/Report/Pressure" target="menuFrame">
+                    <span><img src="~/Images/iconfont/柱状图.png" /></span>
+                    <span>接地压力</span>
+                </a>
+            </li>
+            <li style="padding-top:5px;">
+                <a href="/Report/Performance" target="menuFrame">
+                    <span><img src="~/Images/iconfont/雷达图.png" /></span>
+                    <span>性能雷达图</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="frameReport" style="float:left;">
+        <iframe id="menuFrame1" name="menuFrame" src="/Report/CrownGrowth" scrolling="no" frameborder="0" width="1000" height="600" ></iframe>
+    </div>
+</div>

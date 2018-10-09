@@ -1,0 +1,470 @@
+﻿
+@{
+    Layout = null;
+}
+@using TTDS.Model
+@model List<TTDS.Model.tire>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PCRSection</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    
+</head>
+<body onload="IFrameResize()">
+    <div id="lg-content-structure" >
+        <div class="row" style="padding-left:15px;">
+            <div class="col-xs-6 bg-primary" style="width:390px;">
+                <h3 class="text-left">PCR断面尺寸</h3>
+            </div>
+            <div class="col-xs-6 text-right" style="padding:11px;background-color:lightgrey;">
+                <form id="frm-pattern-import" enctype="multipart/form-data" method="post">
+                    <span class="form-group">
+                        <label for="file-pcr-section" class="btn btn-warning">选择文件</label>
+                        <input id="file-pcr-section" name="file-pcr-section" type="file" style="display:none" onchange="return showPCRSection()" />
+                    </span>
+                    <input id="Button1" class="btn btn-success" type="button" value="确定录入系统" />
+                </form>
+            </div>
+        </div>
+        
+        <div>
+            <table class="table table-striped table-bordered table-hover table-condensed table-responsive">
+                <colgroup>
+                    <col style="width:90px;" />
+                    <col style="width:190px;" />
+                    <col style="width:110px;" />
+                    <col style="width:90px;" />
+                    <col style="width:90px;" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td colspan="2"><div class="text-right"><h5>轮胎唯一识别码：</h5></div></td>
+                        <td colspan="4">
+                            <select id="Select1" class="form-control">
+                                <option disabled selected style="display:none;">选择轮胎ID</option>
+                                @foreach (tire item in Model)
+                                {
+                                    <option>@item.TireID</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="danger">
+                        <th colspan="2" class="text-center">测量项</th>
+                        <th class="text-center">Code</th>
+                        <th class="text-center">上模</th>
+                        <th class="text-center">下模</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="10" class="text-center">冠部</td>
+                        <td>第一主沟沟底胶厚</td>
+                        <td>TG1</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>第二主沟沟底胶厚</td>
+                        <td>TG2</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>第三主沟沟底胶厚</td>
+                        <td>TG3</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>Base胶厚</td>
+                        <td>TBTMx</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎冠端点位置</td>
+                        <td>DTRSB</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎冠总厚</td>
+                        <td>TTM</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎冠x1处胶厚</td>
+                        <td>TTRMx1</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎冠x2处胶厚</td>
+                        <td>TTRMx2</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎冠x3处胶厚</td>
+                        <td>TTRMx3</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>Antenna开口宽度</td>
+                        <td>WAN</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="4" class="text-center">肩部</td>
+                        <td>花纹沟沟底胶厚</td>
+                        <td>TG12</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎肩下部x处胶厚</td>
+                        <td>TTRJx</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>带束层端点胶厚</td>
+                        <td>TGS</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>肩部总厚</td>
+                        <td>TTNJx</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="13" class="text-center">胎侧</td>
+                        <td>白胎侧白胶厚度</td>
+                        <td>TWSWZx</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>白胎侧胶总厚度</td>
+                        <td>TTWSWZx</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎侧胶厚</td>
+                        <td>TSWZx</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>BEC厚度</td>
+                        <td>TBEC</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎翼上点位置</td>
+                        <td>HWT</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎翼下点位置</td>
+                        <td>LWT</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>白胶上端点位置</td>
+                        <td>HWSW</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>白胶下端点位置</td>
+                        <td>LWSW</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎侧补强层1高度</td>
+                        <td>H1RF</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎侧补强层2高度</td>
+                        <td>H2RF</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎侧补强层1位置</td>
+                        <td>L1RF</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎侧补强层2位置</td>
+                        <td>L2RF</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胶料补强层下点位置</td>
+                        <td>LRFR</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="7" class="text-center">帘布</td>
+                        <td>1P反包端点位置</td>
+                        <td>H1P</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>2P反包端点位置</td>
+                        <td>H2P</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>2P正包端点位置</td>
+                        <td>L2P</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>3P反包端点位置</td>
+                        <td>H3P</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>3P正包端点位置</td>
+                        <td>L3P</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>1P高反包端点位置</td>
+                        <td>P1P</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>高反包端点与带束层差级</td>
+                        <td>O1P1B</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5" class="text-center">带束层</td>
+                        <td>1B角度</td>
+                        <td>A1B</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>2B角度</td>
+                        <td>A2B</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>1B宽度</td>
+                        <td>W1B</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>2B宽度</td>
+                        <td>W2B</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>带束层差级</td>
+                        <td>D1B2B</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="text-center">冠带层</td>
+                        <td>冠带层内端点位置</td>
+                        <td>PICP</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>与带束层差级</td>
+                        <td>DSBCP</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="18" class="text-center">子口部位</td>
+                        <td>RC高度</td>
+                        <td>HRC</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>RC胶x1处厚度</td>
+                        <td>TRCZx1</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>RC胶x2处厚度</td>
+                        <td>TRCZx2</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>三角胶高度</td>
+                        <td>HBF</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>三角胶x1处厚度</td>
+                        <td>TBFZx1</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>三角胶x2处厚度</td>
+                        <td>TBFZx2</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>下三角胶高度</td>
+                        <td>HLBF</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>轮辋线处总厚</td>
+                        <td>TTZx</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎侧胶下端点位置</td>
+                        <td>LSW</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>RC胶下端点位置</td>
+                        <td>LRC</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>RCS高度</td>
+                        <td>HRCS</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎圈处RC厚度</td>
+                        <td>TRCBD</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎圈总厚</td>
+                        <td>TTBD</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>子口包布外侧高度</td>
+                        <td>HCHA.E</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>子口包布内侧高度</td>
+                        <td>HCHA.I</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>三角胶包布外侧高度</td>
+                        <td>HFL</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>内衬下端点位置</td>
+                        <td>LIL</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎圈底部厚度</td>
+                        <td>TUBD</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" class="text-center">支撑胶</td>
+                        <td>支撑胶上端点与带束层差级</td>
+                        <td>OSFSB</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>支撑胶下端点位置</td>
+                        <td>LSF</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>胎侧支撑胶厚度</td>
+                        <td>TSFZx</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="text-center">其他</td>
+                        <td>内衬层厚</td>
+                        <td>TIL</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+                    <tr>
+                        <td>内周长</td>
+                        <td>Peri.I</td>
+                        <td><input id="Text1" type="text" /></td>
+                        <td><input id="Text1" type="text" /></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    function IFrameResize() {
+        var obj = parent.document.getElementById("menuFrame");
+        obj.height = this.document.body.scrollHeight;
+        }
+</script>

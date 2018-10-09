@@ -1,0 +1,891 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ttdbModelStoreContainer" CdmEntityContainer="ttdbEntities">
+    <EntitySetMapping Name="groove">
+      <EntityTypeMapping TypeName="ttdbModel.groove">
+        <MappingFragment StoreEntitySet="groove">
+          <ScalarProperty Name="GrooveID" ColumnName="GrooveID" />
+          <ScalarProperty Name="GrooveNum" ColumnName="GrooveNum" />
+          <ScalarProperty Name="G1Depth" ColumnName="G1Depth" />
+          <ScalarProperty Name="G2Depth" ColumnName="G2Depth" />
+          <ScalarProperty Name="G3Depth" ColumnName="G3Depth" />
+          <ScalarProperty Name="G4Depth" ColumnName="G4Depth" />
+          <ScalarProperty Name="G5Depth" ColumnName="G5Depth" />
+          <ScalarProperty Name="G1Width" ColumnName="G1Width" />
+          <ScalarProperty Name="G2Width" ColumnName="G2Width" />
+          <ScalarProperty Name="G3Width" ColumnName="G3Width" />
+          <ScalarProperty Name="G4Width" ColumnName="G4Width" />
+          <ScalarProperty Name="G5Width" ColumnName="G5Width" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pattern">
+      <EntityTypeMapping TypeName="ttdbModel.pattern">
+        <MappingFragment StoreEntitySet="pattern">
+          <ScalarProperty Name="PatternID" ColumnName="PatternID" />
+          <ScalarProperty Name="PitchID" ColumnName="PitchID" />
+          <ScalarProperty Name="GrooveID" ColumnName="GrooveID" />
+          <ScalarProperty Name="PatternName" ColumnName="PatternName" />
+          <ScalarProperty Name="Symmtry" ColumnName="Symmtry" />
+          <ScalarProperty Name="VoidRatio" ColumnName="VoidRatio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pcrsectiondimension">
+      <EntityTypeMapping TypeName="ttdbModel.pcrsectiondimension">
+        <MappingFragment StoreEntitySet="pcrsectiondimension">
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="TG1" ColumnName="TG1" />
+          <ScalarProperty Name="TG2" ColumnName="TG2" />
+          <ScalarProperty Name="TG3" ColumnName="TG3" />
+          <ScalarProperty Name="TBTMx" ColumnName="TBTMx" />
+          <ScalarProperty Name="DTRSB" ColumnName="DTRSB" />
+          <ScalarProperty Name="TTM" ColumnName="TTM" />
+          <ScalarProperty Name="TTRMx1" ColumnName="TTRMx1" />
+          <ScalarProperty Name="TTRMx2" ColumnName="TTRMx2" />
+          <ScalarProperty Name="TTRMx3" ColumnName="TTRMx3" />
+          <ScalarProperty Name="WAN" ColumnName="WAN" />
+          <ScalarProperty Name="TG12" ColumnName="TG12" />
+          <ScalarProperty Name="TTRJx" ColumnName="TTRJx" />
+          <ScalarProperty Name="TGS" ColumnName="TGS" />
+          <ScalarProperty Name="TTNJx" ColumnName="TTNJx" />
+          <ScalarProperty Name="TWSWZx" ColumnName="TWSWZx" />
+          <ScalarProperty Name="TTWSWZx" ColumnName="TTWSWZx" />
+          <ScalarProperty Name="TBEC" ColumnName="TBEC" />
+          <ScalarProperty Name="HWT" ColumnName="HWT" />
+          <ScalarProperty Name="LWT" ColumnName="LWT" />
+          <ScalarProperty Name="HWSW" ColumnName="HWSW" />
+          <ScalarProperty Name="LWSW" ColumnName="LWSW" />
+          <ScalarProperty Name="H1RF" ColumnName="H1RF" />
+          <ScalarProperty Name="H2RF" ColumnName="H2RF" />
+          <ScalarProperty Name="L1RF" ColumnName="L1RF" />
+          <ScalarProperty Name="L2RF" ColumnName="L2RF" />
+          <ScalarProperty Name="LRFR" ColumnName="LRFR" />
+          <ScalarProperty Name="H1P" ColumnName="H1P" />
+          <ScalarProperty Name="H2P" ColumnName="H2P" />
+          <ScalarProperty Name="L2P" ColumnName="L2P" />
+          <ScalarProperty Name="H3P" ColumnName="H3P" />
+          <ScalarProperty Name="L3P" ColumnName="L3P" />
+          <ScalarProperty Name="P1P" ColumnName="P1P" />
+          <ScalarProperty Name="O1P1B" ColumnName="O1P1B" />
+          <ScalarProperty Name="A1B" ColumnName="A1B" />
+          <ScalarProperty Name="A2B" ColumnName="A2B" />
+          <ScalarProperty Name="W1B" ColumnName="W1B" />
+          <ScalarProperty Name="W2B" ColumnName="W2B" />
+          <ScalarProperty Name="D1B2B" ColumnName="D1B2B" />
+          <ScalarProperty Name="PICP" ColumnName="PICP" />
+          <ScalarProperty Name="DSBCP" ColumnName="DSBCP" />
+          <ScalarProperty Name="HRC" ColumnName="HRC" />
+          <ScalarProperty Name="TRCZx1" ColumnName="TRCZx1" />
+          <ScalarProperty Name="TRCZx2" ColumnName="TRCZx2" />
+          <ScalarProperty Name="HBF" ColumnName="HBF" />
+          <ScalarProperty Name="TBFZx1" ColumnName="TBFZx1" />
+          <ScalarProperty Name="TBFZx2" ColumnName="TBFZx2" />
+          <ScalarProperty Name="HLBF" ColumnName="HLBF" />
+          <ScalarProperty Name="TTZx" ColumnName="TTZx" />
+          <ScalarProperty Name="LSW" ColumnName="LSW" />
+          <ScalarProperty Name="LRC" ColumnName="LRC" />
+          <ScalarProperty Name="HRCS" ColumnName="HRCS" />
+          <ScalarProperty Name="TRCBD" ColumnName="TRCBD" />
+          <ScalarProperty Name="TTBD" ColumnName="TTBD" />
+          <ScalarProperty Name="HCHAE" ColumnName="HCHAE" />
+          <ScalarProperty Name="HCHAI" ColumnName="HCHAI" />
+          <ScalarProperty Name="HFL" ColumnName="HFL" />
+          <ScalarProperty Name="LIL" ColumnName="LIL" />
+          <ScalarProperty Name="TUBD" ColumnName="TUBD" />
+          <ScalarProperty Name="OSFSB" ColumnName="OSFSB" />
+          <ScalarProperty Name="LSF" ColumnName="LSF" />
+          <ScalarProperty Name="TSFZx" ColumnName="TSFZx" />
+          <ScalarProperty Name="TIL" ColumnName="TIL" />
+          <ScalarProperty Name="PeriI" ColumnName="PeriI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pitch">
+      <EntityTypeMapping TypeName="ttdbModel.pitch">
+        <MappingFragment StoreEntitySet="pitch">
+          <ScalarProperty Name="PitchSequence" ColumnName="PitchSequence" />
+          <ScalarProperty Name="TotalPitchs" ColumnName="TotalPitchs" />
+          <ScalarProperty Name="PitchID" ColumnName="PitchID" />
+          <ScalarProperty Name="PitchA" ColumnName="PitchA" />
+          <ScalarProperty Name="PitchB" ColumnName="PitchB" />
+          <ScalarProperty Name="PitchC" ColumnName="PitchC" />
+          <ScalarProperty Name="PitchD" ColumnName="PitchD" />
+          <ScalarProperty Name="PitchE" ColumnName="PitchE" />
+          <ScalarProperty Name="PitchF" ColumnName="PitchF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rebar">
+      <EntityTypeMapping TypeName="ttdbModel.rebar">
+        <MappingFragment StoreEntitySet="rebar">
+          <ScalarProperty Name="RebarID" ColumnName="RebarID" />
+          <ScalarProperty Name="RebarType" ColumnName="RebarType" />
+          <ScalarProperty Name="Structure" ColumnName="Structure" />
+          <ScalarProperty Name="Angle" ColumnName="Angle" />
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+          <ScalarProperty Name="Density" ColumnName="Density" />
+          <ScalarProperty Name="Broken" ColumnName="Broken" />
+          <ScalarProperty Name="TurnHeight" ColumnName="TurnHeight" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rim">
+      <EntityTypeMapping TypeName="ttdbModel.rim">
+        <MappingFragment StoreEntitySet="rim">
+          <ScalarProperty Name="RimID" ColumnName="RimID" />
+          <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rubberproperty">
+      <EntityTypeMapping TypeName="ttdbModel.rubberproperty">
+        <MappingFragment StoreEntitySet="rubberproperty">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Hardness" ColumnName="Hardness" />
+          <ScalarProperty Name="M100" ColumnName="M100" />
+          <ScalarProperty Name="M300" ColumnName="M300" />
+          <ScalarProperty Name="TS" ColumnName="TS" />
+          <ScalarProperty Name="Eb" ColumnName="Eb" />
+          <ScalarProperty Name="Density" ColumnName="Density" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rubberstraindma">
+      <EntityTypeMapping TypeName="ttdbModel.rubberstraindma">
+        <MappingFragment StoreEntitySet="rubberstraindma">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Temp1" ColumnName="Temp1" />
+          <ScalarProperty Name="S1TanDelta1" ColumnName="S1TanDelta1" />
+          <ScalarProperty Name="S1E1" ColumnName="S1E1" />
+          <ScalarProperty Name="S5TanDelta1" ColumnName="S5TanDelta1" />
+          <ScalarProperty Name="S5E1" ColumnName="S5E1" />
+          <ScalarProperty Name="S10TanDelta1" ColumnName="S10TanDelta1" />
+          <ScalarProperty Name="S10E1" ColumnName="S10E1" />
+          <ScalarProperty Name="Temp2" ColumnName="Temp2" />
+          <ScalarProperty Name="S1TanDelta2" ColumnName="S1TanDelta2" />
+          <ScalarProperty Name="S1E2" ColumnName="S1E2" />
+          <ScalarProperty Name="S5TanDelta2" ColumnName="S5TanDelta2" />
+          <ScalarProperty Name="S5E2" ColumnName="S5E2" />
+          <ScalarProperty Name="S10TanDelta2" ColumnName="S10TanDelta2" />
+          <ScalarProperty Name="S10E2" ColumnName="S10E2" />
+          <ScalarProperty Name="Temp3" ColumnName="Temp3" />
+          <ScalarProperty Name="S1TanDelta3" ColumnName="S1TanDelta3" />
+          <ScalarProperty Name="S1E3" ColumnName="S1E3" />
+          <ScalarProperty Name="S5TanDelta3" ColumnName="S5TanDelta3" />
+          <ScalarProperty Name="S5E3" ColumnName="S5E3" />
+          <ScalarProperty Name="S10TanDelta3" ColumnName="S10TanDelta3" />
+          <ScalarProperty Name="S10E3" ColumnName="S10E3" />
+          <ScalarProperty Name="Temp4" ColumnName="Temp4" />
+          <ScalarProperty Name="S1TanDelta4" ColumnName="S1TanDelta4" />
+          <ScalarProperty Name="S1E4" ColumnName="S1E4" />
+          <ScalarProperty Name="S5TanDelta4" ColumnName="S5TanDelta4" />
+          <ScalarProperty Name="S5E4" ColumnName="S5E4" />
+          <ScalarProperty Name="S10TanDelta4" ColumnName="S10TanDelta4" />
+          <ScalarProperty Name="S10E4" ColumnName="S10E4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rubbertempdma">
+      <EntityTypeMapping TypeName="ttdbModel.rubbertempdma">
+        <MappingFragment StoreEntitySet="rubbertempdma">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CNeg25TanDelta" ColumnName="CNeg25TanDelta" />
+          <ScalarProperty Name="CNeg25E" ColumnName="CNeg25E" />
+          <ScalarProperty Name="C0TanDelta" ColumnName="C0TanDelta" />
+          <ScalarProperty Name="C0E" ColumnName="C0E" />
+          <ScalarProperty Name="C25TanDelta" ColumnName="C25TanDelta" />
+          <ScalarProperty Name="C25E" ColumnName="C25E" />
+          <ScalarProperty Name="C60TanDelta" ColumnName="C60TanDelta" />
+          <ScalarProperty Name="C60E" ColumnName="C60E" />
+          <ScalarProperty Name="MaxTanDelta" ColumnName="MaxTanDelta" />
+          <ScalarProperty Name="MaxTanDeltaTemp" ColumnName="MaxTanDeltaTemp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sideplate">
+      <EntityTypeMapping TypeName="ttdbModel.sideplate">
+        <MappingFragment StoreEntitySet="sideplate">
+          <ScalarProperty Name="SideID" ColumnName="SideID" />
+          <ScalarProperty Name="CharHeight" ColumnName="CharHeight" />
+          <ScalarProperty Name="CharDepth" ColumnName="CharDepth" />
+          <ScalarProperty Name="CharStyle" ColumnName="CharStyle" />
+          <ScalarProperty Name="KnurlDepth" ColumnName="KnurlDepth" />
+          <ScalarProperty Name="KnurlDistance" ColumnName="KnurlDistance" />
+          <ScalarProperty Name="KnurlStyle" ColumnName="KnurlStyle" />
+          <ScalarProperty Name="PoreStyle" ColumnName="PoreStyle" />
+          <ScalarProperty Name="PoreDiameter" ColumnName="PoreDiameter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="structure">
+      <EntityTypeMapping TypeName="ttdbModel.structure">
+        <MappingFragment StoreEntitySet="structure">
+          <ScalarProperty Name="StructureID" ColumnName="StructureID" />
+          <ScalarProperty Name="Belt1_ID" ColumnName="Belt1_ID" />
+          <ScalarProperty Name="Belt2_ID" ColumnName="Belt2_ID" />
+          <ScalarProperty Name="Belt3_ID" ColumnName="Belt3_ID" />
+          <ScalarProperty Name="Belt4_ID" ColumnName="Belt4_ID" />
+          <ScalarProperty Name="Belt0_ID" ColumnName="Belt0_ID" />
+          <ScalarProperty Name="Carcass1_ID" ColumnName="Carcass1_ID" />
+          <ScalarProperty Name="Carcass2_ID" ColumnName="Carcass2_ID" />
+          <ScalarProperty Name="Carcass3_ID" ColumnName="Carcass3_ID" />
+          <ScalarProperty Name="Chafer_ID" ColumnName="Chafer_ID" />
+          <ScalarProperty Name="TBRUpperSectionID" ColumnName="TBRUpperSectionID" />
+          <ScalarProperty Name="TBRLowerSectionID" ColumnName="TBRLowerSectionID" />
+          <ScalarProperty Name="PCRUpperSectionID" ColumnName="PCRUpperSectionID" />
+          <ScalarProperty Name="PCRLowerSectionID" ColumnName="PCRLowerSectionID" />
+          <ScalarProperty Name="BeadStructure" ColumnName="BeadStructure" />
+          <ScalarProperty Name="BeadConfig" ColumnName="BeadConfig" />
+          <ScalarProperty Name="BeadDrawing" ColumnName="BeadDrawing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_adhesiveforce">
+      <EntityTypeMapping TypeName="ttdbModel.t_adhesiveforce">
+        <MappingFragment StoreEntitySet="t_adhesiveforce">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="IL_CC" ColumnName="IL_CC" />
+          <ScalarProperty Name="CC_SW" ColumnName="CC_SW" />
+          <ScalarProperty Name="CC_B1" ColumnName="CC_B1" />
+          <ScalarProperty Name="B1_B2" ColumnName="B1_B2" />
+          <ScalarProperty Name="B2_B0" ColumnName="B2_B0" />
+          <ScalarProperty Name="B01_B02" ColumnName="B01_B02" />
+          <ScalarProperty Name="B2_B3" ColumnName="B2_B3" />
+          <ScalarProperty Name="B3_B4" ColumnName="B3_B4" />
+          <ScalarProperty Name="B3_TRD" ColumnName="B3_TRD" />
+          <ScalarProperty Name="B4_TRD" ColumnName="B4_TRD" />
+          <ScalarProperty Name="B0_TRD" ColumnName="B0_TRD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_airimpermeability">
+      <EntityTypeMapping TypeName="ttdbModel.t_airimpermeability">
+        <MappingFragment StoreEntitySet="t_airimpermeability">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="AverageTemperature" ColumnName="AverageTemperature" />
+          <ScalarProperty Name="LowestTemperature" ColumnName="LowestTemperature" />
+          <ScalarProperty Name="HighestTemperature" ColumnName="HighestTemperature" />
+          <ScalarProperty Name="IniPressure" ColumnName="IniPressure" />
+          <ScalarProperty Name="UltPressure" ColumnName="UltPressure" />
+          <ScalarProperty Name="Days1" ColumnName="Days1" />
+          <ScalarProperty Name="Permeablity1" ColumnName="Permeablity1" />
+          <ScalarProperty Name="Days2" ColumnName="Days2" />
+          <ScalarProperty Name="Permeablity2" ColumnName="Permeablity2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_beadforce">
+      <EntityTypeMapping TypeName="ttdbModel.t_beadforce">
+        <MappingFragment StoreEntitySet="t_beadforce">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="UpperLIM_1" ColumnName="UpperLIM_1" />
+          <ScalarProperty Name="UpperLIM_2" ColumnName="UpperLIM_2" />
+          <ScalarProperty Name="UpperEXP" ColumnName="UpperEXP" />
+          <ScalarProperty Name="LowerLIM_1" ColumnName="LowerLIM_1" />
+          <ScalarProperty Name="LowerLIM_2" ColumnName="LowerLIM_2" />
+          <ScalarProperty Name="LowerEXP" ColumnName="LowerEXP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_condition">
+      <EntityTypeMapping TypeName="ttdbModel.t_condition">
+        <MappingFragment StoreEntitySet="t_condition">
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="RimID" ColumnName="RimID" />
+          <ScalarProperty Name="FacilityID" ColumnName="FacilityID" />
+          <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+          <ScalarProperty Name="Loaded" ColumnName="Loaded" />
+          <ScalarProperty Name="RadialVelocity" ColumnName="RadialVelocity" />
+          <ScalarProperty Name="LateralVelocity" ColumnName="LateralVelocity" />
+          <ScalarProperty Name="LongitudinalVelocity" ColumnName="LongitudinalVelocity" />
+          <ScalarProperty Name="TorsionalVelocity" ColumnName="TorsionalVelocity" />
+          <ScalarProperty Name="AirSpeed" ColumnName="AirSpeed" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Humidity" ColumnName="Humidity" />
+          <ScalarProperty Name="PressureStyle" ColumnName="PressureStyle" />
+          <ScalarProperty Name="AirTest" ColumnName="AirTest" />
+          <ScalarProperty Name="TestStandard" ColumnName="TestStandard" />
+          <ScalarProperty Name="MeasurementMethod" ColumnName="MeasurementMethod" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="TestTime" ColumnName="TestTime" />
+          <ScalarProperty Name="TestTime2" ColumnName="TestTime2" />
+          <ScalarProperty Name="Tester" ColumnName="Tester" />
+          <ScalarProperty Name="PlatenDiameter" ColumnName="PlatenDiameter" />
+          <ScalarProperty Name="PlatenVelocity" ColumnName="PlatenVelocity" />
+          <ScalarProperty Name="BriquettingType" ColumnName="BriquettingType" />
+          <ScalarProperty Name="BriquettingVelocity" ColumnName="BriquettingVelocity" />
+          <ScalarProperty Name="ValueP" ColumnName="ValueP" />
+          <ScalarProperty Name="TubeLength" ColumnName="TubeLength" />
+          <ScalarProperty Name="TubeDiameter" ColumnName="TubeDiameter" />
+          <ScalarProperty Name="SARate" ColumnName="SARate" />
+          <ScalarProperty Name="R0" ColumnName="R0" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_contactground">
+      <EntityTypeMapping TypeName="ttdbModel.t_contactground">
+        <MappingFragment StoreEntitySet="t_contactground">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="ContactLength" ColumnName="ContactLength" />
+          <ScalarProperty Name="ContactWidth" ColumnName="ContactWidth" />
+          <ScalarProperty Name="ContactArea" ColumnName="ContactArea" />
+          <ScalarProperty Name="NetContactArea" ColumnName="NetContactArea" />
+          <ScalarProperty Name="LeftRectangularity" ColumnName="LeftRectangularity" />
+          <ScalarProperty Name="RightRectangularity" ColumnName="RightRectangularity" />
+          <ScalarProperty Name="FootprintPath" ColumnName="FootprintPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cp">
+      <EntityTypeMapping TypeName="ttdbModel.t_cp">
+        <MappingFragment StoreEntitySet="t_cp">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="Load1" ColumnName="Load1" />
+          <ScalarProperty Name="LS1" ColumnName="LS1" />
+          <ScalarProperty Name="AS1" ColumnName="AS1" />
+          <ScalarProperty Name="Load2" ColumnName="Load2" />
+          <ScalarProperty Name="LS2" ColumnName="LS2" />
+          <ScalarProperty Name="AS2" ColumnName="AS2" />
+          <ScalarProperty Name="Load3" ColumnName="Load3" />
+          <ScalarProperty Name="LS3" ColumnName="LS3" />
+          <ScalarProperty Name="AS3" ColumnName="AS3" />
+          <ScalarProperty Name="Load4" ColumnName="Load4" />
+          <ScalarProperty Name="LS4" ColumnName="LS4" />
+          <ScalarProperty Name="AS4" ColumnName="AS4" />
+          <ScalarProperty Name="Load5" ColumnName="Load5" />
+          <ScalarProperty Name="LS5" ColumnName="LS5" />
+          <ScalarProperty Name="AS5" ColumnName="AS5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_ct">
+      <EntityTypeMapping TypeName="ttdbModel.t_ct">
+        <MappingFragment StoreEntitySet="t_ct">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="Load1" ColumnName="Load1" />
+          <ScalarProperty Name="CS1" ColumnName="CS1" />
+          <ScalarProperty Name="CAS1" ColumnName="CAS1" />
+          <ScalarProperty Name="Load2" ColumnName="Load2" />
+          <ScalarProperty Name="CS2" ColumnName="CS2" />
+          <ScalarProperty Name="CAS2" ColumnName="CAS2" />
+          <ScalarProperty Name="Load3" ColumnName="Load3" />
+          <ScalarProperty Name="CS3" ColumnName="CS3" />
+          <ScalarProperty Name="CAS3" ColumnName="CAS3" />
+          <ScalarProperty Name="Load4" ColumnName="Load4" />
+          <ScalarProperty Name="CS4" ColumnName="CS4" />
+          <ScalarProperty Name="CAS4" ColumnName="CAS4" />
+          <ScalarProperty Name="Load5" ColumnName="Load5" />
+          <ScalarProperty Name="CS5" ColumnName="CS5" />
+          <ScalarProperty Name="CAS5" ColumnName="CAS5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_dma">
+      <EntityTypeMapping TypeName="ttdbModel.t_dma">
+        <MappingFragment StoreEntitySet="t_dma">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="TreadTempID" ColumnName="TreadTempID" />
+          <ScalarProperty Name="TreadStrainID" ColumnName="TreadStrainID" />
+          <ScalarProperty Name="SideTempID" ColumnName="SideTempID" />
+          <ScalarProperty Name="SideStrainID" ColumnName="SideStrainID" />
+          <ScalarProperty Name="BaseTempID" ColumnName="BaseTempID" />
+          <ScalarProperty Name="BaseStrainID" ColumnName="BaseStrainID" />
+          <ScalarProperty Name="BFTempID" ColumnName="BFTempID" />
+          <ScalarProperty Name="BFStrainID" ColumnName="BFStrainID" />
+          <ScalarProperty Name="RCTempID" ColumnName="RCTempID" />
+          <ScalarProperty Name="RCStrainID" ColumnName="RCStrainID" />
+          <ScalarProperty Name="SFTempID" ColumnName="SFTempID" />
+          <ScalarProperty Name="SFStrainID" ColumnName="SFStrainID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_drs">
+      <EntityTypeMapping TypeName="ttdbModel.t_drs">
+        <MappingFragment StoreEntitySet="t_drs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="LongitudinalSlipStiffness" ColumnName="LongitudinalSlipStiffness" />
+          <ScalarProperty Name="DrivingMaxFx" ColumnName="DrivingMaxFx" />
+          <ScalarProperty Name="DrivingMaxFxSlipRatio" ColumnName="DrivingMaxFxSlipRatio" />
+          <ScalarProperty Name="BrakingMaxFx" ColumnName="BrakingMaxFx" />
+          <ScalarProperty Name="BrakingMaxFxSlipRatio" ColumnName="BrakingMaxFxSlipRatio" />
+          <ScalarProperty Name="MaxMux" ColumnName="MaxMux" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_electricalimpedance">
+      <EntityTypeMapping TypeName="ttdbModel.t_electricalimpedance">
+        <MappingFragment StoreEntitySet="t_electricalimpedance">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="Resistance" ColumnName="Resistance" />
+          <ScalarProperty Name="Deviation" ColumnName="Deviation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_endurance">
+      <EntityTypeMapping TypeName="ttdbModel.t_endurance">
+        <MappingFragment StoreEntitySet="t_endurance">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="SOD" ColumnName="SOD" />
+          <ScalarProperty Name="EOD" ColumnName="EOD" />
+          <ScalarProperty Name="SPressure" ColumnName="SPressure" />
+          <ScalarProperty Name="EPressure" ColumnName="EPressure" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+          <ScalarProperty Name="TotalMileage" ColumnName="TotalMileage" />
+          <ScalarProperty Name="TotalStages" ColumnName="TotalStages" />
+          <ScalarProperty Name="LastVelocity" ColumnName="LastVelocity" />
+          <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+          <ScalarProperty Name="Appearance" ColumnName="Appearance" />
+          <ScalarProperty Name="Standard" ColumnName="Standard" />
+          <ScalarProperty Name="Conclusion" ColumnName="Conclusion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_explode">
+      <EntityTypeMapping TypeName="ttdbModel.t_explode">
+        <MappingFragment StoreEntitySet="t_explode">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="StdValue" ColumnName="StdValue" />
+          <ScalarProperty Name="ExplodePosition" ColumnName="ExplodePosition" />
+          <ScalarProperty Name="Pressure" ColumnName="Pressure" />
+          <ScalarProperty Name="SafetyFactor" ColumnName="SafetyFactor" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_peripheraldimensions">
+      <EntityTypeMapping TypeName="ttdbModel.t_peripheraldimensions">
+        <MappingFragment StoreEntitySet="t_peripheraldimensions">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="OuterPerimeter1" ColumnName="OuterPerimeter1" />
+          <ScalarProperty Name="SW1" ColumnName="SW1" />
+          <ScalarProperty Name="CrownArcLength1" ColumnName="CrownArcLength1" />
+          <ScalarProperty Name="CrownArcDiameter1" ColumnName="CrownArcDiameter1" />
+          <ScalarProperty Name="GrooveDepth1" ColumnName="GrooveDepth1" />
+          <ScalarProperty Name="WearDepth1" ColumnName="WearDepth1" />
+          <ScalarProperty Name="OuterPerimeter2" ColumnName="OuterPerimeter2" />
+          <ScalarProperty Name="SW2" ColumnName="SW2" />
+          <ScalarProperty Name="CrownArcLength2" ColumnName="CrownArcLength2" />
+          <ScalarProperty Name="CrownArcDiameter2" ColumnName="CrownArcDiameter2" />
+          <ScalarProperty Name="GrooveDepth2" ColumnName="GrooveDepth2" />
+          <ScalarProperty Name="WearDepth2" ColumnName="WearDepth2" />
+          <ScalarProperty Name="OuterPerimeter3" ColumnName="OuterPerimeter3" />
+          <ScalarProperty Name="SW3" ColumnName="SW3" />
+          <ScalarProperty Name="CrownArcLength3" ColumnName="CrownArcLength3" />
+          <ScalarProperty Name="CrownArcDiameter3" ColumnName="CrownArcDiameter3" />
+          <ScalarProperty Name="GrooveDepth3" ColumnName="GrooveDepth3" />
+          <ScalarProperty Name="WearDepth3" ColumnName="WearDepth3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_physicalproperty">
+      <EntityTypeMapping TypeName="ttdbModel.t_physicalproperty">
+        <MappingFragment StoreEntitySet="t_physicalproperty">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="Tread_BID" ColumnName="Tread_BID" />
+          <ScalarProperty Name="Tread_AID" ColumnName="Tread_AID" />
+          <ScalarProperty Name="Side_BID" ColumnName="Side_BID" />
+          <ScalarProperty Name="Side_AID" ColumnName="Side_AID" />
+          <ScalarProperty Name="Base_BID" ColumnName="Base_BID" />
+          <ScalarProperty Name="Base_AID" ColumnName="Base_AID" />
+          <ScalarProperty Name="BF_BID" ColumnName="BF_BID" />
+          <ScalarProperty Name="BF_AID" ColumnName="BF_AID" />
+          <ScalarProperty Name="RC_BID" ColumnName="RC_BID" />
+          <ScalarProperty Name="RC_AID" ColumnName="RC_AID" />
+          <ScalarProperty Name="SF_BID" ColumnName="SF_BID" />
+          <ScalarProperty Name="SF_AID" ColumnName="SF_AID" />
+          <ScalarProperty Name="AgingCond" ColumnName="AgingCond" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_positionforce">
+      <EntityTypeMapping TypeName="ttdbModel.t_positionforce">
+        <MappingFragment StoreEntitySet="t_positionforce">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="UpperPressure" ColumnName="UpperPressure" />
+          <ScalarProperty Name="LowerPressure" ColumnName="LowerPressure" />
+          <ScalarProperty Name="UpperStyle" ColumnName="UpperStyle" />
+          <ScalarProperty Name="LowerStyle" ColumnName="LowerStyle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_relax">
+      <EntityTypeMapping TypeName="ttdbModel.t_relax">
+        <MappingFragment StoreEntitySet="t_relax">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="LateralRelaxationLength" ColumnName="LateralRelaxationLength" />
+          <ScalarProperty Name="FyAmplitude" ColumnName="FyAmplitude" />
+          <ScalarProperty Name="NominalLongitudinalStiffness" ColumnName="NominalLongitudinalStiffness" />
+          <ScalarProperty Name="MzAmplitude" ColumnName="MzAmplitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_rollingresistance">
+      <EntityTypeMapping TypeName="ttdbModel.t_rollingresistance">
+        <MappingFragment StoreEntitySet="t_rollingresistance">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="RollingRadius" ColumnName="RollingRadius" />
+          <ScalarProperty Name="UncorrectionCoefficient" ColumnName="UncorrectionCoefficient" />
+          <ScalarProperty Name="CorrectionCoefficient" ColumnName="CorrectionCoefficient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_rpt">
+      <EntityTypeMapping TypeName="ttdbModel.t_rpt">
+        <MappingFragment StoreEntitySet="t_rpt">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="LStf" ColumnName="LStf" />
+          <ScalarProperty Name="LP" ColumnName="LP" />
+          <ScalarProperty Name="LC" ColumnName="LC" />
+          <ScalarProperty Name="PRLFAngle" ColumnName="PRLFAngle" />
+          <ScalarProperty Name="PRLF" ColumnName="PRLF" />
+          <ScalarProperty Name="CRLF" ColumnName="CRLF" />
+          <ScalarProperty Name="AStf" ColumnName="AStf" />
+          <ScalarProperty Name="AP" ColumnName="AP" />
+          <ScalarProperty Name="AC" ColumnName="AC" />
+          <ScalarProperty Name="PRATAngle" ColumnName="PRATAngle" />
+          <ScalarProperty Name="PRAT" ColumnName="PRAT" />
+          <ScalarProperty Name="CRAT" ColumnName="CRAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_saf">
+      <EntityTypeMapping TypeName="ttdbModel.t_saf">
+        <MappingFragment StoreEntitySet="t_saf">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="FyAmplitude1" ColumnName="FyAmplitude1" />
+          <ScalarProperty Name="FyAmplitude2" ColumnName="FyAmplitude2" />
+          <ScalarProperty Name="FyAmplitude3" ColumnName="FyAmplitude3" />
+          <ScalarProperty Name="FyAmplitude4" ColumnName="FyAmplitude4" />
+          <ScalarProperty Name="FyAmplitude5" ColumnName="FyAmplitude5" />
+          <ScalarProperty Name="FyAmplitude6" ColumnName="FyAmplitude6" />
+          <ScalarProperty Name="FyPhase1" ColumnName="FyPhase1" />
+          <ScalarProperty Name="FyPhase2" ColumnName="FyPhase2" />
+          <ScalarProperty Name="FyPhase3" ColumnName="FyPhase3" />
+          <ScalarProperty Name="FyPhase4" ColumnName="FyPhase4" />
+          <ScalarProperty Name="FyPhase5" ColumnName="FyPhase5" />
+          <ScalarProperty Name="FyPhase6" ColumnName="FyPhase6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_scanprofile">
+      <EntityTypeMapping TypeName="ttdbModel.t_scanprofile">
+        <MappingFragment StoreEntitySet="t_scanprofile">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="Path1" ColumnName="Path1" />
+          <ScalarProperty Name="Path2" ColumnName="Path2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_staticload">
+      <EntityTypeMapping TypeName="ttdbModel.t_staticload">
+        <MappingFragment StoreEntitySet="t_staticload">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="OuterPerimeter" ColumnName="OuterPerimeter" />
+          <ScalarProperty Name="VerticalDeflection" ColumnName="VerticalDeflection" />
+          <ScalarProperty Name="LoadedRadius" ColumnName="LoadedRadius" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_staticstiffness">
+      <EntityTypeMapping TypeName="ttdbModel.t_staticstiffness">
+        <MappingFragment StoreEntitySet="t_staticstiffness">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="RadStf" ColumnName="RadStf" />
+          <ScalarProperty Name="LonStf" ColumnName="LonStf" />
+          <ScalarProperty Name="LatStf" ColumnName="LatStf" />
+          <ScalarProperty Name="TorStf" ColumnName="TorStf" />
+          <ScalarProperty Name="VerticalDeflection" ColumnName="VerticalDeflection" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_strength">
+      <EntityTypeMapping TypeName="ttdbModel.t_strength">
+        <MappingFragment StoreEntitySet="t_strength">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Force1" ColumnName="Force1" />
+          <ScalarProperty Name="Displacement1" ColumnName="Displacement1" />
+          <ScalarProperty Name="Energy1" ColumnName="Energy1" />
+          <ScalarProperty Name="ContactedRim1" ColumnName="ContactedRim1" />
+          <ScalarProperty Name="Broken1" ColumnName="Broken1" />
+          <ScalarProperty Name="Force2" ColumnName="Force2" />
+          <ScalarProperty Name="Displacement2" ColumnName="Displacement2" />
+          <ScalarProperty Name="Energy2" ColumnName="Energy2" />
+          <ScalarProperty Name="ContactedRim2" ColumnName="ContactedRim2" />
+          <ScalarProperty Name="Broken2" ColumnName="Broken2" />
+          <ScalarProperty Name="Force3" ColumnName="Force3" />
+          <ScalarProperty Name="Displacement3" ColumnName="Displacement3" />
+          <ScalarProperty Name="Energy3" ColumnName="Energy3" />
+          <ScalarProperty Name="ContactedRim3" ColumnName="ContactedRim3" />
+          <ScalarProperty Name="Broken3" ColumnName="Broken3" />
+          <ScalarProperty Name="Force4" ColumnName="Force4" />
+          <ScalarProperty Name="Displacement4" ColumnName="Displacement4" />
+          <ScalarProperty Name="Energy4" ColumnName="Energy4" />
+          <ScalarProperty Name="ContactedRim4" ColumnName="ContactedRim4" />
+          <ScalarProperty Name="Broken4" ColumnName="Broken4" />
+          <ScalarProperty Name="Force5" ColumnName="Force5" />
+          <ScalarProperty Name="Displacement5" ColumnName="Displacement5" />
+          <ScalarProperty Name="Energy5" ColumnName="Energy5" />
+          <ScalarProperty Name="ContactedRim5" ColumnName="ContactedRim5" />
+          <ScalarProperty Name="Broken5" ColumnName="Broken5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_swp">
+      <EntityTypeMapping TypeName="ttdbModel.t_swp">
+        <MappingFragment StoreEntitySet="t_swp">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="Load1" ColumnName="Load1" />
+          <ScalarProperty Name="LS1" ColumnName="LS1" />
+          <ScalarProperty Name="AS1" ColumnName="AS1" />
+          <ScalarProperty Name="SAPosMaxFy1" ColumnName="SAPosMaxFy1" />
+          <ScalarProperty Name="MaxFySAPos1" ColumnName="MaxFySAPos1" />
+          <ScalarProperty Name="SANegMaxFy1" ColumnName="SANegMaxFy1" />
+          <ScalarProperty Name="MaxFySANeg1" ColumnName="MaxFySANeg1" />
+          <ScalarProperty Name="MaxMuy1" ColumnName="MaxMuy1" />
+          <ScalarProperty Name="Load2" ColumnName="Load2" />
+          <ScalarProperty Name="LS2" ColumnName="LS2" />
+          <ScalarProperty Name="AS2" ColumnName="AS2" />
+          <ScalarProperty Name="SAPosMaxFy2" ColumnName="SAPosMaxFy2" />
+          <ScalarProperty Name="MaxFySAPos2" ColumnName="MaxFySAPos2" />
+          <ScalarProperty Name="SANegMaxFy2" ColumnName="SANegMaxFy2" />
+          <ScalarProperty Name="MaxFySANeg2" ColumnName="MaxFySANeg2" />
+          <ScalarProperty Name="MaxMuy2" ColumnName="MaxMuy2" />
+          <ScalarProperty Name="Load3" ColumnName="Load3" />
+          <ScalarProperty Name="LS3" ColumnName="LS3" />
+          <ScalarProperty Name="AS3" ColumnName="AS3" />
+          <ScalarProperty Name="SAPosMaxFy3" ColumnName="SAPosMaxFy3" />
+          <ScalarProperty Name="MaxFySAPos3" ColumnName="MaxFySAPos3" />
+          <ScalarProperty Name="SANegMaxFy3" ColumnName="SANegMaxFy3" />
+          <ScalarProperty Name="MaxFySANeg3" ColumnName="MaxFySANeg3" />
+          <ScalarProperty Name="MaxMuy3" ColumnName="MaxMuy3" />
+          <ScalarProperty Name="Load4" ColumnName="Load4" />
+          <ScalarProperty Name="LS4" ColumnName="LS4" />
+          <ScalarProperty Name="AS4" ColumnName="AS4" />
+          <ScalarProperty Name="SAPosMaxFy4" ColumnName="SAPosMaxFy4" />
+          <ScalarProperty Name="MaxFySAPos4" ColumnName="MaxFySAPos4" />
+          <ScalarProperty Name="SANegMaxFy4" ColumnName="SANegMaxFy4" />
+          <ScalarProperty Name="MaxFySANeg4" ColumnName="MaxFySANeg4" />
+          <ScalarProperty Name="MaxMuy4" ColumnName="MaxMuy4" />
+          <ScalarProperty Name="Load5" ColumnName="Load5" />
+          <ScalarProperty Name="LS5" ColumnName="LS5" />
+          <ScalarProperty Name="AS5" ColumnName="AS5" />
+          <ScalarProperty Name="SAPosMaxFy5" ColumnName="SAPosMaxFy5" />
+          <ScalarProperty Name="MaxFySAPos5" ColumnName="MaxFySAPos5" />
+          <ScalarProperty Name="SANegMaxFy5" ColumnName="SANegMaxFy5" />
+          <ScalarProperty Name="MaxFySANeg5" ColumnName="MaxFySANeg5" />
+          <ScalarProperty Name="MaxMuy5" ColumnName="MaxMuy5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_unseat">
+      <EntityTypeMapping TypeName="ttdbModel.t_unseat">
+        <MappingFragment StoreEntitySet="t_unseat">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Force1" ColumnName="Force1" />
+          <ScalarProperty Name="PointResult1" ColumnName="PointResult1" />
+          <ScalarProperty Name="Force2" ColumnName="Force2" />
+          <ScalarProperty Name="PointResult2" ColumnName="PointResult2" />
+          <ScalarProperty Name="Force3" ColumnName="Force3" />
+          <ScalarProperty Name="PointResult3" ColumnName="PointResult3" />
+          <ScalarProperty Name="Force4" ColumnName="Force4" />
+          <ScalarProperty Name="PointResult4" ColumnName="PointResult4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbrsectiondimension">
+      <EntityTypeMapping TypeName="ttdbModel.tbrsectiondimension">
+        <MappingFragment StoreEntitySet="tbrsectiondimension">
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="W1B" ColumnName="W1B" />
+          <ScalarProperty Name="W2B" ColumnName="W2B" />
+          <ScalarProperty Name="W3B" ColumnName="W3B" />
+          <ScalarProperty Name="W4B" ColumnName="W4B" />
+          <ScalarProperty Name="W0B" ColumnName="W0B" />
+          <ScalarProperty Name="P0B" ColumnName="P0B" />
+          <ScalarProperty Name="TG1" ColumnName="TG1" />
+          <ScalarProperty Name="TG2" ColumnName="TG2" />
+          <ScalarProperty Name="TG3" ColumnName="TG3" />
+          <ScalarProperty Name="TG4" ColumnName="TG4" />
+          <ScalarProperty Name="TGBE" ColumnName="TGBE" />
+          <ScalarProperty Name="TG0B" ColumnName="TG0B" />
+          <ScalarProperty Name="TFTM" ColumnName="TFTM" />
+          <ScalarProperty Name="TFTM_x" ColumnName="TFTM_x" />
+          <ScalarProperty Name="TBEC" ColumnName="TBEC" />
+          <ScalarProperty Name="G1B2B" ColumnName="G1B2B" />
+          <ScalarProperty Name="TTM_x" ColumnName="TTM_x" />
+          <ScalarProperty Name="TTM" ColumnName="TTM" />
+          <ScalarProperty Name="TTRM" ColumnName="TTRM" />
+          <ScalarProperty Name="TTG" ColumnName="TTG" />
+          <ScalarProperty Name="TTG_x" ColumnName="TTG_x" />
+          <ScalarProperty Name="TTN" ColumnName="TTN" />
+          <ScalarProperty Name="TTNG_x" ColumnName="TTNG_x" />
+          <ScalarProperty Name="TCG1" ColumnName="TCG1" />
+          <ScalarProperty Name="TCG2" ColumnName="TCG2" />
+          <ScalarProperty Name="TCG3" ColumnName="TCG3" />
+          <ScalarProperty Name="TCG4" ColumnName="TCG4" />
+          <ScalarProperty Name="TCGBE" ColumnName="TCGBE" />
+          <ScalarProperty Name="TCG0B" ColumnName="TCG0B" />
+          <ScalarProperty Name="LTR" ColumnName="LTR" />
+          <ScalarProperty Name="TSHC" ColumnName="TSHC" />
+          <ScalarProperty Name="D2BSW" ColumnName="D2BSW" />
+          <ScalarProperty Name="LMSW" ColumnName="LMSW" />
+          <ScalarProperty Name="LSHC" ColumnName="LSHC" />
+          <ScalarProperty Name="TSTHSC" ColumnName="TSTHSC" />
+          <ScalarProperty Name="TRCZ_x" ColumnName="TRCZ_x" />
+          <ScalarProperty Name="HSWF" ColumnName="HSWF" />
+          <ScalarProperty Name="LSWF" ColumnName="LSWF" />
+          <ScalarProperty Name="HRCI" ColumnName="HRCI" />
+          <ScalarProperty Name="HSBF" ColumnName="HSBF" />
+          <ScalarProperty Name="LSBF" ColumnName="LSBF" />
+          <ScalarProperty Name="HHBF" ColumnName="HHBF" />
+          <ScalarProperty Name="HWCF" ColumnName="HWCF" />
+          <ScalarProperty Name="LWCF" ColumnName="LWCF" />
+          <ScalarProperty Name="TWCFHSC" ColumnName="TWCFHSC" />
+          <ScalarProperty Name="TBFHWC" ColumnName="TBFHWC" />
+          <ScalarProperty Name="LIL" ColumnName="LIL" />
+          <ScalarProperty Name="HSC" ColumnName="HSC" />
+          <ScalarProperty Name="HWCO" ColumnName="HWCO" />
+          <ScalarProperty Name="HWCI" ColumnName="HWCI" />
+          <ScalarProperty Name="LWC" ColumnName="LWC" />
+          <ScalarProperty Name="H1NO" ColumnName="H1NO" />
+          <ScalarProperty Name="H2NO" ColumnName="H2NO" />
+          <ScalarProperty Name="H3NO" ColumnName="H3NO" />
+          <ScalarProperty Name="H4NI" ColumnName="H4NI" />
+          <ScalarProperty Name="H5NI" ColumnName="H5NI" />
+          <ScalarProperty Name="TAPL" ColumnName="TAPL" />
+          <ScalarProperty Name="TTIL" ColumnName="TTIL" />
+          <ScalarProperty Name="TSTZ_x" ColumnName="TSTZ_x" />
+          <ScalarProperty Name="TTZ_x1" ColumnName="TTZ_x1" />
+          <ScalarProperty Name="TBFHSC" ColumnName="TBFHSC" />
+          <ScalarProperty Name="TSBFZ_x" ColumnName="TSBFZ_x" />
+          <ScalarProperty Name="TTBDZ_x" ColumnName="TTBDZ_x" />
+          <ScalarProperty Name="TBRC" ColumnName="TBRC" />
+          <ScalarProperty Name="LST" ColumnName="LST" />
+          <ScalarProperty Name="HRC" ColumnName="HRC" />
+          <ScalarProperty Name="TTZ_x2" ColumnName="TTZ_x2" />
+          <ScalarProperty Name="TTZ" ColumnName="TTZ" />
+          <ScalarProperty Name="TRCBD" ColumnName="TRCBD" />
+          <ScalarProperty Name="TILHWC" ColumnName="TILHWC" />
+          <ScalarProperty Name="L1N" ColumnName="L1N" />
+          <ScalarProperty Name="H1NI" ColumnName="H1NI" />
+          <ScalarProperty Name="H2N" ColumnName="H2N" />
+          <ScalarProperty Name="H2NI" ColumnName="H2NI" />
+          <ScalarProperty Name="L3N" ColumnName="L3N" />
+          <ScalarProperty Name="L3NI" ColumnName="L3NI" />
+          <ScalarProperty Name="LWNCA" ColumnName="LWNCA" />
+          <ScalarProperty Name="L4N" ColumnName="L4N" />
+          <ScalarProperty Name="L4NI" ColumnName="L4NI" />
+          <ScalarProperty Name="L5NI" ColumnName="L5NI" />
+          <ScalarProperty Name="Alpha" ColumnName="Alpha" />
+          <ScalarProperty Name="Beta" ColumnName="Beta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tire">
+      <EntityTypeMapping TypeName="ttdbModel.tire">
+        <MappingFragment StoreEntitySet="tire">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="TireID" ColumnName="TireID" />
+          <ScalarProperty Name="TireID2" ColumnName="TireID2" />
+          <ScalarProperty Name="TireType" ColumnName="TireType" />
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="Batch" ColumnName="Batch" />
+          <ScalarProperty Name="RimID" ColumnName="RimID" />
+          <ScalarProperty Name="StructureID" ColumnName="StructureID" />
+          <ScalarProperty Name="PatternID" ColumnName="PatternID" />
+          <ScalarProperty Name="SideID" ColumnName="SideID" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="PlyRating" ColumnName="PlyRating" />
+          <ScalarProperty Name="LoadIndex" ColumnName="LoadIndex" />
+          <ScalarProperty Name="SpeedSymbol" ColumnName="SpeedSymbol" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="SinglePressure" ColumnName="SinglePressure" />
+          <ScalarProperty Name="DoublePressure" ColumnName="DoublePressure" />
+          <ScalarProperty Name="SingleLoad" ColumnName="SingleLoad" />
+          <ScalarProperty Name="DoubleLoad" ColumnName="DoubleLoad" />
+          <ScalarProperty Name="PurchasePlace" ColumnName="PurchasePlace" />
+          <ScalarProperty Name="ProducingArea" ColumnName="ProducingArea" />
+          <ScalarProperty Name="ProducingTime" ColumnName="ProducingTime" />
+          <ScalarProperty Name="Advantage" ColumnName="Advantage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="ttdbModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="UGender" ColumnName="UGender" />
+          <ScalarProperty Name="UEmail" ColumnName="UEmail" />
+          <ScalarProperty Name="URole" ColumnName="URole" />
+          <ScalarProperty Name="UGroup" ColumnName="UGroup" />
+          <ScalarProperty Name="UPassword" ColumnName="UPassword" />
+          <ScalarProperty Name="UDepartment" ColumnName="UDepartment" />
+          <ScalarProperty Name="UPosition" ColumnName="UPosition" />
+          <ScalarProperty Name="UName" ColumnName="UName" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_tire_amount">
+      <EntityTypeMapping TypeName="ttdbModel.vw_tire_amount">
+        <MappingFragment StoreEntitySet="vw_tire_amount">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="PurchasePlace" ColumnName="PurchasePlace" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

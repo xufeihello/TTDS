@@ -1,0 +1,172 @@
+﻿
+@{
+    Layout = null;
+}
+@using TTDS.Model
+@model List<TTDS.Model.tire>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Info</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="lg-content-info">
+        <form id="frm-info-submit" enctype="multipart/form-data" method="post">
+            <table class="table-condensed">
+                <colgroup>
+                    <col style="width:90px;" />
+                    <col style="width:90px;" />
+                    <col style="width:90px;" />
+                    <col style="width:90px;" />
+                    <col style="width:90px;" />
+                    <col style="width:90px;" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td colspan="6" class="bg-primary"><div class="btn-lg">轮胎基本信息</div></td>
+                    </tr>
+                    <tr class="table-striped">
+                        <td class="text-right">* 轮胎ID：</td>
+                        <td>
+                            @*<input id="Text1" type="text" name="TireID" required />*@
+                            <input id="txtTireID" type="text" name="TireID" list="brsTireID" required onselect="LoadInfo()" />
+                            <datalist id="brsTireID">
+                                @foreach (var item in Model)
+                                {
+                                    <option>@item.TireID</option>
+                                }
+                            </datalist>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-right">录入日期：</td>
+                        <td><input id="Text1" type="text" class="lg-datetime" name="CreateTime" /></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">类型：</td>
+                        <td><input id="Text1" type="text" name="TireType" /></td>
+                        <td class="text-right">品号：</td>
+                        <td><input id="Text1" type="text" name="PID" /></td>
+                        <td class="text-right">批次：</td>
+                        <td><input id="Text1" type="text" name="Batch" /></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">规格：</td>
+                        <td><input id="Text1" type="text" name="Size" /></td>
+                        <td class="text-right">品牌：</td>
+                        <td><input id="Text1" type="text" name="Brand" /></td>
+                        <td class="text-right">花纹：</td>
+                        <td><input id="Text1" type="text" name="Pattern" /></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">层级：</td>
+                        <td><input id="Text1" type="text" name="PlyRating" /></td>
+                        <td class="text-right">负荷指数：</td>
+                        <td><input id="Text1" type="text" name="LoadIndex" /></td>
+                        <td class="text-right">速度级别：</td>
+                        <td><input id="Text1" type="text" name="SpeedSymbol" /></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">单胎负荷：</td>
+                        <td><input id="Text1" type="text" name="SingleLoad" /></td>
+                        <td class="text-right">双胎负荷：</td>
+                        <td><input id="Text1" type="text" name="DoubleLoad" /></td>
+                        <td class="text-right">单胎气压：</td>
+                        <td><input id="Text1" type="text" name="SinglePressure" /></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">产地：</td>
+                        <td><input id="Text1" type="text" name="ProducingArea" /></td>
+                        <td class="text-right">购买地：</td>
+                        <td>
+                            <input id="Text1" type="text" name="PurchasePlace" list="brsPurchasePlace" />
+                            <datalist id="brsPurchasePlace">
+                                @foreach (var item in Model)
+                                {
+                                    <option>@item.PurchasePlace</option>
+                                }
+                            </datalist>
+                        </td>
+                        <td class="text-right">双胎气压：</td>
+                        <td><input id="Text1" type="text" name="DoublePressure" /></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">标准轮辋：</td>
+                        <td><input id="Text1" type="text" name="RimID" /></td>
+                        <td class="text-right">周年号：</td>
+                        <td><input id="Text1" type="text" name="ProducingTime" /></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">销售卖点：</td>
+                        <td colspan="5"><textarea id="TextArea1" name="Advantage" style="resize:none;width:400px;"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                        <td><input id="sbmInfo" class="btn btn-success btn-block" type="submit" value="确定" onclick="return submitInfo()" /></td>
+                        <td></td>
+                        <td><input id="Reset1" class="btn btn-warning btn-block" type="reset" value="重置" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
+<script type="text/javascript" src="~/Scripts/logging.js"></script>
+
+<script>
+    function LoadInfo() {
+        if ($("#txtTireID").val() in @Model.)
+    }
+
+    $(".lg-datetime").datetimepicker({
+        format: 'yyyy-mm-dd hh:ii',  //格式  如果只有yyyy-mm-dd那就是0000-00-00
+        autoclose: true,//选择后是否自动关闭
+        minView: 0,//最精准的时间选择为日期  0-分 1-时 2-日 3-月
+        language: 'zh-CN', //中文
+        weekStart: 1, //一周从星期几开始
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        // daysOfWeekDisabled:"1,2,3", //一周的周几不能选 格式为"1,2,3"  数组格式也行
+        todayBtn: true,  //在底部是否显示今天
+        todayHighlight: false, //今天是否高亮显示
+        keyboardNavigation: true, //方向图标改变日期  必须要有img文件夹 里面存放图标
+        showMeridian: false,  //是否出现 上下午
+        initialDate: new Date()
+        //startDate: "2017-01-01" //日期开始时间 也可以是new Date()只能选择以后的时间
+    });
+</script>
+
+<script>
+    function submitInfo() {
+        $("#frm-info-submit").ajaxSubmit({
+            url: "@Url.Action("InfoSubmit", "Logging")",
+            type: "post",
+            success: function () {
+                alert("提交成功");
+            },
+            error: function () {
+                alert("提交失败");
+            }
+        });
+        return false;
+    }
+</script>

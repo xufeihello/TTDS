@@ -1,0 +1,174 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Pressure</title>
+    
+</head>
+<body>
+    <div id="bar" style="height:500px;padding-top:10px;"> 
+    </div>
+</body>
+</html>
+
+<script src="~/Scripts/echarts.min.js"></script>
+<script>
+    var myChart = echarts.init(document.getElementById('bar'));
+
+    var xAxisData = [];
+    var data1 = [0.31, 0.30,
+        0.34, 0.31, 0.30];
+    var data2 = [0.31, 0.33,
+        0.36, 0.37, 0.30];
+    var data3 = [0.37, 0.31,
+        0.36, 0.31, 0.39];
+    var data4 = [0.31, 0.32,
+        0.34, 0.32, 0.34];
+    var data5 = [0.36, 0.34,
+        0.39, 0.32, 0.38];
+
+    var itemStyle = {
+        normal: {
+        },
+        emphasis: {
+            barBorderWidth: 1,
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowOffsetY: 0,
+            shadowColor: 'rgba(0,0,0,0.5)'
+        }
+    };
+
+    option = {
+        //backgroundColor: '#eee',
+        title: {
+            text: '平均接地压力'
+        },
+        legend: {
+            data: ['228V1', 'TripleMax', 'KH25', 'CP672', 'HP010'],
+            left:150,
+        },
+        brush: {
+            toolbox: ['rect', 'polygon', 'lineX', 'keep', 'clear'],
+            xAxisIndex: 0
+        },
+        toolbox: {
+            feature: {
+                mark: { show: true },
+                dataView: { show: true, readOnly: false },
+                magicType: { show: true, type: ['line', 'bar', 'stack', 'tiled'] },
+                restore: { show: true },
+                saveAsImage: { show: true }
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            //axisPointer: {
+            //    type: 'shadow'
+            //}
+        },
+        xAxis: {
+            data: ['Rib1', 'Rib2', 'Rib3', 'Rib4', 'Rib5'],
+            type: 'category',
+            silent: false,
+            axisLine: { onZero: true },
+            splitLine: { show: false },
+            splitArea: { show: false }
+        },
+        yAxis: {
+            type: 'value',
+            splitArea: { show: false }
+        },
+        grid: {
+            left: 100
+        },
+        visualMap: {
+            type: 'continuous',
+            text: ['High', 'Low'],
+            itemHeight: 300,
+            calculable: true,
+            min: 0.05,
+            max: 1.00,
+            precision: 2,
+            top: 60,
+            left: 10,
+            inRange: {
+                colorLightness: [0.4, 0.8]
+            },
+            outOfRange: {
+                color: '#bbb'
+            },
+            controller: {
+                inRange: {
+                    color: '#2f4554'
+                }
+            }
+        },
+        series: [
+            {
+                name: '228V1',
+                type: 'bar',
+                itemStyle: itemStyle,
+                data: data1
+            },
+            {
+                name: 'TripleMax',
+                type: 'bar',
+                itemStyle: itemStyle,
+                data: data2
+            },
+            {
+                name: 'KH25',
+                type: 'bar',
+                itemStyle: itemStyle,
+                data: data3
+            },
+            {
+                name: 'CP672',
+                type: 'bar',
+                itemStyle: itemStyle,
+                data: data4
+            },
+            {
+                name: 'HP010',
+                type: 'bar',
+                itemStyle: itemStyle,
+                data: data5
+            }
+        ]
+    };
+    // 为echarts对象加载数据
+    myChart.setOption(option);
+
+    myChart.on('brushSelected', renderBrushed);
+
+    function renderBrushed(params) {
+        var brushed = [];
+        var brushComponent = params.batch[0];
+
+        for (var sIdx = 0; sIdx < brushComponent.selected.length; sIdx++) {
+            var rawIndices = brushComponent.selected[sIdx].dataIndex;
+            brushed.push('[Series ' + sIdx + '] ' + rawIndices.join(', '));
+        }
+
+        myChart.setOption({
+            title: {
+                backgroundColor: '#333',
+                text: 'SELECTED DATA INDICES: \n' + brushed.join('\n'),
+                bottom: 0,
+                right: 0,
+                width: 100,
+                textStyle: {
+                    fontSize: 12,
+                    color: '#fff'
+                }
+            }
+        });
+    }
+</script>

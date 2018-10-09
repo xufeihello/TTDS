@@ -1,0 +1,143 @@
+﻿@using TTDS.Model
+@model TTDS.Model.user
+
+@{
+    ViewBag.Title = "EditUser";
+}
+
+<div class="changeBody">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>修改用户信息</h5>
+            </div>
+            <div class="ibox-content">
+                <form id="editForm" method="post" class="form-horizontal" onload="Load()">
+                    <div class="form-group" style="display:none">
+                        <label class="col-sm-2 control-label">ID</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="UID" id="edit_ID" @*value="@Model.UID"*@ />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">姓名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="UName" id="edit_Name" @*value="@Model.UName"*@ />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">性别</label>
+                        <div class="col-sm-10">
+                            <select type="text" class="form-control" name="UGender" id="edit_Gender" @*value="@Model.UGender"*@>
+                                <option>男</option>
+                                <option>女</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">邮箱</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="UEmail" id="edit_Email" @*value="@Model.UEmail"*@ />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">职位</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="UPosition" id="edit_Position" @*value="@Model.UPosition"*@ />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">部门</label>
+                        <div class="col-sm-10">
+                            <select type="text" class="form-control" name="UDepartment" id="edit_Department" >
+                                <option>研究部</option>
+                                <option>设计部</option>
+                                <option>配方部</option>
+                                <option>试验部</option>
+                                <option>工艺工程部</option>
+                            </select>
+                        </div>
+                    </div>
+
+                <div class="if-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="UPassword" id="edit_Password" @*value="@Model.UPassword"*@ />
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">分组</label>
+                        <div class="col-sm-10">
+                            <select type="text" class="form-control" name="UGroup" id="edit_Group" @*value="@Model.UGroup"*@>
+                                <option>Research</option>
+                                <option>Design</option>
+                                <option>Compound</option>
+                                <option>Test</option>
+                                <option>Processing</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">角色</label>
+                        <div class="col-sm-10">
+                            <select type="text" class="form-control" name="URole" id="edit_Role" @*value="@Model.URole"*@>
+                                <option>User</option>
+                                <option>Admin</option>
+                                <option>Supervisor</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group" style="margin-top:60px;">
+                        <div class="col-sm-2 col-sm-offset-2">
+                            <button type="button" class="btn btn-primary btn-block" id="edit_saveBtn">保存</button>
+                        </div>
+                        <div class="col-sm-2 col-sm-offset-1">
+                            <button type="button" class="btn btn-default btn-block" id="edit_backBtn" onclick="window.location.href='/Management/Users'">返回</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
+<script>
+    //装载修改前信息
+    $(document).ready(function () {
+        $("#edit_ID").val("@Model.UID");
+        $("#edit_Name").val("@Model.UName");
+        $("#edit_Gender").val("@Model.UGender");
+        $("#edit_Email").val("@Model.UEmail");
+        $("#edit_Position").val("@Model.UPosition");
+        $("#edit_Department").val("@Model.UDepartment");
+        $("#edit_Password").val("@Model.UPassword");
+        $("#edit_Group").val("@Model.UGroup");
+        $("#edit_Role").val("@Model.URole");
+    });
+
+    //修改页面保存按钮事件
+    $('#edit_saveBtn').click(function () {
+        $("#editForm").ajaxSubmit({
+                                        url: "@Url.Action("ModifiedUser", "Management")",
+            type: "post",
+            success: function () {
+                                            window.location.href = "/Management/Users";
+                $('#tb_users').bootstrapTable('refresh', { url: '/Management/GetUsers' });
+                                        },
+            error: function () {
+                                            alert("修改用户不成功!");
+                                        }
+                                    });
+                                });
+</script>
+

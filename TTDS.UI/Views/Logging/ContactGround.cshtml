@@ -1,0 +1,167 @@
+﻿
+@{
+    Layout = null;
+}
+@using TTDS.Model
+@model List<TTDS.Model.tire>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ContactGround</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="lg-content-indoor">
+        <div class="row" style="padding-left:15px;">
+            <div class="col-xs-6 bg-primary" style="width:390px;">
+                <h3 class="text-left">接地压力分析</h3>
+            </div>
+            <div class="col-xs-6 text-right" style="padding:11px;background-color:lightgrey;">
+                <form id="frm-footprint-import" enctype="multipart/form-data" method="post">
+                    <span class="form-group">
+                        <label for="file-footprint" class="btn btn-warning">选择文件</label>
+                        <input id="file-footprint" name="file-footprint" type="file" style="display:none" onchange="return showFootprint()" />
+                        @*<input id="btn-file-footprint" type="submit" class="btn btn-warning" value="导入数据" onclick="return showFootprint()" />*@
+                    </span>
+                </form>
+            </div>
+          </div>
+        <form id="frm-footprint-submit" enctype="multipart/form-data" method="post">
+                <table class="table table-striped table-bordered table-hover table-condensed table-responsive text-right">
+                    <colgroup>
+                        <col style="width:80px;" />
+                        <col style="width:90px;" />
+                        <col style="width:90px;" />
+                        <col style="width:80px;" />
+                        <col style="width:90px;" />
+                        <col style="width:90px;" />
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" ><div class="text-right"><h5>轮胎唯一识别码：</h5></div></td>
+                            <td colspan="4">
+                                <select id="Select1" class="form-control">
+                                    <option disabled selected style="display:none;">选择轮胎ID</option>
+                                    @foreach (tire item in Model)
+                                    {
+                                        <option>@item.TireID</option>
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="7" class="text-center">试验条件</td>
+                            <td>试验时间：</td>
+                            <td><input id="Text1" type="text" name="TestTime" /></td>
+                            <td rowspan="7" class="text-center">试验结果</td>
+                            <td>纵轴：</td>
+                            <td><input id="txt-contact-length" type="text" name="ContactLength" /></td>
+                        </tr>
+                        <tr>
+                            <td>执行标准：</td>
+                            <td><input id="txt-test-standard" type="text" name="TestStandard" /></td>
+                            <td>横轴：</td>
+                            <td><input id="txt-contact-width" type="text" name="ContactWidth" /></td>
+                        </tr>
+                        <tr>
+
+                            <td>试验编号：</td>
+                            <td><input id="txt-footprint-id" type="text" name="ID" /></td>
+                            <td>总面积：</td>
+                            <td><input id="txt-contact-area" type="text" name="ContactArea" /></td>
+                        </tr>
+                        <tr>
+                            <td>试验设备：</td>
+                            <td><input id="txt-facility-id" type="text" name="FacilityID" /></td>
+                            <td>有效面积：</td>
+                            <td><input id="txt-net-contact-area" type="text" name="NetContactArea" /></td>
+                        </tr>
+                        <tr>
+                            <td>试验轮辋：</td>
+                            <td><input id="Text1" type="text" name="RimID" /></td>
+                            <td>左侧矩形率：</td>
+                            <td><input id="txt-left-rectangularity" type="text" name="LeftRectangularity" /></td>
+                        </tr>
+                        <tr>
+                            <td>试验气压：</td>
+                            <td><input id="txt-pressure" type="text" name="Pressure" /></td>
+                            <td>右侧矩形率：</td>
+                            <td><input id="txt-right-rectangularity" type="text" name="RightRectangularity" /></td>
+                        </tr>
+                        <tr>
+                            <td>试验负荷：</td>
+                            <td><input id="txt-loaded" type="text" name="Loaded" /></td>
+                            <td>印痕图路径：</td>
+                            <td>
+                                <input id="txt-picture" type="file" style="width:80px;" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        <div class="text-right"><input id="Button1" class="btn btn-success" type="button" value="确定录入系统" onclick="return submitFootprint()" /></div>
+    </div>
+</body>
+</html>
+
+
+<script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="~/Scripts/logging.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.form.js"></script>
+
+<script>
+    function showFootprint() {
+        var excelfile = document.getElementById("file-footprint");
+        if (excelfile.value == "") {
+            alert("请选择上传的Excel文件");
+            return false;
+        }
+        $("#frm-footprint-import").ajaxSubmit({
+            url: "@Url.Action("ImportFootprint", "Logging")",
+            type: "post",
+            datatype: "json",
+            success: function (data) {
+                $("#txt-facility-id").val(data.t_condition.FacilityID);
+                $("#txt-pressure").val(data.t_condition.Pressure);
+                $("#txt-loaded").val(data.t_condition.Loaded);
+                $("#txt-contact-length").val(data.ContactLength);
+                $("#txt-contact-width").val(data.ContactWidth);
+                $("#txt-contact-area").val(data.ContactArea);
+                $("#txt-footprint-id").val(data.ID);
+                $("#txt-net-contact-area").val(data.NetContactArea);
+                $("#txt-left-rectangularity").val(data.LeftRectangularity);
+                $("#txt-right-rectangularity").val(data.RightRectangularity);
+            },
+            error: function () {
+                alert("Error");
+            }
+            
+        });
+        $("#frm-footprint-import").resetForm();
+        return false;
+    }
+</script>
+
+<script>
+    function submitFootprint() {
+        $("#frm-footprint-submit").ajaxSubmit({
+            url: "@Url.Action("FootprintSubmit", "Logging")",
+            type: "post",
+            success: function () {
+                alert("提交成功");
+            },
+            error: function () {
+                alert("提交失败");
+            }
+        });
+        return false;
+    }
+</script>
+
+
+

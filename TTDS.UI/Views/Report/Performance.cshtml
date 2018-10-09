@@ -1,0 +1,125 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Performance</title>
+    
+</head>
+<body>
+    <div id="radar" style="height:500px;padding-top:10px;"> 
+    </div>
+</body>
+</html>
+
+<script src="~/Scripts/echarts.min.js"></script>
+<script>
+    var myChart = echarts.init(
+        document.getElementById('radar'));
+
+    option = {
+        title: {
+            text: '性能雷达图'
+    },
+        tooltip: {},
+        legend: {
+
+            bottom: 1,
+                data: ['228V1', 'TripleMax', 'KH25', 'CP672', 'HP010', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '基于吉利帝豪', '基于现代朗动'],
+        itemGap: 20,
+            textStyle: {
+            //color: '#fff',
+            fontSize: 14
+    },
+            selected: {'基于现代朗动': false }
+        //selectedMode: 'single'
+    },
+        radar: {
+            name: {
+            textStyle: {
+            color: '#fff',
+        backgroundColor: '#999',
+        borderRadius: 3,
+        padding: [3, 5]
+    }
+},
+indicator: [
+                {name: '重量', max: 120, min: 85 },
+                {name: '滚阻性能', max: 120, min: 85 },
+                {name: '舒适性', max: 120, min: 85 },
+                {name: '湿地操稳', max: 120, min: 85 },
+                {name: '干地操稳', max: 120, min: 85 },
+                {name: '湿地制动', max: 120, min: 85 },
+                {name: '干地制动', max: 120, min: 85 }
+    ],
+    //shape: 'circle',
+    splitNumber: 7,
+
+},
+        series: [
+            {
+            name: '基于吉利帝豪',
+            type: 'radar',
+            areaStyle: {normal: {opacity: 0.0 } },
+            data: [
+                    {
+            value: [97.54028838, 90.90909091, 96.2962963, 108.3333333, 104.1666667, 103.46, 102.14],
+        name: '228V1'
+    },
+                    {
+            value: [96.84210526, 98.7654321, 100, 112.5, 112.5, 102.5, 103.11],
+        name: 'TripleMax'
+    },
+                    {
+            value: [96.03340292, 86.95652174, 96.2962963, 91.66666667, 91.66666667, 99.44, 96.4],
+        name: 'KH25'
+    },
+                    {
+            value: [101.7699115, 85.10638298, 103.7037037, 104.1666667, 104.1666667, 93.92, 101.73],
+        name: 'CP672'
+    },
+                    {
+            value: [100, 100, 100, 100, 100, 100, 100],
+        name: 'HP010'
+    }
+
+]
+            },
+            {
+            name: '基于现代朗动',
+            type: 'radar',
+            areaStyle: {normal: {opacity: 0.0 } },
+            data: [
+                    {
+            value: [102.5217391, 90.90909091, 89.28571429, 108, 100, 104.41, 103.01],
+        name: '228V1'
+    },
+                    {
+            value: [103.2608696, 98.7654321, 96.42857143, 120, 107.4074074, 104.7, 102.54],
+        name: 'TripleMax'
+    },
+                    {
+            value: [104.1304348, 86.95652174, 100, 108, 103.7037037, 96.35, 93.02],
+        name: 'KH25'
+    },
+                    {
+            value: [98.26086957, 85.10638298, 92.85714286, 104, 92.59259259, 93.64, 101.92],
+        name: 'CP672'
+    },
+                    {
+            value: [100, 100, 100, 100, 100, 100, 100],
+        name: 'HP010'
+    }
+]
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+
+</script>

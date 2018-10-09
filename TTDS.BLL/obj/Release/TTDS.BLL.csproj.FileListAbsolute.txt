@@ -1,0 +1,17 @@
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\TTDS.BLL.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\TTDS.BLL.pdb
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\TTDS.DAL.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\TTDS.Model.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\EntityFramework.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\MySql.Data.Entity.EF6.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\MySql.Data.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\TTDS.DAL.pdb
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\TTDS.Model.pdb
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\TTDS.Model.dll.config
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\EntityFramework.xml
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\bin\Release\zh-Hans\EntityFramework.resources.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\obj\Release\TTDS.BLL.csprojAssemblyReference.cache
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\obj\Release\TTDS.BLL.csproj.CoreCompileInputs.cache
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\obj\Release\TTDS.BLL.csproj.CopyComplete
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\obj\Release\TTDS.BLL.dll
+D:\0_ProgramDevelopment\TTDS\TTDS.BLL\obj\Release\TTDS.BLL.pdb
